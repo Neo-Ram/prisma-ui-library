@@ -5,7 +5,7 @@
 ![npm version](https://img.shields.io/npm/v/neo-ram-prisma)
 ![npm downloads](https://img.shields.io/npm/dt/neo-ram-prisma)
 
-> **Current version:** 0.0.4
+> **Current version:** 0.1.0
 
 An accessible and customizable React component library.
 
