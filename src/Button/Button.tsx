@@ -1,9 +1,81 @@
+import React from 'react'
 import styles from './Button.module.css'
-type ButtonProps = {
+
+type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia'
+type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast'
+type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl'
+
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
+  variant?: Variant
+  colorVision?: ColorVision
+  accessibility?: AccessibilityMode
+  size?: Size
+  fontSize?: FontSize
+  isLoading?: boolean
+  loadingLabel?: string
 }
-export const Button = ({ children }: ButtonProps) => {
+
+export const Button: React.FC<ButtonProps> = ({
+  children,
+  variant = 'primary',
+  colorVision = 'normal',
+  accessibility = 'default',
+  size = 'md',
+  fontSize = 'fs-md',
+  isLoading = false,
+  loadingLabel = 'Cargando',
+  disabled,
+  className,
+  ...rest
+}) => {
+  const computedDisabled = disabled || isLoading
+
+  const classes = [
+    styles.btn, // base
+    styles[variant],
+    styles[size],
+    styles[fontSize],
+  ]
+
+  // color vision mode
+  if (colorVision && colorVision !== 'normal') {
+    classes.push(styles[`cv-${colorVision}`])
+  }
+
+  // accessibility mode
+  if (accessibility && accessibility !== 'default') {
+    classes.push(styles[`a11y-${accessibility}`])
+  }
+
+  if (isLoading) classes.push(styles.loading)
+  if (className) classes.push(className)
+
   return (
-    <button className={styles.normal}>{children}</button>
+    <button
+      type={rest.type ?? 'button'}
+      className={classes.filter(Boolean).join(' ')}
+      disabled={computedDisabled}
+      aria-disabled={computedDisabled || undefined}
+      aria-busy={isLoading || undefined}
+      aria-label={isLoading ? loadingLabel : rest['aria-label']}
+      {...rest}
+    >
+      <span className={styles.content} aria-hidden={isLoading ? 'true' : undefined}>
+        {children}
+      </span>
+      {isLoading && (
+        <span className={styles.loader} aria-live="polite">
+          <span className={styles.srOnly}>{loadingLabel}</span>
+          <span className={styles.dots} aria-hidden="true">
+            <span className={styles.dot} />
+            <span className={styles.dot} />
+            <span className={styles.dot} />
+          </span>
+        </span>
+      )}
+    </button>
   )
 }

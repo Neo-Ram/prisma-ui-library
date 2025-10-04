@@ -1,7 +1,102 @@
-.normal {
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  padding: 10px;
+/* Oculta flechas en input type number */
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+* {
+  font-family: sans-serif;
+}
+.wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.input {
+  font-family: sans-serif;
   width: 100%;
   box-sizing: border-box;
+  border: 1px solid var(--input-border, #ccc);
+  border-radius: var(--input-radius, 6px);
+  padding: var(--input-pad-y, 10px) var(--input-pad-x, 16px);
+  font-size: var(--input-font-size, 14px);
+  background: var(--input-bg, #fff);
+  color: var(--input-color, #222);
+  transition: border-color .15s, box-shadow .15s, background .15s;
+  outline: none;
 }
+.input:focus {
+  border-color: var(--input-border-focus, #007bff);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-border-focus, #007bff) 30%, transparent);
+}
+.input[disabled], .input[aria-disabled="true"] {
+  opacity: .6;
+  cursor: not-allowed;
+}
+
+/* Floating label */
+.labelStatic {
+  margin-bottom: 2px;
+  font-size: 0.95em;
+  color: #888;
+  font-weight: 500;
+}
+.a11y-low-vision .label,
+.a11y-low-vision .floating {
+  font-size: calc(var(--input-font-size, 16px) * 0.95);
+}
+
+/* Variantes */
+.primary { --input-border: #007bff; --input-border-focus: #0056b3; }
+.secondary { --input-border: #6c757d; --input-border-focus: #343a40; }
+.success { --input-border: #198754; --input-border-focus: #145c32; }
+.warning { --input-border: #ffc107; --input-border-focus: #b38f00; }
+.danger { --input-border: #dc3545; --input-border-focus: #a71d2a; }
+
+/* Daltonismo */
+.cv-protanopia.primary { --input-border: #3399ff; --input-border-focus: #2673b6; }
+.cv-deuteranopia.primary { --input-border: #4f83cc; --input-border-focus: #3a5c99; }
+.cv-tritanopia.primary { --input-border: #007bff; --input-border-focus: #0056b3; }
+
+.cv-protanopia.success { --input-border: #ffd966; --input-border-focus: #b38f00; }
+.cv-deuteranopia.success { --input-border: #a3e635; --input-border-focus: #65a30d; }
+.cv-tritanopia.success { --input-border: #fbbf24; --input-border-focus: #d97706; }
+
+.cv-protanopia.warning { --input-border: #ffd966; --input-border-focus: #b38f00; }
+.cv-deuteranopia.warning { --input-border: #ffe066; --input-border-focus: #b39b00; }
+.cv-tritanopia.warning { --input-border: #ffb366; --input-border-focus: #b36b00; }
+
+.cv-protanopia.danger { --input-border: #ff6666; --input-border-focus: #b30000; }
+.cv-deuteranopia.danger { --input-border: #ff8080; --input-border-focus: #b32424; }
+.cv-tritanopia.danger { --input-border: #ff6666; --input-border-focus: #b30000; }
+
+/* Accesibilidad */
+.a11y-low-vision .input {
+  font-size: 18px !important;
+}
+.a11y-low-vision .labelStatic {
+  font-size: 18px !important;
+}
+.a11y-low-vision .input {
+  /* Aplica los estilos de .fs-xl */
+  --input-font-size: 18px;
+}
+.a11y-high-contrast { --input-color: #000; --input-border: #000; --input-border-focus: #000; background: #fff; }
+
+/* Tamaños */
+.xs { --input-pad-y: 6px; --input-pad-x: 10px; --input-radius: 4px; }
+.sm { --input-pad-y: 8px; --input-pad-x: 12px; --input-radius: 5px; }
+.md { --input-pad-y: 10px; --input-pad-x: 16px; --input-radius: 6px; }
+.lg { --input-pad-y: 12px; --input-pad-x: 20px; --input-radius: 8px; }
+.xl { --input-pad-y: 14px; --input-pad-x: 24px; --input-radius: 10px; }
+
+/* Tamaños de fuente */
+.fs-xs { --input-font-size: 12px; }
+.fs-sm { --input-font-size: 13px; }
+.fs-md { --input-font-size: 14px; }
+.fs-lg { --input-font-size: 16px; }
+.fs-xl { --input-font-size: 18px; }
