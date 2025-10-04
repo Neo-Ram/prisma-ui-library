@@ -3,6 +3,21 @@ import { createRoot } from 'react-dom/client'
 import '../index.css'
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
+import { Checkbox } from '../Checkbox/Checkbox'
+
+
+
+function CheckboxDemoInline(props: import('../Checkbox/Checkbox').CheckboxProps) {
+  const [checked, setChecked] = React.useState(false);
+  return (
+    <Checkbox
+      label="Acepto los términos"
+      checked={checked}
+      onChange={e => setChecked(e.target.checked)}
+      {...props}
+    />
+  );
+}
 
 type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
@@ -129,11 +144,22 @@ export function App(){
       <div>
         <h2>Demo Input accesible</h2>
         <Input
-        type='password'
+          type='password'
           label="Nombre"
           placeholder="Escribe tu nombre"
           variant={variant}
           inputSize={size}
+          fontSize={fontSize}
+          colorVision={colorVision}
+          accessibility={accessibility}
+          disabled={disabled}
+        />
+      </div>
+      <div>
+        <h2>Demo Checkbox accesible</h2>
+        <CheckboxDemoInline
+          variant={variant}
+          checkboxSize={size}
           fontSize={fontSize}
           colorVision={colorVision}
           accessibility={accessibility}
