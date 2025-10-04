@@ -4,6 +4,8 @@ import '../index.css'
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import { Checkbox } from '../Checkbox/Checkbox'
+import { Toggle } from '../Toggle/Toggle'
+import { Slider } from '../Slider/Slider'
 
 
 
@@ -116,6 +118,8 @@ export function App(){
   const [accessibility, setAccessibility] = useState<Accessibility>('default')
   const [isLoading, setIsLoading] = useState(false)
   const [disabled, setDisabled] = useState(false)
+  const [toggleChecked, setToggleChecked] = useState(false)
+  const [sliderValue, setSliderValue] = useState(50)
 
   return (
     <div style={{padding:20, display:'grid', gap:16}}>
@@ -166,6 +170,28 @@ export function App(){
           disabled={disabled}
         />
       </div>
+      <div>
+        <h2>Demo Toggle accesible</h2>
+        <ToggleDemoInline
+          checked={toggleChecked}
+          onChange={setToggleChecked}
+          variant={variant}
+          colorVision={colorVision}
+          accessibility={accessibility}
+          disabled={disabled}
+        />
+      </div>
+      <div>
+        <h2>Demo Slider accesible</h2>
+        <SliderDemoInline
+          value={sliderValue}
+          onChange={setSliderValue}
+          variant={variant}
+          colorVision={colorVision}
+          accessibility={accessibility}
+          disabled={disabled}
+        />
+      </div>
       <div style={{opacity:.7, fontSize:12}}>
         Sugerencia: habilita "High Contrast" del sistema o "prefers-reduced-motion" para probar ajustes.
       </div>
@@ -175,3 +201,37 @@ export function App(){
 
 const rootEl = document.getElementById('root')!
 createRoot(rootEl).render(<App />)
+
+// Demo Toggle Inline
+function ToggleDemoInline(props: import('../Toggle/Toggle').ToggleProps) {
+  return (
+    <Toggle
+      label="¿Activar opción?"
+      checked={props.checked}
+      onChange={props.onChange}
+      variant={props.variant}
+      colorVision={props.colorVision}
+      accessibility={props.accessibility}
+      disabled={props.disabled}
+    />
+  );
+}
+
+// Demo Slider Inline
+function SliderDemoInline(props: import('../Slider/Slider').SliderProps) {
+  return (
+    <Slider
+      label="Selecciona un valor"
+      value={props.value}
+      onChange={props.onChange}
+      min={0}
+      max={100}
+      step={1}
+      variant={props.variant}
+      colorVision={props.colorVision}
+      accessibility={props.accessibility}
+      disabled={props.disabled}
+      showValue={true}
+    />
+  );
+}

@@ -1,0 +1,74 @@
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+
+.switch {
+  position: relative;
+  width: 44px;
+  height: 24px;
+  background: var(--toggle-bg, #e9ecf1);
+  border-radius: 12px;
+  transition: background 0.2s;
+  border: 2px solid var(--toggle-border, #cbd2dd);
+}
+
+.switch.on,
+.on {
+  background: var(--toggle-bg-on, #007bff);
+  border-color: var(--toggle-border-on, #007bff);
+}
+
+.knob {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 20px;
+  height: 20px;
+  background: var(--toggle-knob, #fff);
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.12);
+  transition: left 0.2s, background 0.2s;
+}
+
+.switch.on .knob,
+.on .knob {
+  left: 22px;
+  background: var(--toggle-knob-on, #fff);
+}
+
+.label {
+  font-size: 16px;
+  color: var(--toggle-label, #222);
+  font-weight: 500;
+}
+
+/* Focus and accessibility */
+.switch:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(11,92,255,.35);
+}
+
+/* Disabled */
+.switch[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Variants (primary, secondary, etc) */
+.primary { --toggle-bg-on: #007bff; --toggle-border-on: #007bff; }
+.secondary { --toggle-bg-on: #6c757d; --toggle-border-on: #6c757d; }
+.success { --toggle-bg-on: #1f9d55; --toggle-border-on: #1f9d55; }
+.warning { --toggle-bg-on: #f59e0b; --toggle-border-on: #f59e0b; }
+.danger { --toggle-bg-on: #e11d48; --toggle-border-on: #e11d48; }
+
+/* Daltonismo y accesibilidad igual que Button */
+.cv-protanopia.primary { --toggle-bg-on: #3399ff; --toggle-border-on: #3399ff; }
+.cv-deuteranopia.primary { --toggle-bg-on: #4f83cc; --toggle-border-on: #4f83cc; }
+.cv-tritanopia.primary { --toggle-bg-on: #007bff; --toggle-border-on: #007bff; }
+
+.a11y-low-vision { font-size: 20px; }
+.a11y-high-contrast { --toggle-bg-on: #000; --toggle-border-on: #000; --toggle-label: #000; }

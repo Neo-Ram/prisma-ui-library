@@ -1,7 +1,7 @@
 
 # neo-ram-prisma
 
-![Oficial Repository] (https://github.com/Neo-Ram/prisma-ui-library)
+ [![GitHub Repo](https://img.shields.io/badge/GitHub-Repository-181717?logo=github&style=for-the-badge)](https://github.com/Neo-Ram/prisma-ui-library)
 ![npm version](https://img.shields.io/npm/v/neo-ram-prisma)
 ![npm downloads](https://img.shields.io/npm/dt/neo-ram-prisma)
 
