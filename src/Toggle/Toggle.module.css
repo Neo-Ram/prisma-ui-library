@@ -65,10 +65,26 @@
 .warning { --toggle-bg-on: #f59e0b; --toggle-border-on: #f59e0b; }
 .danger { --toggle-bg-on: #e11d48; --toggle-border-on: #e11d48; }
 
-/* Daltonismo y accesibilidad igual que Button */
+/* Daltonismo - todos los colores igual que Button */
 .cv-protanopia.primary { --toggle-bg-on: #3399ff; --toggle-border-on: #3399ff; }
 .cv-deuteranopia.primary { --toggle-bg-on: #4f83cc; --toggle-border-on: #4f83cc; }
 .cv-tritanopia.primary { --toggle-bg-on: #007bff; --toggle-border-on: #007bff; }
+
+.cv-protanopia.success { --toggle-bg-on: #ffd966; --toggle-border-on: #ffd966; }
+.cv-deuteranopia.success { --toggle-bg-on: #a3e635; --toggle-border-on: #a3e635; }
+.cv-tritanopia.success { --toggle-bg-on: #fbbf24; --toggle-border-on: #fbbf24; }
+
+.cv-protanopia.warning { --toggle-bg-on: #ffd966; --toggle-border-on: #ffd966; }
+.cv-deuteranopia.warning { --toggle-bg-on: #ffe066; --toggle-border-on: #ffe066; }
+.cv-tritanopia.warning { --toggle-bg-on: #ffb366; --toggle-border-on: #ffb366; }
+
+.cv-protanopia.danger { --toggle-bg-on: #ff6666; --toggle-border-on: #ff6666; }
+.cv-deuteranopia.danger { --toggle-bg-on: #ff8080; --toggle-border-on: #ff8080; }
+.cv-tritanopia.danger { --toggle-bg-on: #ff6666; --toggle-border-on: #ff6666; }
+
+.cv-protanopia.secondary { --toggle-bg-on: #9ca3af; --toggle-border-on: #9ca3af; }
+.cv-deuteranopia.secondary { --toggle-bg-on: #94a3b8; --toggle-border-on: #94a3b8; }
+.cv-tritanopia.secondary { --toggle-bg-on: #6c757d; --toggle-border-on: #6c757d; }
 
 .a11y-low-vision { font-size: 20px; }
 .a11y-high-contrast { --toggle-bg-on: #000; --toggle-border-on: #000; --toggle-label: #000; }

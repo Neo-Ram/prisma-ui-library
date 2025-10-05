@@ -97,19 +97,26 @@
 .lg { --checkbox-font-size: 18px; }
 .xl { --checkbox-font-size: 20px; }
 
-/* Daltonismo */
-.cv-protanopia {
-  --checkbox-accent: #1a73e8;
-  --checkbox-border: #1a73e8;
-}
-.cv-deuteranopia {
-  --checkbox-accent: #e67e22;
-  --checkbox-border: #e67e22;
-}
-.cv-tritanopia {
-  --checkbox-accent: #8e44ad;
-  --checkbox-border: #8e44ad;
-}
+/* Daltonismo - combinaciones específicas por variante igual que Button */
+.cv-protanopia.primary { --checkbox-accent: #3399ff; --checkbox-border: #3399ff; }
+.cv-deuteranopia.primary { --checkbox-accent: #4f83cc; --checkbox-border: #4f83cc; }
+.cv-tritanopia.primary { --checkbox-accent: #007bff; --checkbox-border: #007bff; }
+
+.cv-protanopia.success { --checkbox-accent: #ffd966; --checkbox-border: #ffd966; }
+.cv-deuteranopia.success { --checkbox-accent: #a3e635; --checkbox-border: #a3e635; }
+.cv-tritanopia.success { --checkbox-accent: #fbbf24; --checkbox-border: #fbbf24; }
+
+.cv-protanopia.warning { --checkbox-accent: #ffd966; --checkbox-border: #ffd966; }
+.cv-deuteranopia.warning { --checkbox-accent: #ffe066; --checkbox-border: #ffe066; }
+.cv-tritanopia.warning { --checkbox-accent: #ffb366; --checkbox-border: #ffb366; }
+
+.cv-protanopia.danger { --checkbox-accent: #ff6666; --checkbox-border: #ff6666; }
+.cv-deuteranopia.danger { --checkbox-accent: #ff8080; --checkbox-border: #ff8080; }
+.cv-tritanopia.danger { --checkbox-accent: #ff6666; --checkbox-border: #ff6666; }
+
+.cv-protanopia.secondary { --checkbox-accent: #9ca3af; --checkbox-border: #9ca3af; }
+.cv-deuteranopia.secondary { --checkbox-accent: #94a3b8; --checkbox-border: #94a3b8; }
+.cv-tritanopia.secondary { --checkbox-accent: #6c757d; --checkbox-border: #6c757d; }
 
 /* Accesibilidad */
 .a11y-low-vision {

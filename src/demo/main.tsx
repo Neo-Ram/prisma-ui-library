@@ -4,8 +4,16 @@ import '../index.css'
 import { Button } from '../Button/Button'
 import { Input } from '../Input/Input'
 import { Checkbox } from '../Checkbox/Checkbox'
+import { Radiogroup } from '../Radiogroup/Radiogroup'
 import { Toggle } from '../Toggle/Toggle'
 import { Slider } from '../Slider/Slider'
+import { Select } from '../Select/Select'
+import { Textarea } from '../Textarea/Textarea'
+import { Pagination } from '../Pagination/Pagination'
+import { Breadcrumb } from '../Breadcrumb/Breadcrumb'
+import { Spinner } from '../Spinner/Spinner'
+import { Tooltip } from '../Tooltip/Tooltip'
+import { Alert } from '../Alert/Alert'
 
 
 
@@ -120,6 +128,9 @@ export function App(){
   const [disabled, setDisabled] = useState(false)
   const [toggleChecked, setToggleChecked] = useState(false)
   const [sliderValue, setSliderValue] = useState(50)
+  const [selectValue, setSelectValue] = useState('')
+  const [textareaValue, setTextareaValue] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
 
   return (
     <div style={{padding:20, display:'grid', gap:16}}>
@@ -171,6 +182,17 @@ export function App(){
         />
       </div>
       <div>
+        <h2>Demo Radiogroup accesible</h2>
+        <RadiogroupDemoInline
+          variant={variant}
+          size={size}
+          fontSize={fontSize}
+          colorVision={colorVision}
+          accessibility={accessibility}
+          disabled={disabled}
+        />
+      </div>
+      <div>
         <h2>Demo Toggle accesible</h2>
         <ToggleDemoInline
           checked={toggleChecked}
@@ -190,6 +212,84 @@ export function App(){
           colorVision={colorVision}
           accessibility={accessibility}
           disabled={disabled}
+        />
+      </div>
+      <div>
+        <h2>Demo Select accesible</h2>
+        <SelectDemoInline
+          value={selectValue}
+          onChange={setSelectValue}
+          variant={variant}
+          size={size}
+          fontSize={fontSize}
+          colorVision={colorVision}
+          accessibility={accessibility}
+          disabled={disabled}
+        />
+      </div>
+      <div>
+        <h2>Demo Textarea accesible</h2>
+        <TextareaDemoInline
+          value={textareaValue}
+          onChange={setTextareaValue}
+          variant={variant}
+          textareaSize={size}
+          fontSize={fontSize}
+          colorVision={colorVision}
+          accessibility={accessibility}
+          disabled={disabled}
+        />
+      </div>
+      <div>
+        <h2>Demo Pagination accesible</h2>
+        <PaginationDemoInline
+          currentPage={currentPage}
+          onPageChange={setCurrentPage}
+          variant={variant}
+          size={size}
+          fontSize={fontSize}
+          colorVision={colorVision}
+          accessibility={accessibility}
+          disabled={disabled}
+        />
+      </div>
+      <div>
+        <h2>Demo Breadcrumb accesible</h2>
+        <BreadcrumbDemoInline
+          variant={variant}
+          size={size}
+          fontSize={fontSize}
+          colorVision={colorVision}
+          accessibility={accessibility}
+        />
+      </div>
+      <div>
+        <h2>Demo Spinner accesible</h2>
+        <SpinnerDemoInline
+          variant={variant}
+          size={size}
+          colorVision={colorVision}
+          accessibility={accessibility}
+        />
+      </div>
+      <div>
+        <h2>Demo Tooltip accesible</h2>
+        <TooltipDemoInline
+          variant={variant}
+          size={size}
+          fontSize={fontSize}
+          colorVision={colorVision}
+          accessibility={accessibility}
+        />
+      </div>
+      <div>
+        <h2>Demo Alert accesible</h2>
+        <AlertDemoInline
+          variant={variant}
+          size={size}
+          fontSize={fontSize}
+          colorVision={colorVision}
+          accessibility={accessibility}
         />
       </div>
       <div style={{opacity:.7, fontSize:12}}>
@@ -233,5 +333,540 @@ function SliderDemoInline(props: import('../Slider/Slider').SliderProps) {
       disabled={props.disabled}
       showValue={true}
     />
+  );
+}
+
+// Demo Select Inline
+function SelectDemoInline(props: Omit<import('../Select/Select').SelectProps, 'options'>) {
+  const options = [
+    { value: 'opcion1', label: 'Primera opción' },
+    { value: 'opcion2', label: 'Segunda opción' },
+    { value: 'opcion3', label: 'Tercera opción' },
+    { value: 'opcion4', label: 'Cuarta opción (deshabilitada)', disabled: true },
+    { value: 'opcion5', label: 'Quinta opción' }
+  ];
+
+  return (
+    <Select
+      label="Selecciona una opción"
+      value={props.value}
+      onChange={props.onChange}
+      options={options}
+      placeholder="Elige una opción..."
+      variant={props.variant}
+      size={props.size}
+      fontSize={props.fontSize}
+      colorVision={props.colorVision}
+      accessibility={props.accessibility}
+      disabled={props.disabled}
+    />
+  );
+}
+
+// Demo Textarea Inline
+function TextareaDemoInline(props: Omit<import('../Textarea/Textarea').TextareaProps, 'onChange'> & { onChange: (value: string) => void }) {
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    props.onChange(e.target.value);
+  };
+
+  return (
+    <Textarea
+      label="Escribe tu mensaje"
+      value={props.value}
+      onChange={handleChange}
+      placeholder="Escribe aquí tu mensaje..."
+      rows={4}
+      variant={props.variant}
+      textareaSize={props.textareaSize}
+      fontSize={props.fontSize}
+      colorVision={props.colorVision}
+      accessibility={props.accessibility}
+      disabled={props.disabled}
+      resize="vertical"
+    />
+  );
+}
+
+// Demo Pagination Inline
+function PaginationDemoInline(props: Omit<import('../Pagination/Pagination').PaginationProps, 'totalPages'>) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
+      <div style={{ fontSize: '14px', color: '#666' }}>
+        Página {props.currentPage} de 25 (ejemplo con 25 páginas)
+      </div>
+      <Pagination
+        currentPage={props.currentPage}
+        totalPages={25}
+        onPageChange={props.onPageChange}
+        variant={props.variant}
+        size={props.size}
+        fontSize={props.fontSize}
+        colorVision={props.colorVision}
+        accessibility={props.accessibility}
+        disabled={props.disabled}
+        showFirstLast={true}
+        showPrevNext={true}
+        maxVisiblePages={7}
+      />
+    </div>
+  );
+}
+
+// Demo Breadcrumb Inline
+function BreadcrumbDemoInline(props: Omit<import('../Breadcrumb/Breadcrumb').BreadcrumbProps, 'items'>) {
+  const breadcrumbItems = [
+    { label: 'Inicio', onClick: () => console.log('Ir a inicio') },
+    { label: 'Productos', onClick: () => console.log('Ir a productos') },
+    { label: 'Electrónicos', onClick: () => console.log('Ir a electrónicos') },
+    { label: 'Smartphones', onClick: () => console.log('Ir a smartphones') },
+    { label: 'Samsung Z Fold 7' } // Último elemento sin onClick (página actual)
+  ];
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ fontSize: '14px', color: '#666' }}>
+        Navegación actual: Inicio {'->'} Productos {'->'} Electrónicos {'->'} Smartphones {'->'} Samsung Z Fold 7
+      </div>
+      <Breadcrumb
+        items={breadcrumbItems}
+        variant={props.variant}
+        size={props.size}
+        fontSize={props.fontSize}
+        colorVision={props.colorVision}
+        accessibility={props.accessibility}
+        maxItems={5}
+        showHome={false}
+      />
+      <div style={{ fontSize: '12px', color: '#999', marginTop: '8px' }}>
+        ℹ️ Los elementos son clickeables excepto el último (página actual)
+      </div>
+    </div>
+  );
+}
+
+// Demo Spinner Inline
+function SpinnerDemoInline(props: Omit<import('../Spinner/Spinner').SpinnerProps, 'spinnerVariant' | 'label'>) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div style={{ fontSize: '14px', color: '#666' }}>
+        Tres variantes de spinners con diferentes animaciones
+      </div>
+      
+      <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap', alignItems: 'center' }}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+          <Spinner
+            variant={props.variant}
+            size={props.size}
+            colorVision={props.colorVision}
+            accessibility={props.accessibility}
+            spinnerVariant="1"
+            label="Circular"
+            speed="normal"
+          />
+          <div style={{ fontSize: '12px', color: '#999' }}>Variante 1: Circular</div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+          <Spinner
+            variant={props.variant}
+            size={props.size}
+            colorVision={props.colorVision}
+            accessibility={props.accessibility}
+            spinnerVariant="2"
+            label="Dots pulsantes"
+            speed="normal"
+          />
+          <div style={{ fontSize: '12px', color: '#999' }}>Variante 2: Dots</div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+          <Spinner
+            variant={props.variant}
+            size={props.size}
+            colorVision={props.colorVision}
+            accessibility={props.accessibility}
+            spinnerVariant="3"
+            label="Barras ondulantes"
+            speed="normal"
+          />
+          <div style={{ fontSize: '12px', color: '#999' }}>Variante 3: Barras</div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+          <Spinner
+            variant={props.variant}
+            size={props.size}
+            colorVision={props.colorVision}
+            accessibility={props.accessibility}
+            spinnerVariant="4"
+            label="Grid cuadrados"
+            speed="normal"
+          />
+          <div style={{ fontSize: '12px', color: '#999' }}>Variante 4: Grid</div>
+        </div>
+
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
+          <Spinner
+            variant={props.variant}
+            size={props.size}
+            colorVision={props.colorVision}
+            accessibility={props.accessibility}
+            spinnerVariant="5"
+            label="Onda wave"
+            speed="normal"
+          />
+          <div style={{ fontSize: '12px', color: '#999' }}>Variante 5: Wave</div>
+        </div>
+      </div>
+
+      <div style={{ fontSize: '12px', color: '#999' }}>
+        ⚡ 5 variantes diferentes | Velocidades: slow, normal, fast | 🎯 Soporte completo para reduced-motion
+      </div>
+    </div>
+  );
+}
+
+// Demo Tooltip Inline
+function TooltipDemoInline(props: Omit<import('../Tooltip/Tooltip').TooltipProps, 'children' | 'content'>) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center' }}>
+      <div style={{ fontSize: '14px', color: '#666', textAlign: 'center' }}>
+        Tooltips con animaciones fluidas y posicionamiento inteligente
+      </div>
+      
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))', gap: '20px', width: '100%', maxWidth: '600px' }}>
+        <Tooltip
+          content="Tooltip en la parte superior con animación fluida"
+          position="top"
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+        >
+          <Button variant={props.variant} size={props.size}>
+            Hover Top
+          </Button>
+        </Tooltip>
+
+        <Tooltip
+          content="Este tooltip aparece abajo del elemento"
+          position="bottom"
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+        >
+          <Button variant={props.variant} size={props.size}>
+            Hover Bottom
+          </Button>
+        </Tooltip>
+
+        <Tooltip
+          content="Tooltip a la izquierda"
+          position="left"
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+        >
+          <Button variant={props.variant} size={props.size}>
+            Hover Left
+          </Button>
+        </Tooltip>
+
+        <Tooltip
+          content="Tooltip a la derecha del botón"
+          position="right"
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+        >
+          <Button variant={props.variant} size={props.size}>
+            Hover Right
+          </Button>
+        </Tooltip>
+      </div>
+
+      <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', justifyContent: 'center' }}>
+        <Tooltip
+          content={<div style={{ textAlign: 'left' }}>
+            <strong>Tooltip con HTML</strong><br/>
+            • Soporta contenido rico<br/>
+            • Múltiples líneas<br/>
+            • <em>Texto enfatizado</em>
+          </div>}
+          position="auto"
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          maxWidth={250}
+        >
+          <Button variant="success" size={props.size}>
+            Contenido Rico
+          </Button>
+        </Tooltip>
+
+        <Tooltip
+          content="Este tooltip se posiciona automáticamente donde haya más espacio disponible"
+          position="auto"
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          delay={100}
+          hideDelay={50}
+        >
+          <Button variant="warning" size={props.size}>
+            Auto Position
+          </Button>
+        </Tooltip>
+      </div>
+
+      <div style={{ fontSize: '12px', color: '#999', textAlign: 'center' }}>
+        ✨ Posicionamiento inteligente | 🎯 Animaciones fluidas | ♿ Accesible con ARIA
+      </div>
+    </div>
+  );
+}
+
+// Demo Alert Inline
+function AlertDemoInline(props: Omit<import('../Alert/Alert').AlertProps, 'children' | 'title'>) {
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+      <div style={{ fontSize: '14px', color: '#666' }}>
+        Diferentes tipos de alertas con emojis correspondientes a cada variante
+      </div>
+      
+      <div style={{ display: 'grid', gap: '12px' }}>
+        <Alert
+          variant="primary"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          title="Información importante"
+          dismissible={true}
+        >
+          Esta es una alerta informativa con emoji 💡. Perfecto para mostrar información general.
+        </Alert>
+
+        <Alert
+          variant="success"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          title="¡Operación exitosa!"
+          dismissible={true}
+        >
+          La operación se completó correctamente ✅. Todo funcionó según lo esperado.
+        </Alert>
+
+        <Alert
+          variant="warning"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          title="Advertencia importante"
+          dismissible={true}
+        >
+          Ten cuidado con esta acción ⚠️. Podría tener consecuencias importantes.
+        </Alert>
+
+        <Alert
+          variant="danger"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          title="Error crítico"
+          dismissible={true}
+        >
+          Ha ocurrido un error crítico ❌. Por favor, revisa la configuración.
+        </Alert>
+
+        <Alert
+          variant="secondary"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          title="Nota informativa"
+          dismissible={false}
+        >
+          Esta es una nota neutral ℹ️ que no requiere acción inmediata.
+        </Alert>
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '12px', marginTop: '16px' }}>
+        <Alert
+          type="info"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          dismissible={true}
+        >
+          Alert con tipo "info" 💡 - Sobrescribe la variante
+        </Alert>
+
+        <Alert
+          type="error"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          dismissible={true}
+        >
+          Alert con tipo "error" ❌ - Color específico
+        </Alert>
+
+        <Alert
+          variant="success"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          showIcon={false}
+        >
+          Alerta sin emoji - Solo texto y colores
+        </Alert>
+
+        <Alert
+          variant="warning"
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          icon={<span>🚨</span>}
+        >
+          Alerta con emoji personalizado 🚨
+        </Alert>
+      </div>
+
+      <div style={{ fontSize: '12px', color: '#999' }}>
+        💡 Primary | ✅ Success | ⚠️ Warning | ❌ Danger | ℹ️ Secondary | 🎯 Completamente accesible
+      </div>
+    </div>
+  );
+}
+
+// Demo Radiogroup Inline
+function RadiogroupDemoInline(props: Omit<import('../Radiogroup/Radiogroup').RadiogroupProps, 'name' | 'options' | 'value' | 'onChange'>) {
+  const [selectedValue, setSelectedValue] = React.useState('medium');
+  
+  const options = [
+    { 
+      value: 'small', 
+      label: 'Pequeño', 
+      description: 'Opción compacta y minimalista' 
+    },
+    { 
+      value: 'medium', 
+      label: 'Mediano', 
+      description: 'Tamaño estándar recomendado' 
+    },
+    { 
+      value: 'large', 
+      label: 'Grande', 
+      description: 'Máxima visibilidad y accesibilidad' 
+    },
+    { 
+      value: 'custom', 
+      label: 'Personalizado', 
+      description: 'Configuración avanzada disponible',
+      disabled: props.disabled 
+    }
+  ];
+
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
+      <div style={{ fontSize: '14px', color: '#666' }}>
+        Radio groups con selección única y descripciones
+      </div>
+      
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
+        <Radiogroup
+          name="size-vertical"
+          label="Selecciona un tamaño (vertical)"
+          description="Elige la opción que mejor se adapte a tus necesidades"
+          options={options}
+          value={selectedValue}
+          onChange={setSelectedValue}
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          direction="vertical"
+          disabled={props.disabled}
+          required={true}
+        />
+
+        <Radiogroup
+          name="size-horizontal"
+          label="Selecciona un tamaño (horizontal)"
+          options={options.slice(0, 3)} // Solo 3 opciones para horizontal
+          value={selectedValue}
+          onChange={setSelectedValue}
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          direction="horizontal"
+          disabled={props.disabled}
+        />
+      </div>
+
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
+        <Radiogroup
+          name="priority"
+          label="Prioridad"
+          options={[
+            { value: 'low', label: 'Baja' },
+            { value: 'medium', label: 'Media' },
+            { value: 'high', label: 'Alta' }
+          ]}
+          defaultValue="medium"
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          direction="horizontal"
+        />
+
+        <Radiogroup
+          name="notifications"
+          label="Notificaciones"
+          options={[
+            { value: 'all', label: 'Todas', description: 'Recibir todas las notificaciones' },
+            { value: 'important', label: 'Solo importantes', description: 'Solo alertas críticas' },
+            { value: 'none', label: 'Ninguna', description: 'No recibir notificaciones' }
+          ]}
+          defaultValue="important"
+          variant={props.variant}
+          size={props.size}
+          fontSize={props.fontSize}
+          colorVision={props.colorVision}
+          accessibility={props.accessibility}
+          direction="vertical"
+        />
+      </div>
+
+      <div style={{ fontSize: '12px', color: '#999' }}>
+        🔘 Selección única | 📝 Con descripciones | ↕️ Vertical/Horizontal | ♿ Completamente accesible
+      </div>
+    </div>
   );
 }

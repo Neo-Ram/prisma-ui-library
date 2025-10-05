@@ -1,0 +1,325 @@
+.select {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.trigger {
+  --select-bg: #fff;
+  --select-border: #cbd2dd;
+  --select-border-focus: #007bff;
+  --select-color: #1a1f2b;
+  --select-placeholder: #6b7280;
+  --select-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  --select-shadow-focus: 0 0 0 3px rgba(11,92,255,.15);
+  --select-radius: 12px;
+  --select-pad-y: 12px;
+  --select-pad-x: 16px;
+  --select-font-size: 14px;
+
+  width: 100%;
+  padding: var(--select-pad-y) calc(var(--select-pad-x) + 24px) var(--select-pad-y) var(--select-pad-x);
+  background: var(--select-bg);
+  border: 2px solid var(--select-border);
+  border-radius: var(--select-radius);
+  font-size: var(--select-font-size);
+  line-height: 1.4;
+  color: var(--select-color);
+  box-shadow: var(--select-shadow);
+  cursor: pointer;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  user-select: none;
+}
+
+.trigger:focus {
+  outline: none;
+  border-color: var(--select-border-focus);
+  box-shadow: var(--select-shadow-focus), var(--select-shadow);
+}
+
+.trigger.open {
+  border-color: var(--select-border-focus);
+  box-shadow: var(--select-shadow-focus), var(--select-shadow);
+}
+
+.trigger:disabled,
+.trigger[aria-disabled="true"] {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background: var(--select-bg-disabled, #f8f9fa);
+}
+
+.value {
+  flex: 1;
+  text-align: left;
+  color: inherit;
+}
+
+.trigger .value:empty::before {
+  content: attr(data-placeholder);
+  color: var(--select-placeholder);
+}
+
+.arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  color: var(--select-placeholder);
+  transition: color 0.15s ease, transform 0.2s ease;
+}
+
+.trigger:focus .arrow,
+.trigger.open .arrow {
+  color: var(--select-border-focus);
+}
+
+.trigger.open .arrow {
+  transform: rotate(180deg);
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  margin-top: 4px;
+  background: var(--select-bg);
+  border: 2px solid var(--select-border-focus);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  max-height: 200px;
+  overflow: hidden;
+}
+
+.dropdown.open {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.list {
+  margin: 0;
+  padding: 4px 0;
+  list-style: none;
+  max-height: 192px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: 10px;
+  cursor: pointer;
+  color: var(--select-color);
+  font-size: var(--select-font-size);
+  line-height: 1.4;
+  transition: background 0.1s ease, color 0.1s ease;
+  user-select: none;
+}
+
+.option:hover,
+.option.focused {
+  background: var(--select-option-hover, rgba(11,92,255,0.1));
+  color: var(--select-border-focus);
+}
+
+.option.selected {
+  background: var(--select-border-focus);
+  color: #fff;
+}
+
+.option.selected:hover,
+.option.selected.focused {
+  background: var(--select-border-focus);
+  color: #fff;
+  opacity: 0.9;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--select-label, #374151);
+  margin-bottom: 2px;
+}
+
+.required {
+  color: var(--select-required, #ef4444);
+  margin-left: 4px;
+}
+
+.errorMessage {
+  font-size: 12px;
+  color: var(--select-error, #ef4444);
+  margin-top: 4px;
+}
+
+.error {
+  --select-border: #ef4444;
+  --select-border-focus: #ef4444;
+  --select-shadow-focus: 0 0 0 3px rgba(239,68,68,.15);
+}
+
+/* Sizes */
+.xs { --select-pad-y: 8px; --select-pad-x: 12px; --select-radius: 8px; }
+.sm { --select-pad-y: 10px; --select-pad-x: 14px; --select-radius: 10px; }
+.md { --select-pad-y: 12px; --select-pad-x: 16px; --select-radius: 12px; }
+.lg { --select-pad-y: 14px; --select-pad-x: 18px; --select-radius: 14px; }
+.xl { --select-pad-y: 16px; --select-pad-x: 20px; --select-radius: 16px; }
+
+/* Font sizes */
+.fs-xs { --select-font-size: 12px; }
+.fs-sm { --select-font-size: 13px; }
+.fs-md { --select-font-size: 14px; }
+.fs-lg { --select-font-size: 16px; }
+.fs-xl { --select-font-size: 18px; }
+
+/* Variants */
+.primary { 
+  --select-border-focus: #007bff; 
+  --select-shadow-focus: 0 0 0 3px rgba(11,92,255,.15);
+  --select-option-hover: rgba(0,123,255,0.1);
+}
+.secondary { 
+  --select-border-focus: #6c757d; 
+  --select-shadow-focus: 0 0 0 3px rgba(108,117,125,.15);
+  --select-option-hover: rgba(108,117,125,0.1);
+}
+.success { 
+  --select-border-focus: #1f9d55; 
+  --select-shadow-focus: 0 0 0 3px rgba(31,157,85,.15);
+  --select-option-hover: rgba(31,157,85,0.1);
+}
+.warning { 
+  --select-border-focus: #f59e0b; 
+  --select-shadow-focus: 0 0 0 3px rgba(245,158,11,.15);
+  --select-option-hover: rgba(245,158,11,0.1);
+}
+.danger { 
+  --select-border-focus: #e11d48; 
+  --select-shadow-focus: 0 0 0 3px rgba(225,29,72,.15);
+  --select-option-hover: rgba(225,29,72,0.1);
+}
+
+/* Color vision adjustments - iguales al Button */
+.cv-protanopia.primary { 
+  --select-border-focus: #3399ff; 
+  --select-shadow-focus: 0 0 0 3px rgba(51,153,255,.15);
+  --select-option-hover: rgba(51,153,255,0.1);
+}
+.cv-deuteranopia.primary { 
+  --select-border-focus: #4f83cc; 
+  --select-shadow-focus: 0 0 0 3px rgba(79,131,204,.15);
+  --select-option-hover: rgba(79,131,204,0.1);
+}
+.cv-tritanopia.primary { 
+  --select-border-focus: #007bff; 
+  --select-shadow-focus: 0 0 0 3px rgba(0,123,255,.15);
+  --select-option-hover: rgba(0,123,255,0.1);
+}
+
+.cv-protanopia.success { 
+  --select-border-focus: #ffd966; 
+  --select-shadow-focus: 0 0 0 3px rgba(255,217,102,.15);
+  --select-option-hover: rgba(255,217,102,0.1);
+}
+.cv-deuteranopia.success { 
+  --select-border-focus: #a3e635; 
+  --select-shadow-focus: 0 0 0 3px rgba(163,230,53,.15);
+  --select-option-hover: rgba(163,230,53,0.1);
+}
+.cv-tritanopia.success { 
+  --select-border-focus: #fbbf24; 
+  --select-shadow-focus: 0 0 0 3px rgba(251,191,36,.15);
+  --select-option-hover: rgba(251,191,36,0.1);
+}
+
+.cv-protanopia.warning { 
+  --select-border-focus: #ffd966; 
+  --select-shadow-focus: 0 0 0 3px rgba(255,217,102,.15);
+  --select-option-hover: rgba(255,217,102,0.1);
+}
+.cv-deuteranopia.warning { 
+  --select-border-focus: #ffe066; 
+  --select-shadow-focus: 0 0 0 3px rgba(255,224,102,.15);
+  --select-option-hover: rgba(255,224,102,0.1);
+}
+.cv-tritanopia.warning { 
+  --select-border-focus: #ffb366; 
+  --select-shadow-focus: 0 0 0 3px rgba(255,179,102,.15);
+  --select-option-hover: rgba(255,179,102,0.1);
+}
+
+.cv-protanopia.danger { 
+  --select-border-focus: #ff6666; 
+  --select-shadow-focus: 0 0 0 3px rgba(255,102,102,.15);
+  --select-option-hover: rgba(255,102,102,0.1);
+}
+.cv-deuteranopia.danger { 
+  --select-border-focus: #ff8080; 
+  --select-shadow-focus: 0 0 0 3px rgba(255,128,128,.15);
+  --select-option-hover: rgba(255,128,128,0.1);
+}
+.cv-tritanopia.danger { 
+  --select-border-focus: #ff6666; 
+  --select-shadow-focus: 0 0 0 3px rgba(255,102,102,.15);
+  --select-option-hover: rgba(255,102,102,0.1);
+}
+
+.cv-protanopia.secondary { 
+  --select-border-focus: #9ca3af; 
+  --select-shadow-focus: 0 0 0 3px rgba(156,163,175,.15);
+  --select-option-hover: rgba(156,163,175,0.1);
+}
+.cv-deuteranopia.secondary { 
+  --select-border-focus: #94a3b8; 
+  --select-shadow-focus: 0 0 0 3px rgba(148,163,184,.15);
+  --select-option-hover: rgba(148,163,184,0.1);
+}
+.cv-tritanopia.secondary { 
+  --select-border-focus: #6c757d; 
+  --select-shadow-focus: 0 0 0 3px rgba(108,117,125,.15);
+  --select-option-hover: rgba(108,117,125,0.1);
+}
+
+/* Accessibility modes */
+.a11y-low-vision { 
+  --select-font-size: 18px; 
+}
+
+.a11y-low-vision .input:focus {
+  --select-shadow-focus: 0 0 0 4px rgba(11,92,255,.25);
+}
+
+.a11y-high-contrast { 
+  --select-bg: #fff;
+  --select-border: #000;
+  --select-border-focus: #000;
+  --select-color: #000;
+  --select-label: #000;
+  --select-shadow: none;
+  --select-shadow-focus: 0 0 0 3px rgba(0,0,0,.5);
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .trigger,
+  .arrow,
+  .dropdown,
+  .option {
+    transition: none;
+  }
+}

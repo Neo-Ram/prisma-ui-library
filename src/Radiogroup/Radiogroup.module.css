@@ -1,0 +1,309 @@
+.radiogroup {
+  --radio-size: 18px;
+  --radio-border: 2px;
+  --radio-color: #007bff;
+  --radio-bg: #ffffff;
+  --radio-border-color: #d1d5db;
+  --radio-border-color-hover: #9ca3af;
+  --radio-border-color-focus: #007bff;
+  --radio-indicator-color: #ffffff;
+  --radio-gap: 8px;
+  --radio-label-color: #374151;
+  --radio-description-color: #6b7280;
+  --radio-font-size: 14px;
+
+  border: none;
+  padding: 0;
+  margin: 0;
+  font-family: inherit;
+  display: flex;
+  flex-direction: column;
+  gap: var(--radio-gap);
+}
+
+.legend {
+  font-size: var(--radio-font-size);
+  font-weight: 600;
+  color: var(--radio-label-color);
+  margin: 0 0 8px 0;
+  padding: 0;
+  line-height: 1.4;
+}
+
+.required {
+  color: #ef4444;
+  margin-left: 4px;
+}
+
+.description {
+  font-size: calc(var(--radio-font-size) * 0.875);
+  color: var(--radio-description-color);
+  line-height: 1.4;
+  margin-bottom: 4px;
+}
+
+.optionsContainer {
+  display: flex;
+  gap: var(--radio-gap);
+}
+
+.vertical .optionsContainer {
+  flex-direction: column;
+}
+
+.horizontal .optionsContainer {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.option {
+  display: flex;
+  align-items: flex-start;
+  gap: calc(var(--radio-gap) * 0.75);
+  cursor: pointer;
+  font-size: var(--radio-font-size);
+  line-height: 1.4;
+  transition: opacity 0.15s ease;
+  padding: 4px 0;
+  position: relative;
+}
+
+.option:hover .radioButton {
+  border-color: var(--radio-border-color-hover);
+}
+
+.option:focus-within .radioButton {
+  border-color: var(--radio-border-color-focus);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.optionDisabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.optionDisabled:hover .radioButton {
+  border-color: var(--radio-border-color);
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+  width: 1px;
+  height: 1px;
+}
+
+.radioButton {
+  width: var(--radio-size);
+  height: var(--radio-size);
+  border: var(--radio-border) solid var(--radio-border-color);
+  border-radius: 50%;
+  background: var(--radio-bg);
+  position: relative;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  margin-top: 1px;
+}
+
+.radioIndicator {
+  width: calc(var(--radio-size) - 8px);
+  height: calc(var(--radio-size) - 8px);
+  border-radius: 50%;
+  background: var(--radio-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.selected .radioButton {
+  border-color: var(--radio-color);
+}
+
+.selected .radioIndicator {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.labelContent {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.labelText {
+  color: var(--radio-label-color);
+  font-weight: 500;
+  word-wrap: break-word;
+}
+
+.optionDescription {
+  font-size: calc(var(--radio-font-size) * 0.875);
+  color: var(--radio-description-color);
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+.errorMessage {
+  font-size: calc(var(--radio-font-size) * 0.875);
+  color: #ef4444;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* Sizes */
+.xs {
+  --radio-size: 14px;
+  --radio-border: 1px;
+  --radio-gap: 6px;
+  --radio-font-size: 12px;
+}
+
+.sm {
+  --radio-size: 16px;
+  --radio-border: 1px;
+  --radio-gap: 7px;
+  --radio-font-size: 13px;
+}
+
+.md {
+  --radio-size: 18px;
+  --radio-border: 2px;
+  --radio-gap: 8px;
+  --radio-font-size: 14px;
+}
+
+.lg {
+  --radio-size: 20px;
+  --radio-border: 2px;
+  --radio-gap: 9px;
+  --radio-font-size: 15px;
+}
+
+.xl {
+  --radio-size: 22px;
+  --radio-border: 2px;
+  --radio-gap: 10px;
+  --radio-font-size: 16px;
+}
+
+/* Font sizes */
+.fs-xs { --radio-font-size: 12px; }
+.fs-sm { --radio-font-size: 13px; }
+.fs-md { --radio-font-size: 14px; }
+.fs-lg { --radio-font-size: 16px; }
+.fs-xl { --radio-font-size: 18px; }
+
+/* Variants */
+.primary { --radio-color: #007bff; }
+.secondary { --radio-color: #6c757d; }
+.success { --radio-color: #1f9d55; }
+.warning { --radio-color: #f59e0b; }
+.danger { --radio-color: #e11d48; }
+
+/* Color vision adjustments */
+.cv-protanopia.primary { --radio-color: #3399ff; }
+.cv-deuteranopia.primary { --radio-color: #4f83cc; }
+.cv-tritanopia.primary { --radio-color: #007bff; }
+
+.cv-protanopia.success { --radio-color: #ffd966; }
+.cv-deuteranopia.success { --radio-color: #a3e635; }
+.cv-tritanopia.success { --radio-color: #fbbf24; }
+
+.cv-protanopia.warning { --radio-color: #ffd966; }
+.cv-deuteranopia.warning { --radio-color: #ffe066; }
+.cv-tritanopia.warning { --radio-color: #ffb366; }
+
+.cv-protanopia.danger { --radio-color: #ff6666; }
+.cv-deuteranopia.danger { --radio-color: #ff8080; }
+.cv-tritanopia.danger { --radio-color: #ff6666; }
+
+.cv-protanopia.secondary { --radio-color: #9ca3af; }
+.cv-deuteranopia.secondary { --radio-color: #94a3b8; }
+.cv-tritanopia.secondary { --radio-color: #6c757d; }
+
+/* Accessibility modes */
+.a11y-low-vision {
+  --radio-size: 24px;
+  --radio-border: 3px;
+  --radio-font-size: 18px;
+  --radio-gap: 12px;
+}
+
+.a11y-low-vision .legend {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.a11y-low-vision .option:focus-within .radioButton {
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.a11y-high-contrast {
+  --radio-bg: #ffffff;
+  --radio-border-color: #000000;
+  --radio-border-color-hover: #000000;
+  --radio-border-color-focus: #000000;
+  --radio-color: #000000;
+  --radio-label-color: #000000;
+  --radio-description-color: #666666;
+}
+
+.a11y-high-contrast .legend {
+  color: #000000;
+  font-weight: 700;
+}
+
+.a11y-high-contrast .option:focus-within .radioButton {
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.7);
+}
+
+/* Error state */
+.error {
+  --radio-border-color: #ef4444;
+  --radio-border-color-hover: #dc2626;
+  --radio-border-color-focus: #ef4444;
+}
+
+.error .legend {
+  color: #ef4444;
+}
+
+/* Disabled state */
+.disabled {
+  --radio-border-color: #e5e7eb;
+  --radio-label-color: #9ca3af;
+  --radio-description-color: #d1d5db;
+}
+
+.disabled .legend {
+  color: #9ca3af;
+}
+
+.disabled .option {
+  cursor: not-allowed;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .horizontal .optionsContainer {
+    flex-direction: column;
+  }
+  
+  .radiogroup {
+    --radio-font-size: 13px;
+    --radio-size: 16px;
+    --radio-gap: 7px;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .radioButton,
+  .radioIndicator,
+  .option {
+    transition: none;
+  }
+}

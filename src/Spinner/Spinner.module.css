@@ -1,0 +1,281 @@
+.spinner {
+  --spinner-color: #007bff;
+  --spinner-size: 32px;
+  --spinner-border-width: 3px;
+  --spinner-speed: 1s;
+
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: inherit;
+}
+
+/* Screen reader only */
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.label {
+  font-size: 14px;
+  color: #6b7280;
+  text-align: center;
+  line-height: 1.4;
+}
+
+/* Sizes */
+.xs { 
+  --spinner-size: 16px;
+  --spinner-border-width: 2px;
+}
+.sm { 
+  --spinner-size: 24px;
+  --spinner-border-width: 2px;
+}
+.md { 
+  --spinner-size: 32px;
+  --spinner-border-width: 3px;
+}
+.lg { 
+  --spinner-size: 40px;
+  --spinner-border-width: 3px;
+}
+.xl { 
+  --spinner-size: 48px;
+  --spinner-border-width: 4px;
+}
+
+/* Speed variants */
+.speed-slow { --spinner-speed: 2s; }
+.speed-normal { --spinner-speed: 1s; }
+.speed-fast { --spinner-speed: 0.6s; }
+
+/* Color variants */
+.primary { --spinner-color: #007bff; }
+.secondary { --spinner-color: #6c757d; }
+.success { --spinner-color: #1f9d55; }
+.warning { --spinner-color: #f59e0b; }
+.danger { --spinner-color: #e11d48; }
+
+/* SPINNER VARIANT 1: Circular spinner */
+.variant1 .circularSpinner {
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+  position: relative;
+}
+
+.variant1 .circularRing {
+  width: 100%;
+  height: 100%;
+  border: var(--spinner-border-width) solid rgba(0, 123, 255, 0.2);
+  border-top-color: var(--spinner-color);
+  border-radius: 50%;
+  animation: spin var(--spinner-speed) linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* SPINNER VARIANT 2: Dots pulsantes */
+.variant2 .dotsSpinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: calc(var(--spinner-size) * 0.15);
+  width: var(--spinner-size);
+  height: calc(var(--spinner-size) * 0.4);
+}
+
+.variant2 .dot {
+  width: calc(var(--spinner-size) * 0.2);
+  height: calc(var(--spinner-size) * 0.2);
+  background-color: var(--spinner-color);
+  border-radius: 50%;
+  animation: pulse var(--spinner-speed) ease-in-out infinite;
+}
+
+.variant2 .dot:nth-child(1) { animation-delay: 0s; }
+.variant2 .dot:nth-child(2) { animation-delay: calc(var(--spinner-speed) * 0.33); }
+.variant2 .dot:nth-child(3) { animation-delay: calc(var(--spinner-speed) * 0.66); }
+
+@keyframes pulse {
+  0%, 80%, 100% {
+    transform: scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+/* SPINNER VARIANT 3: Barras deslizantes */
+.variant3 .barsSpinner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: calc(var(--spinner-size) * 0.1);
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+}
+
+.variant3 .bar {
+  width: calc(var(--spinner-size) * 0.15);
+  background-color: var(--spinner-color);
+  border-radius: calc(var(--spinner-size) * 0.075);
+  animation: bars var(--spinner-speed) ease-in-out infinite;
+}
+
+.variant3 .bar:nth-child(1) { animation-delay: 0s; }
+.variant3 .bar:nth-child(2) { animation-delay: calc(var(--spinner-speed) * 0.25); }
+.variant3 .bar:nth-child(3) { animation-delay: calc(var(--spinner-speed) * 0.5); }
+.variant3 .bar:nth-child(4) { animation-delay: calc(var(--spinner-speed) * 0.75); }
+
+@keyframes bars {
+  0%, 40%, 100% {
+    height: calc(var(--spinner-size) * 0.3);
+  }
+  20% {
+    height: 100%;
+  }
+}
+
+/* SPINNER VARIANT 4: Grid de cuadrados */
+.variant4 .gridSpinner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: calc(var(--spinner-size) * 0.1);
+  width: var(--spinner-size);
+  height: var(--spinner-size);
+}
+
+.variant4 .square {
+  background-color: var(--spinner-color);
+  border-radius: calc(var(--spinner-size) * 0.05);
+  animation: squares var(--spinner-speed) ease-in-out infinite;
+}
+
+.variant4 .square:nth-child(1) { animation-delay: 0s; }
+.variant4 .square:nth-child(2) { animation-delay: calc(var(--spinner-speed) * 0.25); }
+.variant4 .square:nth-child(3) { animation-delay: calc(var(--spinner-speed) * 0.5); }
+.variant4 .square:nth-child(4) { animation-delay: calc(var(--spinner-speed) * 0.75); }
+
+@keyframes squares {
+  0%, 70%, 100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  35% {
+    transform: scale(1.3);
+    opacity: 1;
+  }
+}
+
+/* SPINNER VARIANT 5: Wave/Onda */
+.variant5 .waveSpinner {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: calc(var(--spinner-size) * 0.05);
+  width: var(--spinner-size);
+  height: calc(var(--spinner-size) * 0.7);
+}
+
+.variant5 .wave {
+  width: calc(var(--spinner-size) * 0.1);
+  background-color: var(--spinner-color);
+  border-radius: calc(var(--spinner-size) * 0.05);
+  animation: wave var(--spinner-speed) ease-in-out infinite;
+}
+
+.variant5 .wave:nth-child(1) { animation-delay: 0s; }
+.variant5 .wave:nth-child(2) { animation-delay: calc(var(--spinner-speed) * 0.1); }
+.variant5 .wave:nth-child(3) { animation-delay: calc(var(--spinner-speed) * 0.2); }
+.variant5 .wave:nth-child(4) { animation-delay: calc(var(--spinner-speed) * 0.3); }
+.variant5 .wave:nth-child(5) { animation-delay: calc(var(--spinner-speed) * 0.4); }
+
+@keyframes wave {
+  0%, 40%, 100% {
+    height: calc(var(--spinner-size) * 0.2);
+  }
+  20% {
+    height: 100%;
+  }
+}
+
+/* Color vision adjustments */
+.cv-protanopia.primary { --spinner-color: #3399ff; }
+.cv-deuteranopia.primary { --spinner-color: #4f83cc; }
+.cv-tritanopia.primary { --spinner-color: #007bff; }
+
+.cv-protanopia.success { --spinner-color: #ffd966; }
+.cv-deuteranopia.success { --spinner-color: #a3e635; }
+.cv-tritanopia.success { --spinner-color: #fbbf24; }
+
+.cv-protanopia.warning { --spinner-color: #ffd966; }
+.cv-deuteranopia.warning { --spinner-color: #ffe066; }
+.cv-tritanopia.warning { --spinner-color: #ffb366; }
+
+.cv-protanopia.danger { --spinner-color: #ff6666; }
+.cv-deuteranopia.danger { --spinner-color: #ff8080; }
+.cv-tritanopia.danger { --spinner-color: #ff6666; }
+
+.cv-protanopia.secondary { --spinner-color: #9ca3af; }
+.cv-deuteranopia.secondary { --spinner-color: #94a3b8; }
+.cv-tritanopia.secondary { --spinner-color: #6c757d; }
+
+/* Accessibility modes */
+.a11y-low-vision {
+  --spinner-size: 48px;
+  --spinner-border-width: 4px;
+}
+
+.a11y-low-vision .label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.a11y-high-contrast {
+  --spinner-color: #000;
+}
+
+.a11y-high-contrast .label {
+  color: #000;
+  font-weight: 600;
+}
+
+/* Update circular ring for high contrast in variant 1 */
+.a11y-high-contrast.variant1 .circularRing {
+  border-color: rgba(0, 0, 0, 0.2);
+  border-top-color: #000;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .circularRing,
+  .dot,
+  .bar {
+    animation-duration: 3s;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .spinner {
+    --spinner-size: calc(var(--spinner-size) * 0.875);
+  }
+  
+  .label {
+    font-size: 13px;
+  }
+}
