@@ -95,7 +95,7 @@
   right: 0;
   z-index: 1000;
   margin-top: 4px;
-  background: var(--select-bg);
+  background: var(--select-dropdown-bg, #fff);
   border: 2px solid var(--select-border-focus);
   border-radius: 10px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.15);
@@ -192,26 +192,31 @@
   --select-border-focus: #007bff; 
   --select-shadow-focus: 0 0 0 3px rgba(11,92,255,.15);
   --select-option-hover: rgba(0,123,255,0.1);
+  --select-dropdown-bg: #fff;
 }
 .secondary { 
   --select-border-focus: #6c757d; 
   --select-shadow-focus: 0 0 0 3px rgba(108,117,125,.15);
   --select-option-hover: rgba(108,117,125,0.1);
+  --select-dropdown-bg: #fff;
 }
 .success { 
   --select-border-focus: #1f9d55; 
   --select-shadow-focus: 0 0 0 3px rgba(31,157,85,.15);
   --select-option-hover: rgba(31,157,85,0.1);
+  --select-dropdown-bg: #fff;
 }
 .warning { 
   --select-border-focus: #f59e0b; 
   --select-shadow-focus: 0 0 0 3px rgba(245,158,11,.15);
   --select-option-hover: rgba(245,158,11,0.1);
+  --select-dropdown-bg: #fff;
 }
 .danger { 
   --select-border-focus: #e11d48; 
   --select-shadow-focus: 0 0 0 3px rgba(225,29,72,.15);
   --select-option-hover: rgba(225,29,72,0.1);
+  --select-dropdown-bg: #fff;
 }
 
 /* Color vision adjustments - iguales al Button */
@@ -306,6 +311,7 @@
 
 .a11y-high-contrast { 
   --select-bg: #fff;
+  --select-dropdown-bg: #fff;
   --select-border: #000;
   --select-border-focus: #000;
   --select-color: #000;

@@ -4,7 +4,6 @@ import styles from './Breadcrumb.module.css';
 export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
-export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl';
 
 export interface BreadcrumbItem {
@@ -19,7 +18,6 @@ export interface BreadcrumbProps {
   variant?: Variant;
   colorVision?: ColorVision;
   accessibility?: AccessibilityMode;
-  size?: Size;
   fontSize?: FontSize;
   separator?: React.ReactNode;
   maxItems?: number;
@@ -34,7 +32,6 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   variant = 'primary',
   colorVision = 'normal',
   accessibility = 'default',
-  size = 'md',
   fontSize = 'fs-md',
   separator,
   maxItems,
@@ -43,7 +40,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   onHomeClick,
   ariaLabel = 'Breadcrumb',
 }) => {
-  const rootClasses = [styles.breadcrumb, styles[variant], styles[size], styles[fontSize]];
+  const rootClasses = [styles.breadcrumb, styles[variant], styles[fontSize]];
 
   if (colorVision && colorVision !== 'normal') {
     rootClasses.push(styles[`cv-${colorVision}`]);

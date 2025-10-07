@@ -8,8 +8,8 @@
 }
 
 .input {
-  width: 20px;
-  height: 20px;
+  width: var(--checkbox-size, 20px);
+  height: var(--checkbox-size, 20px);
   accent-color: var(--checkbox-accent, #007bff);
   border-radius: 4px;
   border: 2px solid var(--checkbox-border, #888);
@@ -43,14 +43,14 @@
     transform: translate(-50%, -50%) scale(1);
   }
   60% {
-    width: 40px;
-    height: 40px;
+    width: calc(var(--checkbox-size, 20px) * 2);
+    height: calc(var(--checkbox-size, 20px) * 2);
     opacity: 0.3;
     transform: translate(-50%, -50%) scale(1.2);
   }
   100% {
-    width: 60px;
-    height: 60px;
+    width: calc(var(--checkbox-size, 20px) * 3);
+    height: calc(var(--checkbox-size, 20px) * 3);
     opacity: 0;
     transform: translate(-50%, -50%) scale(1.5);
   }
@@ -91,11 +91,21 @@
 }
 
 /* Tamaños */
-.xs { --checkbox-font-size: 12px; }
-.sm { --checkbox-font-size: 14px; }
-.md { --checkbox-font-size: 16px; }
-.lg { --checkbox-font-size: 18px; }
-.xl { --checkbox-font-size: 20px; }
+.xs { 
+  --checkbox-size: 16px;
+}
+.sm { 
+  --checkbox-size: 18px;
+}
+.md { 
+  --checkbox-size: 20px;
+}
+.lg { 
+  --checkbox-size: 24px;
+}
+.xl { 
+  --checkbox-size: 28px;
+}
 
 /* Daltonismo - combinaciones específicas por variante igual que Button */
 .cv-protanopia.primary { --checkbox-accent: #3399ff; --checkbox-border: #3399ff; }

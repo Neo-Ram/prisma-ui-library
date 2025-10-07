@@ -1,7 +1,5 @@
 .toggle {
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  display: inline-block;
   cursor: pointer;
   user-select: none;
 }
@@ -14,6 +12,9 @@
   border-radius: 12px;
   transition: background 0.2s;
   border: 2px solid var(--toggle-border, #cbd2dd);
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
 }
 
 .switch.on,
@@ -24,7 +25,6 @@
 
 .knob {
   position: absolute;
-  top: 2px;
   left: 2px;
   width: 20px;
   height: 20px;
@@ -32,6 +32,8 @@
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.12);
   transition: left 0.2s, background 0.2s;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .switch.on .knob,
@@ -40,11 +42,7 @@
   background: var(--toggle-knob-on, #fff);
 }
 
-.label {
-  font-size: 16px;
-  color: var(--toggle-label, #222);
-  font-weight: 500;
-}
+
 
 /* Focus and accessibility */
 .switch:focus-visible {
@@ -86,5 +84,4 @@
 .cv-deuteranopia.secondary { --toggle-bg-on: #94a3b8; --toggle-border-on: #94a3b8; }
 .cv-tritanopia.secondary { --toggle-bg-on: #6c757d; --toggle-border-on: #6c757d; }
 
-.a11y-low-vision { font-size: 20px; }
-.a11y-high-contrast { --toggle-bg-on: #000; --toggle-border-on: #000; --toggle-label: #000; }
+.a11y-high-contrast { --toggle-bg-on: #000; --toggle-border-on: #000; }

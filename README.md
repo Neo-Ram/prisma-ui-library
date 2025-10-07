@@ -12,7 +12,7 @@ A comprehensive, accessible, and customizable React component library built with
 
 ## ✨ Key Features
 
-- 🎯 **WCAG 2.1 AA Compliant**: Full accessibility with ARIA, keyboard navigation, screen reader support
+- 🎯 **WCAG 2.1 AA Compliant**
 - 🌈 **Colorblind Friendly**: Support for protanopia, deuteranopia, and tritanopia
 - 📱 **Responsive Design**: Mobile-first approach with adaptive layouts
 - ⚡ **TypeScript**: Full type safety with comprehensive prop interfaces
@@ -96,6 +96,7 @@ Enhanced accessibility features:
 
 ```tsx
 import { Button } from 'neo-ram-prisma';
+import 'neo-ram-prisma/style.css';
 
 // Basic usage
 <Button variant="primary" size="md">
@@ -121,6 +122,7 @@ import { Button } from 'neo-ram-prisma';
 
 ```tsx
 import { Input, Checkbox, Radiogroup, Select } from 'neo-ram-prisma';
+import 'neo-ram-prisma/style.css';
 
 // Input with validation
 <Input
@@ -169,7 +171,7 @@ import { Input, Checkbox, Radiogroup, Select } from 'neo-ram-prisma';
 
 ```tsx
 import { Breadcrumb, Pagination } from 'neo-ram-prisma';
-
+import 'neo-ram-prisma/style.css';
 // Smart breadcrumb navigation
 <Breadcrumb
   items={[
@@ -197,7 +199,7 @@ import { Breadcrumb, Pagination } from 'neo-ram-prisma';
 
 ```tsx
 import { Alert, Tooltip, Spinner } from 'neo-ram-prisma';
-
+import 'neo-ram-prisma/style.css';
 // Alert with emoji and dismissible
 <Alert
   variant="success"
@@ -238,11 +240,6 @@ import { Alert, Tooltip, Spinner } from 'neo-ram-prisma';
 - Logical tab order and focus management
 - Escape key handling for modals and dropdowns
 
-### Screen Reader Support
-- Semantic HTML structure
-- Descriptive labels and instructions
-- Status announcements for state changes
-
 ### Visual Accessibility
 - High contrast mode support
 - Scalable text and UI elements
@@ -251,17 +248,6 @@ import { Alert, Tooltip, Spinner } from 'neo-ram-prisma';
 
 ## 🔧 Customization
 
-### Custom CSS Variables
-
-All components use CSS custom properties that can be overridden:
-
-```css
-:root {
-  --button-primary-bg: #your-brand-color;
-  --input-border-radius: 12px;
-  --font-family: 'Your Custom Font', sans-serif;
-}
-```
 
 ## 📱 Responsive Design
 
@@ -289,7 +275,7 @@ This is a free and open-source project developed as part of a thesis research on
 
 ## 📞 Support
 
-- 📖 [Documentation](https://github.com/Neo-Ram/prisma-ui-library/wiki)
+- 📖 [Documentation](https://prisma-drab.vercel.app/)
 
 ---
 

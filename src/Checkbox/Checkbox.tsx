@@ -5,7 +5,6 @@ export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type CheckboxSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-export type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl';
 
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
@@ -13,7 +12,6 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   colorVision?: ColorVision;
   accessibility?: AccessibilityMode;
   checkboxSize?: CheckboxSize;
-  fontSize?: FontSize;
   disabled?: boolean;
 }
 
@@ -23,7 +21,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   colorVision = 'normal',
   accessibility = 'default',
   checkboxSize = 'md',
-  fontSize = 'fs-md',
   className,
   id,
   disabled,
@@ -37,7 +34,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     styles.checkbox,
     styles[variant],
     styles[checkboxSize],
-    styles[fontSize],
   ];
   if (colorVision && colorVision !== 'normal') {
     classes.push(styles[`cv-${colorVision}`]);

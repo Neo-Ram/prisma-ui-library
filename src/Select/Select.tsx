@@ -51,7 +51,7 @@ export const Select: React.FC<SelectProps> = ({
 
   const rootClasses = [styles.select];
   const triggerClasses = [styles.trigger, styles[variant], styles[size], styles[fontSize]];
-  const dropdownClasses = [styles.dropdown, styles[variant]];
+  const dropdownClasses = [styles.dropdown, styles[variant], styles[fontSize]];
 
   if (colorVision && colorVision !== 'normal') {
     rootClasses.push(styles[`cv-${colorVision}`]);

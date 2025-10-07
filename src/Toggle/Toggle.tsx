@@ -8,7 +8,6 @@ export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export interface ToggleProps {
   checked: boolean;
   onChange: (checked: boolean) => void;
-  label?: string;
   variant?: Variant;
   colorVision?: ColorVision;
   accessibility?: AccessibilityMode;
@@ -18,7 +17,6 @@ export interface ToggleProps {
 export const Toggle: React.FC<ToggleProps> = ({
   checked,
   onChange,
-  label,
   variant = 'primary',
   colorVision = 'normal',
   accessibility = 'default',
@@ -40,8 +38,7 @@ export const Toggle: React.FC<ToggleProps> = ({
   }
 
   return (
-    <label className={rootClasses.join(' ')}>
-      <span className={styles.label}>{label}</span>
+    <div className={rootClasses.join(' ')}>
       <span
         tabIndex={0}
         role="switch"
@@ -58,6 +55,6 @@ export const Toggle: React.FC<ToggleProps> = ({
       >
         <span className={styles.knob} />
       </span>
-    </label>
+    </div>
   );
 };
