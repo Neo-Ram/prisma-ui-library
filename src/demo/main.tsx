@@ -175,7 +175,6 @@ export function App(){
         <CheckboxDemoInline
           variant={variant}
           checkboxSize={size}
-          fontSize={fontSize}
           colorVision={colorVision}
           accessibility={accessibility}
           disabled={disabled}
@@ -257,7 +256,6 @@ export function App(){
         <h2>Demo Breadcrumb accesible</h2>
         <BreadcrumbDemoInline
           variant={variant}
-          size={size}
           fontSize={fontSize}
           colorVision={colorVision}
           accessibility={accessibility}
@@ -306,7 +304,6 @@ createRoot(rootEl).render(<App />)
 function ToggleDemoInline(props: import('../Toggle/Toggle').ToggleProps) {
   return (
     <Toggle
-      label="¿Activar opción?"
       checked={props.checked}
       onChange={props.onChange}
       variant={props.variant}
@@ -430,7 +427,6 @@ function BreadcrumbDemoInline(props: Omit<import('../Breadcrumb/Breadcrumb').Bre
       <Breadcrumb
         items={breadcrumbItems}
         variant={props.variant}
-        size={props.size}
         fontSize={props.fontSize}
         colorVision={props.colorVision}
         accessibility={props.accessibility}
