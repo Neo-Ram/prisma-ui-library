@@ -8,6 +8,44 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl';
 export type AlertType = 'info' | 'success' | 'warning' | 'error' | 'neutral';
 
+export interface ColorVisionConfig {
+  backgroundColor: string;
+  borderColor: string;
+  textColor: string;
+  iconColor: string;
+  titleColor: string;
+}
+
+export interface CustomAlertColors {
+  // Normal vision colors
+  defaultBg: string;
+  defaultBorder: string;
+  defaultColor: string;
+  defaultIconColor: string;
+  defaultTitleColor: string;
+
+  // Protanopia colors
+  protanopiaBg: string;
+  protanopiaBorder: string;
+  protanopiaColor: string;
+  protanopiaIconColor: string;
+  protanopiaTitleColor: string;
+
+  // Deuteranopia colors
+  deuteranopiaBg: string;
+  deuteranopiaBorder: string;
+  deuteranopiaColor: string;
+  deuteranopiaIconColor: string;
+  deuteranopiaTitleColor: string;
+
+  // Tritanopia colors
+  tritanopiaBg: string;
+  tritanopiaBorder: string;
+  tritanopiaColor: string;
+  tritanopiaIconColor: string;
+  tritanopiaTitleColor: string;
+}
+
 export interface AlertProps {
   children: React.ReactNode;
   title?: string;
@@ -24,6 +62,8 @@ export interface AlertProps {
   role?: 'alert' | 'alertdialog' | 'status';
   ariaLabel?: string;
   className?: string;
+  customColors?: CustomAlertColors;
+  style?: React.CSSProperties;
 }
 
 const defaultEmojis = {
@@ -53,6 +93,8 @@ export const Alert: React.FC<AlertProps> = ({
   role = 'alert',
   ariaLabel,
   className,
+  customColors,
+  style,
 }) => {
   const [isVisible, setIsVisible] = useState(true);
 
@@ -91,12 +133,44 @@ export const Alert: React.FC<AlertProps> = ({
     rootClasses.push(className);
   }
 
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--alert-bg'] = customColors.defaultBg
+      customStyle['--alert-border'] = customColors.defaultBorder
+      customStyle['--alert-color'] = customColors.defaultColor
+      customStyle['--alert-icon-color'] = customColors.defaultIconColor
+      customStyle['--alert-title-color'] = customColors.defaultTitleColor
+    } else if (colorVision === 'protanopia') {
+      customStyle['--alert-bg'] = customColors.protanopiaBg
+      customStyle['--alert-border'] = customColors.protanopiaBorder
+      customStyle['--alert-color'] = customColors.protanopiaColor
+      customStyle['--alert-icon-color'] = customColors.protanopiaIconColor
+      customStyle['--alert-title-color'] = customColors.protanopiaTitleColor
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--alert-bg'] = customColors.deuteranopiaBg
+      customStyle['--alert-border'] = customColors.deuteranopiaBorder
+      customStyle['--alert-color'] = customColors.deuteranopiaColor
+      customStyle['--alert-icon-color'] = customColors.deuteranopiaIconColor
+      customStyle['--alert-title-color'] = customColors.deuteranopiaTitleColor
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--alert-bg'] = customColors.tritanopiaBg
+      customStyle['--alert-border'] = customColors.tritanopiaBorder
+      customStyle['--alert-color'] = customColors.tritanopiaColor
+      customStyle['--alert-icon-color'] = customColors.tritanopiaIconColor
+      customStyle['--alert-title-color'] = customColors.tritanopiaTitleColor
+    }
+  }
+
   return (
     <div
       className={rootClasses.join(' ')}
       role={role}
       aria-label={ariaLabel}
       aria-live={role === 'alert' ? 'assertive' : 'polite'}
+      style={customStyle}
     >
       {showIcon && (
         <div className={styles.iconContainer}>

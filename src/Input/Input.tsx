@@ -8,6 +8,32 @@ export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl';
 
+export interface CustomInputColors {
+  // Normal vision colors
+  defaultBorder: string;
+  defaultBorderFocus: string;
+  defaultColor: string;
+  defaultBg: string;
+
+  // Protanopia colors
+  protanopiaBorder: string;
+  protanopiaBorderFocus: string;
+  protanopiaColor: string;
+  protanopiaBg: string;
+
+  // Deuteranopia colors
+  deuteranopiaBorder: string;
+  deuteranopiaBorderFocus: string;
+  deuteranopiaColor: string;
+  deuteranopiaBg: string;
+
+  // Tritanopia colors
+  tritanopiaBorder: string;
+  tritanopiaBorderFocus: string;
+  tritanopiaColor: string;
+  tritanopiaBg: string;
+}
+
 export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   variant?: Variant;
@@ -15,6 +41,8 @@ export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> 
   accessibility?: AccessibilityMode;
   inputSize?: InputSize;
   fontSize?: FontSize;
+  customColors?: CustomInputColors;
+  style?: React.CSSProperties;
 }
 
 export const Input: React.FC<InputProps> = ({
@@ -30,12 +58,39 @@ export const Input: React.FC<InputProps> = ({
   placeholder,
   id,
   type,
+  customColors,
+  style,
   ...rest
 }) => {
   const [showPassword, setShowPassword] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
- 
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--input-border'] = customColors.defaultBorder
+      customStyle['--input-border-focus'] = customColors.defaultBorderFocus
+      customStyle['--input-color'] = customColors.defaultColor
+      customStyle['--input-bg'] = customColors.defaultBg
+    } else if (colorVision === 'protanopia') {
+      customStyle['--input-border'] = customColors.protanopiaBorder
+      customStyle['--input-border-focus'] = customColors.protanopiaBorderFocus
+      customStyle['--input-color'] = customColors.protanopiaColor
+      customStyle['--input-bg'] = customColors.protanopiaBg
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--input-border'] = customColors.deuteranopiaBorder
+      customStyle['--input-border-focus'] = customColors.deuteranopiaBorderFocus
+      customStyle['--input-color'] = customColors.deuteranopiaColor
+      customStyle['--input-bg'] = customColors.deuteranopiaBg
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--input-border'] = customColors.tritanopiaBorder
+      customStyle['--input-border-focus'] = customColors.tritanopiaBorderFocus
+      customStyle['--input-color'] = customColors.tritanopiaColor
+      customStyle['--input-bg'] = customColors.tritanopiaBg
+    }
+  }
 
   const classes = [
     styles.input,
@@ -68,7 +123,7 @@ export const Input: React.FC<InputProps> = ({
           id={inputId}
           ref={inputRef}
           className={classes.join(' ')}
-          style={bigFont}
+          style={{ ...customStyle, ...bigFont }}
           placeholder={placeholder}
           aria-label={label || placeholder}
           value={value}

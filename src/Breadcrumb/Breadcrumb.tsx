@@ -13,6 +13,32 @@ export interface BreadcrumbItem {
   disabled?: boolean;
 }
 
+export interface CustomBreadcrumbColors {
+  // Normal vision colors
+  defaultColor: string;
+  defaultColorHover: string;
+  defaultColorCurrent: string;
+  defaultSeparator: string;
+
+  // Protanopia colors
+  protanopiaColor: string;
+  protanopiaColorHover: string;
+  protanopiaColorCurrent: string;
+  protanopiaSeparator: string;
+
+  // Deuteranopia colors
+  deuteranopiaColor: string;
+  deuteranopiaColorHover: string;
+  deuteranopiaColorCurrent: string;
+  deuteranopiaSeparator: string;
+
+  // Tritanopia colors
+  tritanopiaColor: string;
+  tritanopiaColorHover: string;
+  tritanopiaColorCurrent: string;
+  tritanopiaSeparator: string;
+}
+
 export interface BreadcrumbProps {
   items: BreadcrumbItem[];
   variant?: Variant;
@@ -25,6 +51,8 @@ export interface BreadcrumbProps {
   homeLabel?: string;
   onHomeClick?: () => void;
   ariaLabel?: string;
+  customColors?: CustomBreadcrumbColors;
+  style?: React.CSSProperties;
 }
 
 export const Breadcrumb: React.FC<BreadcrumbProps> = ({
@@ -39,6 +67,8 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   homeLabel = 'Inicio',
   onHomeClick,
   ariaLabel = 'Breadcrumb',
+  customColors,
+  style,
 }) => {
   const rootClasses = [styles.breadcrumb, styles[variant], styles[fontSize]];
 
@@ -47,6 +77,33 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   }
   if (accessibility && accessibility !== 'default') {
     rootClasses.push(styles[`a11y-${accessibility}`]);
+  }
+
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--breadcrumb-color'] = customColors.defaultColor
+      customStyle['--breadcrumb-color-hover'] = customColors.defaultColorHover
+      customStyle['--breadcrumb-color-current'] = customColors.defaultColorCurrent
+      customStyle['--breadcrumb-separator'] = customColors.defaultSeparator
+    } else if (colorVision === 'protanopia') {
+      customStyle['--breadcrumb-color'] = customColors.protanopiaColor
+      customStyle['--breadcrumb-color-hover'] = customColors.protanopiaColorHover
+      customStyle['--breadcrumb-color-current'] = customColors.protanopiaColorCurrent
+      customStyle['--breadcrumb-separator'] = customColors.protanopiaSeparator
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--breadcrumb-color'] = customColors.deuteranopiaColor
+      customStyle['--breadcrumb-color-hover'] = customColors.deuteranopiaColorHover
+      customStyle['--breadcrumb-color-current'] = customColors.deuteranopiaColorCurrent
+      customStyle['--breadcrumb-separator'] = customColors.deuteranopiaSeparator
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--breadcrumb-color'] = customColors.tritanopiaColor
+      customStyle['--breadcrumb-color-hover'] = customColors.tritanopiaColorHover
+      customStyle['--breadcrumb-color-current'] = customColors.tritanopiaColorCurrent
+      customStyle['--breadcrumb-separator'] = customColors.tritanopiaSeparator
+    }
   }
 
   // Process items based on maxItems
@@ -150,7 +207,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
   }
 
   return (
-    <nav className={rootClasses.join(' ')} aria-label={ariaLabel}>
+    <nav className={rootClasses.join(' ')} aria-label={ariaLabel} style={customStyle}>
       <ol className={styles.list}>
         {allItems.map(renderItem)}
       </ol>

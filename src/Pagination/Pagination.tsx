@@ -7,6 +7,28 @@ export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl';
 
+export interface CustomPaginationColors {
+  // Normal vision colors
+  defaultColorActive: string;
+  defaultBgActive: string;
+  defaultShadowFocus: string;
+
+  // Protanopia colors
+  protanopiaColorActive: string;
+  protanopiaBgActive: string;
+  protanopiaShadowFocus: string;
+
+  // Deuteranopia colors
+  deuteranopiaColorActive: string;
+  deuteranopiaBgActive: string;
+  deuteranopiaShadowFocus: string;
+
+  // Tritanopia colors
+  tritanopiaColorActive: string;
+  tritanopiaBgActive: string;
+  tritanopiaShadowFocus: string;
+}
+
 export interface PaginationProps {
   currentPage: number;
   totalPages: number;
@@ -21,6 +43,8 @@ export interface PaginationProps {
   showPrevNext?: boolean;
   maxVisiblePages?: number;
   ariaLabel?: string;
+  customColors?: CustomPaginationColors;
+  style?: React.CSSProperties;
 }
 
 export const Pagination: React.FC<PaginationProps> = ({
@@ -37,6 +61,8 @@ export const Pagination: React.FC<PaginationProps> = ({
   showPrevNext = true,
   maxVisiblePages = 7,
   ariaLabel = 'Navegación de páginas',
+  customColors,
+  style,
 }) => {
   const rootClasses = [styles.pagination];
   const buttonBaseClasses = [styles.button, styles[variant], styles[size], styles[fontSize]];
@@ -46,6 +72,29 @@ export const Pagination: React.FC<PaginationProps> = ({
   }
   if (accessibility && accessibility !== 'default') {
     rootClasses.push(styles[`a11y-${accessibility}`]);
+  }
+
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--btn-color-active'] = customColors.defaultColorActive
+      customStyle['--btn-bg-active-variant'] = customColors.defaultBgActive
+      customStyle['--btn-shadow-focus'] = customColors.defaultShadowFocus
+    } else if (colorVision === 'protanopia') {
+      customStyle['--btn-color-active'] = customColors.protanopiaColorActive
+      customStyle['--btn-bg-active-variant'] = customColors.protanopiaBgActive
+      customStyle['--btn-shadow-focus'] = customColors.protanopiaShadowFocus
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--btn-color-active'] = customColors.deuteranopiaColorActive
+      customStyle['--btn-bg-active-variant'] = customColors.deuteranopiaBgActive
+      customStyle['--btn-shadow-focus'] = customColors.deuteranopiaShadowFocus
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--btn-color-active'] = customColors.tritanopiaColorActive
+      customStyle['--btn-bg-active-variant'] = customColors.tritanopiaBgActive
+      customStyle['--btn-shadow-focus'] = customColors.tritanopiaShadowFocus
+    }
   }
 
   // Calculate which pages to show
@@ -102,7 +151,7 @@ export const Pagination: React.FC<PaginationProps> = ({
   }
 
   return (
-    <nav className={rootClasses.join(' ')} aria-label={ariaLabel}>
+    <nav className={rootClasses.join(' ')} aria-label={ariaLabel} style={customStyle}>
       <ul className={styles.list}>
         {/* First page button */}
         {showFirstLast && (

@@ -8,6 +8,28 @@ export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl';
 export type TooltipPosition = 'top' | 'bottom' | 'left' | 'right' | 'auto';
 
+export interface CustomTooltipColors {
+  // Normal vision colors
+  defaultBg: string;
+  defaultColor: string;
+  defaultBorder: string;
+
+  // Protanopia colors
+  protanopiaBg: string;
+  protanopiaColor: string;
+  protanopiaBorder: string;
+
+  // Deuteranopia colors
+  deuteranopiaBg: string;
+  deuteranopiaColor: string;
+  deuteranopiaBorder: string;
+
+  // Tritanopia colors
+  tritanopiaBg: string;
+  tritanopiaColor: string;
+  tritanopiaBorder: string;
+}
+
 export interface TooltipProps {
   children: React.ReactNode;
   content: React.ReactNode;
@@ -27,6 +49,8 @@ export interface TooltipProps {
   maxWidth?: number;
   offset?: number;
   ariaLabel?: string;
+  customColors?: CustomTooltipColors;
+  style?: React.CSSProperties;
 }
 
 export const Tooltip: React.FC<TooltipProps> = ({
@@ -48,6 +72,8 @@ export const Tooltip: React.FC<TooltipProps> = ({
   maxWidth = 300,
   offset = 8,
   ariaLabel,
+  customColors,
+  style,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [actualPosition, setActualPosition] = useState<Exclude<TooltipPosition, 'auto'>>('top');
@@ -56,6 +82,29 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const tooltipRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--tooltip-bg'] = customColors.defaultBg
+      customStyle['--tooltip-color'] = customColors.defaultColor
+      customStyle['--tooltip-border'] = customColors.defaultBorder
+    } else if (colorVision === 'protanopia') {
+      customStyle['--tooltip-bg'] = customColors.protanopiaBg
+      customStyle['--tooltip-color'] = customColors.protanopiaColor
+      customStyle['--tooltip-border'] = customColors.protanopiaBorder
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--tooltip-bg'] = customColors.deuteranopiaBg
+      customStyle['--tooltip-color'] = customColors.deuteranopiaColor
+      customStyle['--tooltip-border'] = customColors.deuteranopiaBorder
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--tooltip-bg'] = customColors.tritanopiaBg
+      customStyle['--tooltip-color'] = customColors.tritanopiaColor
+      customStyle['--tooltip-border'] = customColors.tritanopiaBorder
+    }
+  }
 
   const open = controlledOpen !== undefined ? controlledOpen : isOpen;
 
@@ -243,6 +292,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
           aria-label={ariaLabel}
           className={tooltipClasses.join(' ')}
           style={{
+            ...customStyle,
             maxWidth: `${maxWidth}px`,
             '--tooltip-offset': `${offset}px`,
           } as React.CSSProperties}

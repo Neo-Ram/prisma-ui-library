@@ -7,6 +7,36 @@ export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl';
 
+export interface CustomTextareaColors {
+  // Normal vision colors
+  defaultBg: string;
+  defaultBorder: string;
+  defaultBorderFocus: string;
+  defaultColor: string;
+  defaultPlaceholder: string;
+
+  // Protanopia colors
+  protanopiaBg: string;
+  protanopiaBorder: string;
+  protanopiaBorderFocus: string;
+  protanopiaColor: string;
+  protanopiaPlaceholder: string;
+
+  // Deuteranopia colors
+  deuteranopiaBg: string;
+  deuteranopiaBorder: string;
+  deuteranopiaBorderFocus: string;
+  deuteranopiaColor: string;
+  deuteranopiaPlaceholder: string;
+
+  // Tritanopia colors
+  tritanopiaBg: string;
+  tritanopiaBorder: string;
+  tritanopiaBorderFocus: string;
+  tritanopiaColor: string;
+  tritanopiaPlaceholder: string;
+}
+
 export interface TextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, 'size'> {
   value?: string;
   onChange?: (e: React.ChangeEvent<HTMLTextAreaElement>) => void;
@@ -22,6 +52,8 @@ export interface TextareaProps extends Omit<React.TextareaHTMLAttributes<HTMLTex
   error?: string;
   rows?: number;
   resize?: 'none' | 'vertical' | 'horizontal' | 'both';
+  customColors?: CustomTextareaColors;
+  style?: React.CSSProperties;
 }
 
 export const Textarea: React.FC<TextareaProps> = ({
@@ -39,11 +71,44 @@ export const Textarea: React.FC<TextareaProps> = ({
   error,
   rows = 4,
   resize = 'vertical',
+  customColors,
+  style,
   className,
   ...rest
 }) => {
   const rootClasses = [styles.textarea];
   const inputClasses = [styles.input, styles[variant], styles[textareaSize], styles[fontSize]];
+
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--textarea-bg'] = customColors.defaultBg
+      customStyle['--textarea-border'] = customColors.defaultBorder
+      customStyle['--textarea-border-focus'] = customColors.defaultBorderFocus
+      customStyle['--textarea-color'] = customColors.defaultColor
+      customStyle['--textarea-placeholder'] = customColors.defaultPlaceholder
+    } else if (colorVision === 'protanopia') {
+      customStyle['--textarea-bg'] = customColors.protanopiaBg
+      customStyle['--textarea-border'] = customColors.protanopiaBorder
+      customStyle['--textarea-border-focus'] = customColors.protanopiaBorderFocus
+      customStyle['--textarea-color'] = customColors.protanopiaColor
+      customStyle['--textarea-placeholder'] = customColors.protanopiaPlaceholder
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--textarea-bg'] = customColors.deuteranopiaBg
+      customStyle['--textarea-border'] = customColors.deuteranopiaBorder
+      customStyle['--textarea-border-focus'] = customColors.deuteranopiaBorderFocus
+      customStyle['--textarea-color'] = customColors.deuteranopiaColor
+      customStyle['--textarea-placeholder'] = customColors.deuteranopiaPlaceholder
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--textarea-bg'] = customColors.tritanopiaBg
+      customStyle['--textarea-border'] = customColors.tritanopiaBorder
+      customStyle['--textarea-border-focus'] = customColors.tritanopiaBorderFocus
+      customStyle['--textarea-color'] = customColors.tritanopiaColor
+      customStyle['--textarea-placeholder'] = customColors.tritanopiaPlaceholder
+    }
+  }
 
   if (colorVision && colorVision !== 'normal') {
     rootClasses.push(styles[`cv-${colorVision}`]);
@@ -83,6 +148,7 @@ export const Textarea: React.FC<TextareaProps> = ({
           required={required}
           rows={rows}
           className={inputClasses.join(' ')}
+          style={customStyle}
           aria-invalid={error ? 'true' : undefined}
           aria-describedby={error ? `${textareaId}-error` : undefined}
           {...rest}

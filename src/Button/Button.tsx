@@ -7,6 +7,22 @@ type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast'
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl'
 
+export type CustomColors = {
+  defaultColor: string
+  defaultColorHover: string
+  defaultColorActive: string
+  protanopiaColor: string
+  protanopiaColorHover: string
+  protanopiaColorActive: string
+  deuteranopiaColor: string
+  deuteranopiaColorHover: string
+  deuteranopiaColorActive: string
+  tritanopiaColor: string
+  tritanopiaColorHover: string
+  tritanopiaColorActive: string
+  textColor?: string
+}
+
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   children: React.ReactNode
   variant?: Variant
@@ -16,6 +32,7 @@ export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   fontSize?: FontSize
   isLoading?: boolean
   loadingLabel?: string
+  customColors?: CustomColors
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -29,6 +46,8 @@ export const Button: React.FC<ButtonProps> = ({
   loadingLabel = 'Cargando',
   disabled,
   className,
+  customColors,
+  style,
   ...rest
 }) => {
   const computedDisabled = disabled || isLoading
@@ -53,10 +72,44 @@ export const Button: React.FC<ButtonProps> = ({
   if (isLoading) classes.push(styles.loading)
   if (className) classes.push(className)
 
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    customStyle['--btn-bg'] = customColors.defaultColor
+    customStyle['--btn-bg-hover'] = customColors.defaultColorHover
+    customStyle['--btn-bg-active'] = customColors.defaultColorActive
+    
+    if (customColors.textColor) {
+      customStyle['--btn-color'] = customColors.textColor
+    }
+
+    // Protanopia
+    if (colorVision === 'protanopia') {
+      customStyle['--btn-bg'] = customColors.protanopiaColor
+      customStyle['--btn-bg-hover'] = customColors.protanopiaColorHover
+      customStyle['--btn-bg-active'] = customColors.protanopiaColorActive
+    }
+
+    // Deuteranopia
+    if (colorVision === 'deuteranopia') {
+      customStyle['--btn-bg'] = customColors.deuteranopiaColor
+      customStyle['--btn-bg-hover'] = customColors.deuteranopiaColorHover
+      customStyle['--btn-bg-active'] = customColors.deuteranopiaColorActive
+    }
+
+    // Tritanopia
+    if (colorVision === 'tritanopia') {
+      customStyle['--btn-bg'] = customColors.tritanopiaColor
+      customStyle['--btn-bg-hover'] = customColors.tritanopiaColorHover
+      customStyle['--btn-bg-active'] = customColors.tritanopiaColorActive
+    }
+  }
+
   return (
     <button
       type={rest.type ?? 'button'}
       className={classes.filter(Boolean).join(' ')}
+      style={customStyle}
       disabled={computedDisabled}
       aria-disabled={computedDisabled || undefined}
       aria-busy={isLoading || undefined}

@@ -6,6 +6,32 @@ export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type CheckboxSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 
+export interface CustomCheckboxColors {
+  // Normal vision colors
+  defaultAccent: string;
+  defaultBorder: string;
+  defaultBg: string;
+  defaultLabelColor: string;
+
+  // Protanopia colors
+  protanopiaAccent: string;
+  protanopiaBorder: string;
+  protanopiaBg: string;
+  protanopiaLabelColor: string;
+
+  // Deuteranopia colors
+  deuteranopiaAccent: string;
+  deuteranopiaBorder: string;
+  deuteranopiaBg: string;
+  deuteranopiaLabelColor: string;
+
+  // Tritanopia colors
+  tritanopiaAccent: string;
+  tritanopiaBorder: string;
+  tritanopiaBg: string;
+  tritanopiaLabelColor: string;
+}
+
 export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElement> {
   label?: string;
   variant?: Variant;
@@ -13,6 +39,8 @@ export interface CheckboxProps extends React.InputHTMLAttributes<HTMLInputElemen
   accessibility?: AccessibilityMode;
   checkboxSize?: CheckboxSize;
   disabled?: boolean;
+  customColors?: CustomCheckboxColors;
+  style?: React.CSSProperties;
 }
 
 export const Checkbox: React.FC<CheckboxProps> = ({
@@ -24,6 +52,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   className,
   id,
   disabled,
+  customColors,
+  style,
   ...rest
 }) => {
   const [exploding, setExploding] = React.useState(false);
@@ -43,10 +73,37 @@ export const Checkbox: React.FC<CheckboxProps> = ({
     classes.push(styles[`a11y-${accessibility}`]);
   }
 
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--checkbox-accent'] = customColors.defaultAccent
+      customStyle['--checkbox-border'] = customColors.defaultBorder
+      customStyle['--checkbox-bg'] = customColors.defaultBg
+      customStyle['--checkbox-label-color'] = customColors.defaultLabelColor
+    } else if (colorVision === 'protanopia') {
+      customStyle['--checkbox-accent'] = customColors.protanopiaAccent
+      customStyle['--checkbox-border'] = customColors.protanopiaBorder
+      customStyle['--checkbox-bg'] = customColors.protanopiaBg
+      customStyle['--checkbox-label-color'] = customColors.protanopiaLabelColor
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--checkbox-accent'] = customColors.deuteranopiaAccent
+      customStyle['--checkbox-border'] = customColors.deuteranopiaBorder
+      customStyle['--checkbox-bg'] = customColors.deuteranopiaBg
+      customStyle['--checkbox-label-color'] = customColors.deuteranopiaLabelColor
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--checkbox-accent'] = customColors.tritanopiaAccent
+      customStyle['--checkbox-border'] = customColors.tritanopiaBorder
+      customStyle['--checkbox-bg'] = customColors.tritanopiaBg
+      customStyle['--checkbox-label-color'] = customColors.tritanopiaLabelColor
+    }
+  }
+
   const bigFont = accessibility === 'low-vision' ? { fontSize: '22px' } : {};
 
   return (
-    <label className={classes.join(' ')} style={bigFont} htmlFor={inputId}>
+    <label className={classes.join(' ')} style={{ ...customStyle, ...bigFont }} htmlFor={inputId}>
       <input
         ref={inputRef}
         id={inputId}

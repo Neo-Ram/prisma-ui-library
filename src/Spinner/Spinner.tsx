@@ -7,6 +7,20 @@ export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
 export type SpinnerVariant = '1' | '2' | '3' | '4' | '5';
 
+export interface CustomSpinnerColors {
+  // Normal vision colors
+  defaultColor: string;
+
+  // Protanopia colors
+  protanopiaColor: string;
+
+  // Deuteranopia colors
+  deuteranopiaColor: string;
+
+  // Tritanopia colors
+  tritanopiaColor: string;
+}
+
 export interface SpinnerProps {
   variant?: Variant;
   colorVision?: ColorVision;
@@ -17,6 +31,8 @@ export interface SpinnerProps {
   ariaLabel?: string;
   speed?: 'slow' | 'normal' | 'fast';
   show?: boolean;
+  customColors?: CustomSpinnerColors;
+  style?: React.CSSProperties;
 }
 
 export const Spinner: React.FC<SpinnerProps> = ({
@@ -29,6 +45,8 @@ export const Spinner: React.FC<SpinnerProps> = ({
   ariaLabel,
   speed = 'normal',
   show = true,
+  customColors,
+  style,
 }) => {
   if (!show) return null;
 
@@ -39,6 +57,21 @@ export const Spinner: React.FC<SpinnerProps> = ({
     styles[`variant${spinnerVariant}`],
     styles[`speed-${speed}`]
   ];
+
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--spinner-color'] = customColors.defaultColor
+    } else if (colorVision === 'protanopia') {
+      customStyle['--spinner-color'] = customColors.protanopiaColor
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--spinner-color'] = customColors.deuteranopiaColor
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--spinner-color'] = customColors.tritanopiaColor
+    }
+  }
 
   if (colorVision && colorVision !== 'normal') {
     rootClasses.push(styles[`cv-${colorVision}`]);
@@ -114,6 +147,7 @@ export const Spinner: React.FC<SpinnerProps> = ({
       role="status"
       aria-label={effectiveAriaLabel}
       aria-live="polite"
+      style={customStyle}
     >
       {renderSpinner()}
       {label && (

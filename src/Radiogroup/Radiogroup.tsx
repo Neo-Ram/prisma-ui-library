@@ -15,6 +15,40 @@ export interface RadioOption {
   description?: string;
 }
 
+export interface CustomRadiogroupColors {
+  // Normal vision colors
+  defaultColor: string;
+  defaultBorderColor: string;
+  defaultBorderColorHover: string;
+  defaultBorderColorFocus: string;
+  defaultLabelColor: string;
+  defaultDescriptionColor: string;
+
+  // Protanopia colors
+  protanopiaColor: string;
+  protanopiaBorderColor: string;
+  protanopiaBorderColorHover: string;
+  protanopiaBorderColorFocus: string;
+  protanopiaLabelColor: string;
+  protanopiaDescriptionColor: string;
+
+  // Deuteranopia colors
+  deuteranopiaColor: string;
+  deuteranopiaBorderColor: string;
+  deuteranopiaBorderColorHover: string;
+  deuteranopiaBorderColorFocus: string;
+  deuteranopiaLabelColor: string;
+  deuteranopiaDescriptionColor: string;
+
+  // Tritanopia colors
+  tritanopiaColor: string;
+  tritanopiaBorderColor: string;
+  tritanopiaBorderColorHover: string;
+  tritanopiaBorderColorFocus: string;
+  tritanopiaLabelColor: string;
+  tritanopiaDescriptionColor: string;
+}
+
 export interface RadiogroupProps {
   name: string;
   options: RadioOption[];
@@ -36,6 +70,8 @@ export interface RadiogroupProps {
   ariaLabel?: string;
   ariaLabelledBy?: string;
   ariaDescribedBy?: string;
+  customColors?: CustomRadiogroupColors;
+  style?: React.CSSProperties;
 }
 
 export const Radiogroup: React.FC<RadiogroupProps> = ({
@@ -59,6 +95,8 @@ export const Radiogroup: React.FC<RadiogroupProps> = ({
   ariaLabel,
   ariaLabelledBy,
   ariaDescribedBy,
+  customColors,
+  style,
 }) => {
   const [internalValue, setInternalValue] = React.useState(defaultValue || '');
   
@@ -80,6 +118,41 @@ export const Radiogroup: React.FC<RadiogroupProps> = ({
   const groupId = React.useId();
   const descriptionId = React.useId();
   const errorId = React.useId();
+
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--radio-color'] = customColors.defaultColor
+      customStyle['--radio-border-color'] = customColors.defaultBorderColor
+      customStyle['--radio-border-color-hover'] = customColors.defaultBorderColorHover
+      customStyle['--radio-border-color-focus'] = customColors.defaultBorderColorFocus
+      customStyle['--radio-label-color'] = customColors.defaultLabelColor
+      customStyle['--radio-description-color'] = customColors.defaultDescriptionColor
+    } else if (colorVision === 'protanopia') {
+      customStyle['--radio-color'] = customColors.protanopiaColor
+      customStyle['--radio-border-color'] = customColors.protanopiaBorderColor
+      customStyle['--radio-border-color-hover'] = customColors.protanopiaBorderColorHover
+      customStyle['--radio-border-color-focus'] = customColors.protanopiaBorderColorFocus
+      customStyle['--radio-label-color'] = customColors.protanopiaLabelColor
+      customStyle['--radio-description-color'] = customColors.protanopiaDescriptionColor
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--radio-color'] = customColors.deuteranopiaColor
+      customStyle['--radio-border-color'] = customColors.deuteranopiaBorderColor
+      customStyle['--radio-border-color-hover'] = customColors.deuteranopiaBorderColorHover
+      customStyle['--radio-border-color-focus'] = customColors.deuteranopiaBorderColorFocus
+      customStyle['--radio-label-color'] = customColors.deuteranopiaLabelColor
+      customStyle['--radio-description-color'] = customColors.deuteranopiaDescriptionColor
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--radio-color'] = customColors.tritanopiaColor
+      customStyle['--radio-border-color'] = customColors.tritanopiaBorderColor
+      customStyle['--radio-border-color-hover'] = customColors.tritanopiaBorderColorHover
+      customStyle['--radio-border-color-focus'] = customColors.tritanopiaBorderColorFocus
+      customStyle['--radio-label-color'] = customColors.tritanopiaLabelColor
+      customStyle['--radio-description-color'] = customColors.tritanopiaDescriptionColor
+    }
+  }
 
   const rootClasses = [
     styles.radiogroup,
@@ -118,6 +191,7 @@ export const Radiogroup: React.FC<RadiogroupProps> = ({
       aria-invalid={error}
       aria-labelledby={ariaLabelledBy}
       aria-describedby={getAriaDescribedBy()}
+      style={customStyle}
     >
       {label && (
         <legend className={styles.legend}>

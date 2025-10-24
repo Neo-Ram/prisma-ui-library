@@ -5,6 +5,36 @@ export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 
+export interface CustomSliderColors {
+  // Normal vision colors
+  defaultTrackBg: string;
+  defaultTrackBorder: string;
+  defaultFillBg: string;
+  defaultThumbBg: string;
+  defaultThumbBorder: string;
+
+  // Protanopia colors
+  protanopiaTrackBg: string;
+  protanopiaTrackBorder: string;
+  protanopiaFillBg: string;
+  protanopiaThumbBg: string;
+  protanopiaThumbBorder: string;
+
+  // Deuteranopia colors
+  deuteranopiaTrackBg: string;
+  deuteranopiaTrackBorder: string;
+  deuteranopiaFillBg: string;
+  deuteranopiaThumbBg: string;
+  deuteranopiaThumbBorder: string;
+
+  // Tritanopia colors
+  tritanopiaTrackBg: string;
+  tritanopiaTrackBorder: string;
+  tritanopiaFillBg: string;
+  tritanopiaThumbBg: string;
+  tritanopiaThumbBorder: string;
+}
+
 export interface SliderProps {
   value: number;
   onChange: (value: number) => void;
@@ -17,6 +47,8 @@ export interface SliderProps {
   accessibility?: AccessibilityMode;
   disabled?: boolean;
   showValue?: boolean;
+  customColors?: CustomSliderColors;
+  style?: React.CSSProperties;
 }
 
 export const Slider: React.FC<SliderProps> = ({
@@ -31,10 +63,43 @@ export const Slider: React.FC<SliderProps> = ({
   accessibility = 'default',
   disabled = false,
   showValue = true,
+  customColors,
+  style,
 }) => {
   const rootClasses = [styles.slider];
   const trackClasses = [styles.track];
   const thumbClasses = [styles.thumb];
+
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--slider-track-bg'] = customColors.defaultTrackBg
+      customStyle['--slider-track-border'] = customColors.defaultTrackBorder
+      customStyle['--slider-fill-bg'] = customColors.defaultFillBg
+      customStyle['--slider-thumb-bg'] = customColors.defaultThumbBg
+      customStyle['--slider-thumb-border'] = customColors.defaultThumbBorder
+    } else if (colorVision === 'protanopia') {
+      customStyle['--slider-track-bg'] = customColors.protanopiaTrackBg
+      customStyle['--slider-track-border'] = customColors.protanopiaTrackBorder
+      customStyle['--slider-fill-bg'] = customColors.protanopiaFillBg
+      customStyle['--slider-thumb-bg'] = customColors.protanopiaThumbBg
+      customStyle['--slider-thumb-border'] = customColors.protanopiaThumbBorder
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--slider-track-bg'] = customColors.deuteranopiaTrackBg
+      customStyle['--slider-track-border'] = customColors.deuteranopiaTrackBorder
+      customStyle['--slider-fill-bg'] = customColors.deuteranopiaFillBg
+      customStyle['--slider-thumb-bg'] = customColors.deuteranopiaThumbBg
+      customStyle['--slider-thumb-border'] = customColors.deuteranopiaThumbBorder
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--slider-track-bg'] = customColors.tritanopiaTrackBg
+      customStyle['--slider-track-border'] = customColors.tritanopiaTrackBorder
+      customStyle['--slider-fill-bg'] = customColors.tritanopiaFillBg
+      customStyle['--slider-thumb-bg'] = customColors.tritanopiaThumbBg
+      customStyle['--slider-thumb-border'] = customColors.tritanopiaThumbBorder
+    }
+  }
 
   if (variant) {
     rootClasses.push(styles[variant]);
@@ -87,7 +152,7 @@ export const Slider: React.FC<SliderProps> = ({
     <div className={rootClasses.join(' ')}>
       {label && <label className={styles.label} htmlFor={`slider-${label}`}>{label}</label>}
       <div className={styles.container}>
-        <div className={trackClasses.join(' ')}>
+        <div className={trackClasses.join(' ')} style={customStyle}>
           <div 
             className={styles.fill} 
             style={{ width: `${percentage}%` }}

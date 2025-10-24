@@ -13,6 +13,40 @@ export interface SelectOption {
   disabled?: boolean;
 }
 
+export interface CustomSelectColors {
+  // Normal vision colors
+  defaultBg: string;
+  defaultBorder: string;
+  defaultBorderFocus: string;
+  defaultColor: string;
+  defaultPlaceholder: string;
+  defaultShadowFocus: string;
+
+  // Protanopia colors
+  protanopiaBg: string;
+  protanopiaBorder: string;
+  protanopiaBorderFocus: string;
+  protanopiaColor: string;
+  protanopiaPlaceholder: string;
+  protanopiaShadowFocus: string;
+
+  // Deuteranopia colors
+  deuteranopiaBg: string;
+  deuteranopiaBorder: string;
+  deuteranopiaBorderFocus: string;
+  deuteranopiaColor: string;
+  deuteranopiaPlaceholder: string;
+  deuteranopiaShadowFocus: string;
+
+  // Tritanopia colors
+  tritanopiaBg: string;
+  tritanopiaBorder: string;
+  tritanopiaBorderFocus: string;
+  tritanopiaColor: string;
+  tritanopiaPlaceholder: string;
+  tritanopiaShadowFocus: string;
+}
+
 export interface SelectProps {
   value: string;
   onChange: (value: string) => void;
@@ -27,6 +61,8 @@ export interface SelectProps {
   disabled?: boolean;
   required?: boolean;
   error?: string;
+  customColors?: CustomSelectColors;
+  style?: React.CSSProperties;
 }
 
 export const Select: React.FC<SelectProps> = ({
@@ -43,11 +79,48 @@ export const Select: React.FC<SelectProps> = ({
   disabled = false,
   required = false,
   error,
+  customColors,
+  style,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [focusedIndex, setFocusedIndex] = useState(-1);
   const containerRef = useRef<HTMLDivElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+
+  // Crear estilos inline para customColors
+  const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
+  if (customColors) {
+    // Aplicar colores según el modo de visión de color
+    if (colorVision === 'normal') {
+      customStyle['--select-bg'] = customColors.defaultBg
+      customStyle['--select-border'] = customColors.defaultBorder
+      customStyle['--select-border-focus'] = customColors.defaultBorderFocus
+      customStyle['--select-color'] = customColors.defaultColor
+      customStyle['--select-placeholder'] = customColors.defaultPlaceholder
+      customStyle['--select-shadow-focus'] = customColors.defaultShadowFocus
+    } else if (colorVision === 'protanopia') {
+      customStyle['--select-bg'] = customColors.protanopiaBg
+      customStyle['--select-border'] = customColors.protanopiaBorder
+      customStyle['--select-border-focus'] = customColors.protanopiaBorderFocus
+      customStyle['--select-color'] = customColors.protanopiaColor
+      customStyle['--select-placeholder'] = customColors.protanopiaPlaceholder
+      customStyle['--select-shadow-focus'] = customColors.protanopiaShadowFocus
+    } else if (colorVision === 'deuteranopia') {
+      customStyle['--select-bg'] = customColors.deuteranopiaBg
+      customStyle['--select-border'] = customColors.deuteranopiaBorder
+      customStyle['--select-border-focus'] = customColors.deuteranopiaBorderFocus
+      customStyle['--select-color'] = customColors.deuteranopiaColor
+      customStyle['--select-placeholder'] = customColors.deuteranopiaPlaceholder
+      customStyle['--select-shadow-focus'] = customColors.deuteranopiaShadowFocus
+    } else if (colorVision === 'tritanopia') {
+      customStyle['--select-bg'] = customColors.tritanopiaBg
+      customStyle['--select-border'] = customColors.tritanopiaBorder
+      customStyle['--select-border-focus'] = customColors.tritanopiaBorderFocus
+      customStyle['--select-color'] = customColors.tritanopiaColor
+      customStyle['--select-placeholder'] = customColors.tritanopiaPlaceholder
+      customStyle['--select-shadow-focus'] = customColors.tritanopiaShadowFocus
+    }
+  }
 
   const rootClasses = [styles.select];
   const triggerClasses = [styles.trigger, styles[variant], styles[size], styles[fontSize]];
@@ -142,7 +215,7 @@ export const Select: React.FC<SelectProps> = ({
   const selectId = `select-${label?.replace(/\s+/g, '-').toLowerCase() || 'field'}`;
 
   return (
-    <div className={rootClasses.join(' ')}>
+    <div className={rootClasses.join(' ')} style={customStyle}>
       {label && (
         <label className={styles.label} htmlFor={selectId}>
           {label}
