@@ -89,6 +89,7 @@
   --checkbox-accent: #dc3545;
   --checkbox-border: #dc3545;
 }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Tamaños */
 .xs { 

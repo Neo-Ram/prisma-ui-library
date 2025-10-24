@@ -170,6 +170,7 @@
   --alert-icon-color: #ef4444;
   --alert-title-color: #b91c1c;
 }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Type-specific styles (override variant if specified) */
 .type-info {

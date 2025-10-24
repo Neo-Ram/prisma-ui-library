@@ -2,7 +2,7 @@
 import React, { useRef, useState } from 'react'
 import styles from './Input.module.css'
 
-export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'custom';
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type InputSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -65,9 +65,9 @@ export const Input: React.FC<InputProps> = ({
   const [showPassword, setShowPassword] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Crear estilos inline para customColors
+  // Aplicar customColors solo cuando variant es 'custom'
   const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
-  if (customColors) {
+  if (customColors && variant === 'custom') {
     // Aplicar colores según el modo de visión de color
     if (colorVision === 'normal') {
       customStyle['--input-border'] = customColors.defaultBorder

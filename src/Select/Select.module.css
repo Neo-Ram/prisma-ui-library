@@ -218,6 +218,7 @@
   --select-option-hover: rgba(225,29,72,0.1);
   --select-dropdown-bg: #fff;
 }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments - iguales al Button */
 .cv-protanopia.primary { 

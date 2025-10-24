@@ -114,6 +114,7 @@
 .danger { 
   --breadcrumb-color-hover: #e11d48;
 }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments - iguales al Button */
 .cv-protanopia.primary { 

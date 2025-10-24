@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Slider.module.css';
 
-export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'custom';
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 
@@ -70,9 +70,9 @@ export const Slider: React.FC<SliderProps> = ({
   const trackClasses = [styles.track];
   const thumbClasses = [styles.thumb];
 
-  // Crear estilos inline para customColors
+  // Aplicar customColors solo cuando variant es 'custom'
   const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
-  if (customColors) {
+  if (customColors && variant === 'custom') {
     // Aplicar colores según el modo de visión de color
     if (colorVision === 'normal') {
       customStyle['--slider-track-bg'] = customColors.defaultTrackBg

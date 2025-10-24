@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './Button.module.css'
 
-type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger'
+type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'custom'
 type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia'
 type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast'
 type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl'

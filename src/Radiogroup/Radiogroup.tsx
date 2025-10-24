@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Radiogroup.module.css';
 
-export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'custom';
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -119,9 +119,9 @@ export const Radiogroup: React.FC<RadiogroupProps> = ({
   const descriptionId = React.useId();
   const errorId = React.useId();
 
-  // Crear estilos inline para customColors
+  // Aplicar customColors solo cuando variant es 'custom'
   const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
-  if (customColors) {
+  if (customColors && variant === 'custom') {
     // Aplicar colores según el modo de visión de color
     if (colorVision === 'normal') {
       customStyle['--radio-color'] = customColors.defaultColor

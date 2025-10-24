@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Breadcrumb.module.css';
 
-export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'custom';
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type FontSize = 'fs-xs' | 'fs-sm' | 'fs-md' | 'fs-lg' | 'fs-xl';
@@ -79,9 +79,9 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
     rootClasses.push(styles[`a11y-${accessibility}`]);
   }
 
-  // Crear estilos inline para customColors
+  // Aplicar customColors solo cuando variant es 'custom'
   const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
-  if (customColors) {
+  if (customColors && variant === 'custom') {
     // Aplicar colores según el modo de visión de color
     if (colorVision === 'normal') {
       customStyle['--breadcrumb-color'] = customColors.defaultColor

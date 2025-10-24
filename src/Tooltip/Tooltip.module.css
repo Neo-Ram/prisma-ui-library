@@ -192,6 +192,7 @@
   --tooltip-bg: #dc2626;
   --tooltip-border: rgba(248, 113, 113, 0.3);
 }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments */
 .cv-protanopia.primary { 

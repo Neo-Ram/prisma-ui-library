@@ -202,6 +202,7 @@
 .success { --radio-color: #1f9d55; }
 .warning { --radio-color: #f59e0b; }
 .danger { --radio-color: #e11d48; }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments */
 .cv-protanopia.primary { --radio-color: #3399ff; }

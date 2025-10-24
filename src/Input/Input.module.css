@@ -54,6 +54,7 @@ input[type=number] {
 .success { --input-border: #198754; --input-border-focus: #145c32; }
 .warning { --input-border: #ffc107; --input-border-focus: #b38f00; }
 .danger { --input-border: #dc3545; --input-border-focus: #a71d2a; }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Daltonismo */
 .cv-protanopia.primary { --input-border: #3399ff; --input-border-focus: #2673b6; }

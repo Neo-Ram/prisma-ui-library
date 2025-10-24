@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import styles from './Tooltip.module.css';
 
-export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'custom';
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -82,10 +82,9 @@ export const Tooltip: React.FC<TooltipProps> = ({
   const tooltipRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
   const hideTimeoutRef = useRef<NodeJS.Timeout | null>(null);
-
-  // Crear estilos inline para customColors
+  // Aplicar customColors solo cuando variant es 'custom'
   const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
-  if (customColors) {
+  if (customColors && variant === 'custom') {
     // Aplicar colores según el modo de visión de color
     if (colorVision === 'normal') {
       customStyle['--tooltip-bg'] = customColors.defaultBg
@@ -107,7 +106,6 @@ export const Tooltip: React.FC<TooltipProps> = ({
   }
 
   const open = controlledOpen !== undefined ? controlledOpen : isOpen;
-
   const handleOpenChange = useCallback((newOpen: boolean) => {
     if (onOpenChange) {
       onOpenChange(newOpen);

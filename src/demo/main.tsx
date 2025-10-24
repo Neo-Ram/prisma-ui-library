@@ -156,6 +156,825 @@ export function App(){
         disabled={disabled}
       />
       <hr />
+      <h2>🎨 Ejemplos con customColors</h2>
+      <p style={{marginTop:-8, opacity:.8}}>Aquí puedes ver componentes con paletas de colores personalizadas para diferentes modos de visión.</p>
+      
+      <div style={{display:'grid', gap:24, gridTemplateColumns:'repeat(auto-fit, minmax(300px, 1fr))'}}>
+        {/* BUTTON CON CUSTOM COLORS */}
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Button con CustomColors (Normal)</h3>
+          <Button
+            variant="custom"
+            size="md"
+            colorVision="normal"
+            customColors={{
+              defaultColor: '#FF6B6B',
+              defaultColorHover: '#EE5A52',
+              defaultColorActive: '#C92A2A',
+              protanopiaColor: '#FFB347',
+              protanopiaColorHover: '#FFA500',
+              protanopiaColorActive: '#FF8C00',
+              deuteranopiaColor: '#4169E1',
+              deuteranopiaColorHover: '#1E3A8A',
+              deuteranopiaColorActive: '#0C2D78',
+              tritanopiaColor: '#9370DB',
+              tritanopiaColorHover: '#7851A9',
+              tritanopiaColorActive: '#5A3E7A',
+              textColor: '#fff'
+            }}
+          >
+            🎨 Rojo Personalizado
+          </Button>
+        </div>
+
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Button con CustomColors (Protanopia)</h3>
+          <Button
+            variant="custom"
+            size="md"
+            colorVision="protanopia"
+            customColors={{
+              defaultColor: '#FF6B6B',
+              defaultColorHover: '#EE5A52',
+              defaultColorActive: '#C92A2A',
+              protanopiaColor: '#FFB347',
+              protanopiaColorHover: '#FFA500',
+              protanopiaColorActive: '#FF8C00',
+              deuteranopiaColor: '#4169E1',
+              deuteranopiaColorHover: '#1E3A8A',
+              deuteranopiaColorActive: '#0C2D78',
+              tritanopiaColor: '#9370DB',
+              tritanopiaColorHover: '#7851A9',
+              tritanopiaColorActive: '#5A3E7A',
+              textColor: '#fff'
+            }}
+          >
+            🎨 Naranja Protanopia
+          </Button>
+        </div>
+
+        {/* ALERT CON CUSTOM COLORS */}
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Alert con CustomColors (Normal)</h3>
+          <Alert
+            variant="custom"
+            colorVision="normal"
+            title="✨ Éxito Personalizado"
+            customColors={{
+              defaultBg: '#D4EDDA',
+              defaultBorder: '#28A745',
+              defaultColor: '#155724',
+              defaultIconColor: '#28A745',
+              defaultTitleColor: '#0B5394',
+              protanopiaBg: '#E8F4F8',
+              protanopiaBorder: '#0288D1',
+              protanopiaColor: '#01579B',
+              protanopiaIconColor: '#0288D1',
+              protanopiaTitleColor: '#004A7A',
+              deuteranopiaBg: '#F3E5F5',
+              deuteranopiaBorder: '#7B1FA2',
+              deuteranopiaColor: '#4A148C',
+              deuteranopiaIconColor: '#7B1FA2',
+              deuteranopiaTitleColor: '#6A0080',
+              tritanopiaBg: '#FFEBEE',
+              tritanopiaBorder: '#C62828',
+              tritanopiaColor: '#B71C1C',
+              tritanopiaIconColor: '#D32F2F',
+              tritanopiaTitleColor: '#8B0000'
+            }}
+          >
+            La operación fue completada exitosamente con colores personalizados.
+          </Alert>
+        </div>
+
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Alert con CustomColors (Protanopia)</h3>
+          <Alert
+            variant="custom"
+            colorVision="deuteranopia"
+            title="✨ Éxito Protanopia"
+            customColors={{
+              defaultBg: '#D4EDDA',
+              defaultBorder: '#28A745',
+              defaultColor: '#155724',
+              defaultIconColor: '#28A745',
+              defaultTitleColor: '#0B5394',
+              protanopiaBg: '#E8F4F8',
+              protanopiaBorder: '#0288D1',
+              protanopiaColor: '#01579B',
+              protanopiaIconColor: '#0288D1',
+              protanopiaTitleColor: '#004A7A',
+              deuteranopiaBg: '#F3E5F5',
+              deuteranopiaBorder: '#7B1FA2',
+              deuteranopiaColor: '#4A148C',
+              deuteranopiaIconColor: '#7B1FA2',
+              deuteranopiaTitleColor: '#6A0080',
+              tritanopiaBg: '#FFEBEE',
+              tritanopiaBorder: '#C62828',
+              tritanopiaColor: '#B71C1C',
+              tritanopiaIconColor: '#D32F2F',
+              tritanopiaTitleColor: '#8B0000'
+            }}
+          >
+            Perfecto para personas con protanopia.
+          </Alert>
+        </div>
+
+        {/* INPUT CON CUSTOM COLORS */}
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Input con CustomColors (Normal)</h3>
+          <Input
+            label="Email"
+            type="email"
+            variant='custom'
+            placeholder="tu@email.com"
+            colorVision="protanopia"
+            customColors={{
+              defaultBorder: '#E91E63',
+              defaultBorderFocus: '#C2185B',
+              defaultColor: '#880E4F',
+              defaultBg: '#FCE4EC',
+              protanopiaBorder: '#00BCD4',
+              protanopiaBorderFocus: '#0097A7',
+              protanopiaColor: '#006064',
+              protanopiaBg: '#E0F2F1',
+              deuteranopiaBorder: '#9C27B0',
+              deuteranopiaBorderFocus: '#7B1FA2',
+              deuteranopiaColor: '#4A148C',
+              deuteranopiaBg: '#F3E5F5',
+              tritanopiaBorder: '#FF9800',
+              tritanopiaBorderFocus: '#E65100',
+              tritanopiaColor: '#BF360C',
+              tritanopiaBg: '#FFE0B2'
+            }}
+          />
+        </div>
+
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Input con CustomColors (Protanopia)</h3>
+          <Input
+            label="Contraseña"
+            type="password"
+            placeholder="••••••••"
+            variant='custom'
+            colorVision="deuteranopia"
+            customColors={{
+              defaultBorder: '#E91E63',
+              defaultBorderFocus: '#C2185B',
+              defaultColor: '#880E4F',
+              defaultBg: '#FCE4EC',
+              protanopiaBorder: '#00BCD4',
+              protanopiaBorderFocus: '#0097A7',
+              protanopiaColor: '#006064',
+              protanopiaBg: '#E0F2F1',
+              deuteranopiaBorder: '#9C27B0',
+              deuteranopiaBorderFocus: '#7B1FA2',
+              deuteranopiaColor: '#4A148C',
+              deuteranopiaBg: '#F3E5F5',
+              tritanopiaBorder: '#FF9800',
+              tritanopiaBorderFocus: '#E65100',
+              tritanopiaColor: '#BF360C',
+              tritanopiaBg: '#FFE0B2'
+            }}
+          />
+        </div>
+
+        {/* CHECKBOX CON CUSTOM COLORS */}
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Checkbox con CustomColors (Normal)</h3>
+          <Checkbox
+            label="He leído los términos"
+            variant='custom'
+            colorVision="normal"
+            customColors={{
+              defaultAccent: '#00BCD4',
+              defaultBorder: '#0097A7',
+              defaultBg: '#B2EBF2',
+              defaultLabelColor: '#006064',
+              protanopiaAccent: '#FF6F00',
+              protanopiaBorder: '#E65100',
+              protanopiaBg: '#FFE0B2',
+              protanopiaLabelColor: '#BF360C',
+              deuteranopiaAccent: '#673AB7',
+              deuteranopiaBorder: '#512DA8',
+              deuteranopiaBg: '#EDE7F6',
+              deuteranopiaLabelColor: '#311B92',
+              tritanopiaAccent: '#E91E63',
+              tritanopiaBorder: '#C2185B',
+              tritanopiaBg: '#F8BBD0',
+              tritanopiaLabelColor: '#880E4F'
+            }}
+          />
+        </div>
+
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Checkbox con CustomColors (Protanopia)</h3>
+          <Checkbox
+            label="Recordar esta decisión"
+            variant='custom'
+            colorVision="deuteranopia"
+            customColors={{
+              defaultAccent: '#00BCD4',
+              defaultBorder: '#0097A7',
+              defaultBg: '#B2EBF2',
+              defaultLabelColor: '#006064',
+              protanopiaAccent: '#FF6F00',
+              protanopiaBorder: '#E65100',
+              protanopiaBg: '#FFE0B2',
+              protanopiaLabelColor: '#BF360C',
+              deuteranopiaAccent: '#673AB7',
+              deuteranopiaBorder: '#512DA8',
+              deuteranopiaBg: '#EDE7F6',
+              deuteranopiaLabelColor: '#311B92',
+              tritanopiaAccent: '#E91E63',
+              tritanopiaBorder: '#C2185B',
+              tritanopiaBg: '#F8BBD0',
+              tritanopiaLabelColor: '#880E4F'
+            }}
+          />
+        </div>
+
+        {/* TOGGLE CON CUSTOM COLORS */}
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Toggle con CustomColors (Normal)</h3>
+          <ToggleDemoCustom
+            checked={false}
+            onChange={() => {}}
+            variant='custom'
+            colorVision="normal"
+            customColors={{
+              defaultBg: '#CFD8DC',
+              defaultBorder: '#90A4AE',
+              defaultBgOn: '#66BB6A',
+              defaultBorderOn: '#43A047',
+              defaultKnob: '#FFFFFF',
+              protanopiaBg: '#FFCC80',
+              protanopiaBorder: '#FFA726',
+              protanopiaBgOn: '#29B6F6',
+              protanopiaBorderOn: '#1976D2',
+              protanopiaKnob: '#FFFFFF',
+              deuteranopiaBg: '#CE93D8',
+              deuteranopiaBorder: '#AB47BC',
+              deuteranopiaBgOn: '#BA68C8',
+              deuteranopiaBorderOn: '#8E24AA',
+              deuteranopiaKnob: '#FFFFFF',
+              tritanopiaBg: '#80DEEA',
+              tritanopiaBorder: '#26C6DA',
+              tritanopiaBgOn: '#FF7043',
+              tritanopiaBorderOn: '#D84315',
+              tritanopiaKnob: '#FFFFFF'
+            }}
+            label="Modo oscuro personalizado"
+          />
+        </div>
+
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Toggle con CustomColors (Protanopia)</h3>
+          <ToggleDemoCustom
+            checked={true}
+            onChange={() => {}}
+            colorVision="protanopia"
+            customColors={{
+              defaultBg: '#CFD8DC',
+              defaultBorder: '#90A4AE',
+              defaultBgOn: '#66BB6A',
+              defaultBorderOn: '#43A047',
+              defaultKnob: '#FFFFFF',
+              protanopiaBg: '#FFCC80',
+              protanopiaBorder: '#FFA726',
+              protanopiaBgOn: '#29B6F6',
+              protanopiaBorderOn: '#1976D2',
+              protanopiaKnob: '#FFFFFF',
+              deuteranopiaBg: '#CE93D8',
+              deuteranopiaBorder: '#AB47BC',
+              deuteranopiaBgOn: '#BA68C8',
+              deuteranopiaBorderOn: '#8E24AA',
+              deuteranopiaKnob: '#FFFFFF',
+              tritanopiaBg: '#80DEEA',
+              tritanopiaBorder: '#26C6DA',
+              tritanopiaBgOn: '#FF7043',
+              tritanopiaBorderOn: '#D84315',
+              tritanopiaKnob: '#FFFFFF'
+            }}
+            label="Notificaciones activadas"
+          />
+        </div>
+
+        {/* SLIDER CON CUSTOM COLORS */}
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Slider con CustomColors (Normal)</h3>
+          <Slider
+            label="Volumen"
+            value={50}
+            onChange={() => {}}
+            min={0}
+            max={100}
+            variant='custom'
+            colorVision="deuteranopia"
+            customColors={{
+              defaultTrackBg: '#ECEFF1',
+              defaultTrackBorder: '#90A4AE',
+              defaultFillBg: '#FF5252',
+              defaultThumbBg: '#FF5252',
+              defaultThumbBorder: '#D32F2F',
+              protanopiaTrackBg: '#FFF9C4',
+              protanopiaTrackBorder: '#FBC02D',
+              protanopiaFillBg: '#FBC02D',
+              protanopiaThumbBg: '#FBC02D',
+              protanopiaThumbBorder: '#F57F17',
+              deuteranopiaTrackBg: '#F3E5F5',
+              deuteranopiaTrackBorder: '#CE93D8',
+              deuteranopiaFillBg: '#9C27B0',
+              deuteranopiaThumbBg: '#9C27B0',
+              deuteranopiaThumbBorder: '#6A1B9A',
+              tritanopiaTrackBg: '#E1F5FE',
+              tritanopiaTrackBorder: '#81D4FA',
+              tritanopiaFillBg: '#0288D1',
+              tritanopiaThumbBg: '#0288D1',
+              tritanopiaThumbBorder: '#01579B'
+            }}
+            showValue={true}
+          />
+        </div>
+
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Slider con CustomColors (Protanopia)</h3>
+          <Slider
+            label="Brillo"
+            value={75}
+            onChange={() => {}}
+            min={0}
+            max={100}
+            colorVision="protanopia"
+            customColors={{
+              defaultTrackBg: '#ECEFF1',
+              defaultTrackBorder: '#90A4AE',
+              defaultFillBg: '#FF5252',
+              defaultThumbBg: '#FF5252',
+              defaultThumbBorder: '#D32F2F',
+              protanopiaTrackBg: '#FFF9C4',
+              protanopiaTrackBorder: '#FBC02D',
+              protanopiaFillBg: '#FBC02D',
+              protanopiaThumbBg: '#FBC02D',
+              protanopiaThumbBorder: '#F57F17',
+              deuteranopiaTrackBg: '#F3E5F5',
+              deuteranopiaTrackBorder: '#CE93D8',
+              deuteranopiaFillBg: '#9C27B0',
+              deuteranopiaThumbBg: '#9C27B0',
+              deuteranopiaThumbBorder: '#6A1B9A',
+              tritanopiaTrackBg: '#E1F5FE',
+              tritanopiaTrackBorder: '#81D4FA',
+              tritanopiaFillBg: '#0288D1',
+              tritanopiaThumbBg: '#0288D1',
+              tritanopiaThumbBorder: '#01579B'
+            }}
+            showValue={true}
+          />
+        </div>
+      </div>
+
+      {/* Pagination Custom Colors */}
+      <div style={{marginTop:32}}>
+        <h2 style={{marginBottom:16}}>Pagination Con CustomColors</h2>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Pagination con CustomColors (Normal)</h3>
+          <Pagination
+            currentPage={1}
+            totalPages={5}
+            onPageChange={() => {}}
+            variant="custom"
+            colorVision="normal"
+            customColors={{
+              defaultColorActive: '#FFFFFF',
+              defaultBgActive: '#1976D2',
+              defaultShadowFocus: 'rgba(25, 118, 210, 0.5)',
+              protanopiaColorActive: '#FFFFFF',
+              protanopiaBgActive: '#FFA500',
+              protanopiaShadowFocus: 'rgba(255, 165, 0, 0.5)',
+              deuteranopiaColorActive: '#FFFFFF',
+              deuteranopiaBgActive: '#9C27B0',
+              deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.5)',
+              tritanopiaColorActive: '#000000',
+              tritanopiaBgActive: '#00BCD4',
+              tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.5)'
+            }}
+          />
+        </div>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
+          <h3 style={{marginTop:0}}>Pagination con CustomColors (Protanopia)</h3>
+          <Pagination
+            currentPage={2}
+            totalPages={5}
+            onPageChange={() => {}}
+            variant="custom"
+            colorVision="protanopia"
+            customColors={{
+              defaultColorActive: '#FFFFFF',
+              defaultBgActive: '#1976D2',
+              defaultShadowFocus: 'rgba(25, 118, 210, 0.5)',
+              protanopiaColorActive: '#FFFFFF',
+              protanopiaBgActive: '#FFA500',
+              protanopiaShadowFocus: 'rgba(255, 165, 0, 0.5)',
+              deuteranopiaColorActive: '#FFFFFF',
+              deuteranopiaBgActive: '#9C27B0',
+              deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.5)',
+              tritanopiaColorActive: '#000000',
+              tritanopiaBgActive: '#00BCD4',
+              tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.5)'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Select Custom Colors */}
+      <div style={{marginTop:32}}>
+        <h2 style={{marginBottom:16}}>Select Con CustomColors</h2>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Select con CustomColors (Normal)</h3>
+          <Select
+            value="option1"
+            onChange={() => {}}
+            options={[
+              { value: 'option1', label: 'Opción 1' },
+              { value: 'option2', label: 'Opción 2' },
+              { value: 'option3', label: 'Opción 3' }
+            ]}
+            variant="custom"
+            colorVision="deuteranopia"
+            customColors={{
+              defaultBg: '#FFFFFF',
+              defaultBorder: '#CCCCCC',
+              defaultBorderFocus: '#1976D2',
+              defaultColor: '#000000',
+              defaultPlaceholder: '#999999',
+              defaultShadowFocus: 'rgba(25, 118, 210, 0.2)',
+              protanopiaBg: '#FFFFFF',
+              protanopiaBorder: '#E6B800',
+              protanopiaBorderFocus: '#FFA500',
+              protanopiaColor: '#000000',
+              protanopiaPlaceholder: '#999999',
+              protanopiaShadowFocus: 'rgba(255, 165, 0, 0.2)',
+              deuteranopiaBg: '#FFFFFF',
+              deuteranopiaBorder: '#E6B8D7',
+              deuteranopiaBorderFocus: '#9C27B0',
+              deuteranopiaColor: '#000000',
+              deuteranopiaPlaceholder: '#999999',
+              deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.2)',
+              tritanopiaBg: '#FFFFFF',
+              tritanopiaBorder: '#B3E5FC',
+              tritanopiaBorderFocus: '#00BCD4',
+              tritanopiaColor: '#000000',
+              tritanopiaPlaceholder: '#999999',
+              tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.2)'
+            }}
+          />
+        </div>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
+          <h3 style={{marginTop:0}}>Select con CustomColors (Protanopia)</h3>
+          <Select
+            value="option1"
+            onChange={() => {}}
+            options={[
+              { value: 'option1', label: 'Opción 1' },
+              { value: 'option2', label: 'Opción 2' },
+              { value: 'option3', label: 'Opción 3' }
+            ]}
+            variant="custom"
+            colorVision="protanopia"
+            customColors={{
+              defaultBg: '#FFFFFF',
+              defaultBorder: '#CCCCCC',
+              defaultBorderFocus: '#1976D2',
+              defaultColor: '#000000',
+              defaultPlaceholder: '#999999',
+              defaultShadowFocus: 'rgba(25, 118, 210, 0.2)',
+              protanopiaBg: '#FFFFFF',
+              protanopiaBorder: '#E6B800',
+              protanopiaBorderFocus: '#FFA500',
+              protanopiaColor: '#000000',
+              protanopiaPlaceholder: '#999999',
+              protanopiaShadowFocus: 'rgba(255, 165, 0, 0.2)',
+              deuteranopiaBg: '#FFFFFF',
+              deuteranopiaBorder: '#E6B8D7',
+              deuteranopiaBorderFocus: '#9C27B0',
+              deuteranopiaColor: '#000000',
+              deuteranopiaPlaceholder: '#999999',
+              deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.2)',
+              tritanopiaBg: '#FFFFFF',
+              tritanopiaBorder: '#B3E5FC',
+              tritanopiaBorderFocus: '#00BCD4',
+              tritanopiaColor: '#000000',
+              tritanopiaPlaceholder: '#999999',
+              tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.2)'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Radiogroup Custom Colors */}
+      <div style={{marginTop:32}}>
+        <h2 style={{marginBottom:16}}>Radiogroup Con CustomColors</h2>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Radiogroup con CustomColors (Normal)</h3>
+          <Radiogroup
+            name="demo-custom-normal"
+            value="option1"
+            onChange={() => {}}
+            variant="custom"
+            colorVision="tritanopia"
+            customColors={{
+              defaultColor: '#1976D2',
+              defaultBorderColor: '#CCCCCC',
+              defaultBorderColorHover: '#1976D2',
+              defaultBorderColorFocus: '#1976D2',
+              defaultLabelColor: '#000000',
+              defaultDescriptionColor: '#666666',
+              protanopiaColor: '#FFA500',
+              protanopiaBorderColor: '#E6B800',
+              protanopiaBorderColorHover: '#FFA500',
+              protanopiaBorderColorFocus: '#FFA500',
+              protanopiaLabelColor: '#000000',
+              protanopiaDescriptionColor: '#666666',
+              deuteranopiaColor: '#9C27B0',
+              deuteranopiaBorderColor: '#E6B8D7',
+              deuteranopiaBorderColorHover: '#9C27B0',
+              deuteranopiaBorderColorFocus: '#9C27B0',
+              deuteranopiaLabelColor: '#000000',
+              deuteranopiaDescriptionColor: '#666666',
+              tritanopiaColor: '#00BCD4',
+              tritanopiaBorderColor: '#B3E5FC',
+              tritanopiaBorderColorHover: '#00BCD4',
+              tritanopiaBorderColorFocus: '#00BCD4',
+              tritanopiaLabelColor: '#000000',
+              tritanopiaDescriptionColor: '#666666'
+            }}
+            options={[
+              { value: 'option1', label: 'Opción 1' },
+              { value: 'option2', label: 'Opción 2' },
+              { value: 'option3', label: 'Opción 3' }
+            ]}
+          />
+        </div>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
+          <h3 style={{marginTop:0}}>Radiogroup con CustomColors (Protanopia)</h3>
+          <Radiogroup
+            name="demo-custom-protanopia"
+            value="option1"
+            onChange={() => {}}
+            variant="custom"
+            colorVision="protanopia"
+            customColors={{
+              defaultColor: '#1976D2',
+              defaultBorderColor: '#CCCCCC',
+              defaultBorderColorHover: '#1976D2',
+              defaultBorderColorFocus: '#1976D2',
+              defaultLabelColor: '#000000',
+              defaultDescriptionColor: '#666666',
+              protanopiaColor: '#FFA500',
+              protanopiaBorderColor: '#E6B800',
+              protanopiaBorderColorHover: '#FFA500',
+              protanopiaBorderColorFocus: '#FFA500',
+              protanopiaLabelColor: '#000000',
+              protanopiaDescriptionColor: '#666666',
+              deuteranopiaColor: '#9C27B0',
+              deuteranopiaBorderColor: '#E6B8D7',
+              deuteranopiaBorderColorHover: '#9C27B0',
+              deuteranopiaBorderColorFocus: '#9C27B0',
+              deuteranopiaLabelColor: '#000000',
+              deuteranopiaDescriptionColor: '#666666',
+              tritanopiaColor: '#00BCD4',
+              tritanopiaBorderColor: '#B3E5FC',
+              tritanopiaBorderColorHover: '#00BCD4',
+              tritanopiaBorderColorFocus: '#00BCD4',
+              tritanopiaLabelColor: '#000000',
+              tritanopiaDescriptionColor: '#666666'
+            }}
+            options={[
+              { value: 'option1', label: 'Opción 1' },
+              { value: 'option2', label: 'Opción 2' },
+              { value: 'option3', label: 'Opción 3' }
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* Breadcrumb Custom Colors */}
+      <div style={{marginTop:32}}>
+        <h2 style={{marginBottom:16}}>Breadcrumb Con CustomColors</h2>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Breadcrumb con CustomColors (Normal)</h3>
+          <Breadcrumb
+            variant="custom"
+            colorVision="tritanopia"
+            customColors={{
+              defaultColor: '#1976D2',
+              defaultColorHover: '#1565C0',
+              defaultColorCurrent: '#000000',
+              defaultSeparator: '#999999',
+              protanopiaColor: '#FFA500',
+              protanopiaColorHover: '#FF8C00',
+              protanopiaColorCurrent: '#000000',
+              protanopiaSeparator: '#999999',
+              deuteranopiaColor: '#9C27B0',
+              deuteranopiaColorHover: '#8E24AA',
+              deuteranopiaColorCurrent: '#000000',
+              deuteranopiaSeparator: '#999999',
+              tritanopiaColor: '#00BCD4',
+              tritanopiaColorHover: '#0097A7',
+              tritanopiaColorCurrent: '#000000',
+              tritanopiaSeparator: '#999999'
+            }}
+            items={[
+              { label: 'Inicio', href: '#' },
+              { label: 'Categoría', href: '#' },
+              { label: 'Subcategoría' }
+            ]}
+          />
+        </div>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
+          <h3 style={{marginTop:0}}>Breadcrumb con CustomColors (Protanopia)</h3>
+          <Breadcrumb
+            variant="custom"
+            colorVision="protanopia"
+            customColors={{
+              defaultColor: '#1976D2',
+              defaultColorHover: '#1565C0',
+              defaultColorCurrent: '#000000',
+              defaultSeparator: '#999999',
+              protanopiaColor: '#FFA500',
+              protanopiaColorHover: '#FF8C00',
+              protanopiaColorCurrent: '#000000',
+              protanopiaSeparator: '#999999',
+              deuteranopiaColor: '#9C27B0',
+              deuteranopiaColorHover: '#8E24AA',
+              deuteranopiaColorCurrent: '#000000',
+              deuteranopiaSeparator: '#999999',
+              tritanopiaColor: '#00BCD4',
+              tritanopiaColorHover: '#0097A7',
+              tritanopiaColorCurrent: '#000000',
+              tritanopiaSeparator: '#999999'
+            }}
+            items={[
+              { label: 'Inicio', href: '#' },
+              { label: 'Categoría', href: '#' },
+              { label: 'Subcategoría' }
+            ]}
+          />
+        </div>
+      </div>
+
+      {/* Spinner Custom Colors */}
+      <div style={{marginTop:32}}>
+        <h2 style={{marginBottom:16}}>Spinner Con CustomColors</h2>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Spinner con CustomColors (Normal)</h3>
+          <Spinner
+            variant="custom"
+            colorVision="tritanopia"
+            customColors={{
+              defaultColor: '#1976D2',
+              protanopiaColor: '#FFA500',
+              deuteranopiaColor: '#9C27B0',
+              tritanopiaColor: '#00BCD4'
+            }}
+          />
+        </div>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
+          <h3 style={{marginTop:0}}>Spinner con CustomColors (Protanopia)</h3>
+          <Spinner
+            variant="custom"
+            colorVision="protanopia"
+            customColors={{
+              defaultColor: '#1976D2',
+              protanopiaColor: '#FFA500',
+              deuteranopiaColor: '#9C27B0',
+              tritanopiaColor: '#00BCD4'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Textarea Custom Colors */}
+      <div style={{marginTop:32}}>
+        <h2 style={{marginBottom:16}}>Textarea Con CustomColors</h2>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Textarea con CustomColors (Normal)</h3>
+          <Textarea
+            label="Comentarios"
+            placeholder="Escribe tus comentarios aquí..."
+            variant="custom"
+            colorVision="normal"
+            customColors={{
+              defaultBg: '#FFFFFF',
+              defaultBorder: '#CCCCCC',
+              defaultBorderFocus: '#1976D2',
+              defaultColor: '#000000',
+              defaultPlaceholder: '#999999',
+              protanopiaBg: '#FFFFFF',
+              protanopiaBorder: '#E6B800',
+              protanopiaBorderFocus: '#FFA500',
+              protanopiaColor: '#000000',
+              protanopiaPlaceholder: '#999999',
+              deuteranopiaBg: '#FFFFFF',
+              deuteranopiaBorder: '#E6B8D7',
+              deuteranopiaBorderFocus: '#9C27B0',
+              deuteranopiaColor: '#000000',
+              deuteranopiaPlaceholder: '#999999',
+              tritanopiaBg: '#FFFFFF',
+              tritanopiaBorder: '#B3E5FC',
+              tritanopiaBorderFocus: '#00BCD4',
+              tritanopiaColor: '#000000',
+              tritanopiaPlaceholder: '#999999'
+            }}
+          />
+        </div>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
+          <h3 style={{marginTop:0}}>Textarea con CustomColors (Protanopia)</h3>
+          <Textarea
+            label="Comentarios"
+            placeholder="Escribe tus comentarios aquí..."
+            variant="custom"
+            colorVision="tritanopia"
+            customColors={{
+              defaultBg: '#FFFFFF',
+              defaultBorder: '#CCCCCC',
+              defaultBorderFocus: '#1976D2',
+              defaultColor: '#000000',
+              defaultPlaceholder: '#999999',
+              protanopiaBg: '#FFFFFF',
+              protanopiaBorder: '#E6B800',
+              protanopiaBorderFocus: '#FFA500',
+              protanopiaColor: '#000000',
+              protanopiaPlaceholder: '#999999',
+              deuteranopiaBg: '#FFFFFF',
+              deuteranopiaBorder: '#E6B8D7',
+              deuteranopiaBorderFocus: '#9C27B0',
+              deuteranopiaColor: '#000000',
+              deuteranopiaPlaceholder: '#999999',
+              tritanopiaBg: '#FFFFFF',
+              tritanopiaBorder: '#B3E5FC',
+              tritanopiaBorderFocus: '#00BCD4',
+              tritanopiaColor: '#000000',
+              tritanopiaPlaceholder: '#999999'
+            }}
+          />
+        </div>
+      </div>
+
+      {/* Tooltip Custom Colors */}
+      <div style={{marginTop:32}}>
+        <h2 style={{marginBottom:16}}>Tooltip Con CustomColors</h2>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
+          <h3 style={{marginTop:0}}>Tooltip con CustomColors (Normal)</h3>
+          <Tooltip
+            content="Tooltip personalizado"
+            variant="custom"
+            colorVision="normal"
+            customColors={{
+              defaultBg: '#333333',
+              defaultColor: '#FFFFFF',
+              defaultBorder: '#1976D2',
+              protanopiaBg: '#333333',
+              protanopiaColor: '#FFFFFF',
+              protanopiaBorder: '#FFA500',
+              deuteranopiaBg: '#333333',
+              deuteranopiaColor: '#FFFFFF',
+              deuteranopiaBorder: '#9C27B0',
+              tritanopiaBg: '#333333',
+              tritanopiaColor: '#FFFFFF',
+              tritanopiaBorder: '#00BCD4'
+            }}
+          >
+            <span>Pasar sobre mí</span>
+          </Tooltip>
+        </div>
+        <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
+          <h3 style={{marginTop:0}}>Tooltip con CustomColors (Protanopia)</h3>
+          <Tooltip
+            content="Tooltip personalizado"
+            variant="custom"
+            colorVision="protanopia"
+            customColors={{
+              defaultBg: '#333333',
+              defaultColor: '#FFFFFF',
+              defaultBorder: '#1976D2',
+              protanopiaBg: '#333333',
+              protanopiaColor: '#FFFFFF',
+              protanopiaBorder: '#FFA500',
+              deuteranopiaBg: '#333333',
+              deuteranopiaColor: '#FFFFFF',
+              deuteranopiaBorder: '#9C27B0',
+              tritanopiaBg: '#333333',
+              tritanopiaColor: '#FFFFFF',
+              tritanopiaBorder: '#00BCD4'
+            }}
+          >
+            <span>Pasar sobre mí</span>
+          </Tooltip>
+        </div>
+      </div>
+
+      <hr />
       <div>
         <h2>Demo Input accesible</h2>
         <Input
@@ -863,6 +1682,23 @@ function RadiogroupDemoInline(props: Omit<import('../Radiogroup/Radiogroup').Rad
       <div style={{ fontSize: '12px', color: '#999' }}>
         🔘 Selección única | 📝 Con descripciones | ↕️ Vertical/Horizontal | ♿ Completamente accesible
       </div>
+    </div>
+  );
+}
+
+// Demo Toggle Custom
+function ToggleDemoCustom(props: import('../Toggle/Toggle').ToggleProps & { label?: string }) {
+  const [checked, setChecked] = React.useState(props.checked || false);
+  return (
+    <div style={{display:'flex', alignItems:'center', gap:12}}>
+      <Toggle
+        checked={checked}
+        onChange={setChecked}
+        variant="custom"
+        colorVision={props.colorVision}
+        customColors={props.customColors}
+      />
+      <span>{props.label}</span>
     </div>
   );
 }

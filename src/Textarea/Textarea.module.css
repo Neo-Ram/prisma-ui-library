@@ -147,6 +147,7 @@
   --textarea-border-focus: #e11d48; 
   --textarea-shadow-focus: 0 0 0 3px rgba(225,29,72,.15); 
 }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments - iguales al Button */
 .cv-protanopia.primary { 

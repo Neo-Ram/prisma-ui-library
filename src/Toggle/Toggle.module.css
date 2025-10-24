@@ -62,6 +62,7 @@
 .success { --toggle-bg-on: #1f9d55; --toggle-border-on: #1f9d55; }
 .warning { --toggle-bg-on: #f59e0b; --toggle-border-on: #f59e0b; }
 .danger { --toggle-bg-on: #e11d48; --toggle-border-on: #e11d48; }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Daltonismo - todos los colores igual que Button */
 .cv-protanopia.primary { --toggle-bg-on: #3399ff; --toggle-border-on: #3399ff; }

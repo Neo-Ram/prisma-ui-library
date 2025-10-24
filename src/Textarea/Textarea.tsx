@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './Textarea.module.css';
 
-export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
+export type Variant = 'primary' | 'secondary' | 'success' | 'warning' | 'danger' | 'custom';
 export type ColorVision = 'normal' | 'protanopia' | 'deuteranopia' | 'tritanopia';
 export type AccessibilityMode = 'default' | 'low-vision' | 'high-contrast';
 export type Size = 'xs' | 'sm' | 'md' | 'lg' | 'xl';
@@ -79,9 +79,9 @@ export const Textarea: React.FC<TextareaProps> = ({
   const rootClasses = [styles.textarea];
   const inputClasses = [styles.input, styles[variant], styles[textareaSize], styles[fontSize]];
 
-  // Crear estilos inline para customColors
+  // Aplicar customColors solo cuando variant es 'custom'
   const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
-  if (customColors) {
+  if (customColors && variant === 'custom') {
     // Aplicar colores según el modo de visión de color
     if (colorVision === 'normal') {
       customStyle['--textarea-bg'] = customColors.defaultBg

@@ -145,6 +145,7 @@
   --slider-fill-bg: #e11d48; 
   --slider-thumb-border: #e11d48; 
 }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments */
 .cv-protanopia.primary { 

@@ -75,6 +75,7 @@
 .success{ --btn-bg:#1f9d55; --btn-bg-hover:#1a8749; --btn-bg-active:#156d3a; --btn-color:#fff; }
 .warning{ --btn-bg:#f59e0b; --btn-bg-hover:#d97706; --btn-bg-active:#b45309; --btn-color:#1a1f2b; }
 .danger{ --btn-bg:#e11d48; --btn-bg-hover:#be123c; --btn-bg-active:#9f1239; --btn-color:#fff; }
+/* Custom variant: inherits all base styles, colors come from inline styles only */
 
 /* Sizes (padding and radius) */
 .xs{ --btn-pad-y: 6px; --btn-pad-x: 10px; --btn-radius: 6px; --btn-gap: 6px; }

@@ -64,6 +64,7 @@
 .success { --spinner-color: #1f9d55; }
 .warning { --spinner-color: #f59e0b; }
 .danger { --spinner-color: #e11d48; }
+/* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* SPINNER VARIANT 1: Circular spinner */
 .variant1 .circularSpinner {
