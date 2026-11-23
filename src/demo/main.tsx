@@ -133,7 +133,7 @@ export function App(){
   const [currentPage, setCurrentPage] = useState(1)
 
   return (
-    <div style={{padding:20, display:'grid', gap:16}}>
+    <main style={{padding:20, display:'grid', gap:16}}>
       <h1>Demo Button accesible</h1>
       <p style={{marginTop:-8, opacity:.8}}>Cambia las props y observa las variantes en la cuadrícula.</p>
       <Controls
@@ -168,16 +168,16 @@ export function App(){
             size="md"
             colorVision="normal"
             customColors={{
-              defaultColor: '#FF6B6B',
-              defaultColorHover: '#EE5A52',
-              defaultColorActive: '#C92A2A',
-              protanopiaColor: '#FFB347',
-              protanopiaColorHover: '#FFA500',
-              protanopiaColorActive: '#FF8C00',
-              deuteranopiaColor: '#4169E1',
+              defaultColor: '#ba0000',
+              defaultColorHover: '#cb1d14',
+              defaultColorActive: '#c72a2a',
+              protanopiaColor: '#8e5400',
+              protanopiaColorHover: '#996300',
+              protanopiaColorActive: '#a65b00',
+              deuteranopiaColor: '#214dd1',
               deuteranopiaColorHover: '#1E3A8A',
               deuteranopiaColorActive: '#0C2D78',
-              tritanopiaColor: '#9370DB',
+              tritanopiaColor: '#7041cf',
               tritanopiaColorHover: '#7851A9',
               tritanopiaColorActive: '#5A3E7A',
               textColor: '#fff'
@@ -194,16 +194,16 @@ export function App(){
             size="md"
             colorVision="protanopia"
             customColors={{
-              defaultColor: '#FF6B6B',
-              defaultColorHover: '#EE5A52',
-              defaultColorActive: '#C92A2A',
-              protanopiaColor: '#FFB347',
-              protanopiaColorHover: '#FFA500',
-              protanopiaColorActive: '#FF8C00',
-              deuteranopiaColor: '#4169E1',
+              defaultColor: '#ba0000',
+              defaultColorHover: '#cb1d14',
+              defaultColorActive: '#c72a2a',
+              protanopiaColor: '#8e5400',
+              protanopiaColorHover: '#996300',
+              protanopiaColorActive: '#a65b00',
+              deuteranopiaColor: '#214dd1',
               deuteranopiaColorHover: '#1E3A8A',
               deuteranopiaColorActive: '#0C2D78',
-              tritanopiaColor: '#9370DB',
+              tritanopiaColor: '#7041cf',
               tritanopiaColorHover: '#7851A9',
               tritanopiaColorActive: '#5A3E7A',
               textColor: '#fff'
@@ -222,14 +222,14 @@ export function App(){
             title="✨ Éxito Personalizado"
             customColors={{
               defaultBg: '#D4EDDA',
-              defaultBorder: '#28A745',
+              defaultBorder: '#1f8035',
               defaultColor: '#155724',
-              defaultIconColor: '#28A745',
+              defaultIconColor: '#1f8035',
               defaultTitleColor: '#0B5394',
               protanopiaBg: '#E8F4F8',
-              protanopiaBorder: '#0288D1',
+              protanopiaBorder: '#0271ae',
               protanopiaColor: '#01579B',
-              protanopiaIconColor: '#0288D1',
+              protanopiaIconColor: '#0271ae',
               protanopiaTitleColor: '#004A7A',
               deuteranopiaBg: '#F3E5F5',
               deuteranopiaBorder: '#7B1FA2',
@@ -238,8 +238,8 @@ export function App(){
               deuteranopiaTitleColor: '#6A0080',
               tritanopiaBg: '#FFEBEE',
               tritanopiaBorder: '#C62828',
-              tritanopiaColor: '#B71C1C',
-              tritanopiaIconColor: '#D32F2F',
+              tritanopiaColor: '#b51c1c',
+              tritanopiaIconColor: '#c82a2a',
               tritanopiaTitleColor: '#8B0000'
             }}
           >
@@ -255,14 +255,14 @@ export function App(){
             title="✨ Éxito Protanopia"
             customColors={{
               defaultBg: '#D4EDDA',
-              defaultBorder: '#28A745',
+              defaultBorder: '#1f8035',
               defaultColor: '#155724',
-              defaultIconColor: '#28A745',
+              defaultIconColor: '#1f8035',
               defaultTitleColor: '#0B5394',
               protanopiaBg: '#E8F4F8',
-              protanopiaBorder: '#0288D1',
+              protanopiaBorder: '#0271ae',
               protanopiaColor: '#01579B',
-              protanopiaIconColor: '#0288D1',
+              protanopiaIconColor: '#0271ae',
               protanopiaTitleColor: '#004A7A',
               deuteranopiaBg: '#F3E5F5',
               deuteranopiaBorder: '#7B1FA2',
@@ -271,8 +271,8 @@ export function App(){
               deuteranopiaTitleColor: '#6A0080',
               tritanopiaBg: '#FFEBEE',
               tritanopiaBorder: '#C62828',
-              tritanopiaColor: '#B71C1C',
-              tritanopiaIconColor: '#D32F2F',
+              tritanopiaColor: '#b51c1c',
+              tritanopiaIconColor: '#c82a2a',
               tritanopiaTitleColor: '#8B0000'
             }}
           >
@@ -290,21 +290,21 @@ export function App(){
             placeholder="tu@email.com"
             colorVision="protanopia"
             customColors={{
-              defaultBorder: '#E91E63',
+              defaultBorder: '#ca1452',
               defaultBorderFocus: '#C2185B',
               defaultColor: '#880E4F',
               defaultBg: '#FCE4EC',
-              protanopiaBorder: '#00BCD4',
-              protanopiaBorderFocus: '#0097A7',
+              protanopiaBorder: '#007887',
+              protanopiaBorderFocus: '#007986',
               protanopiaColor: '#006064',
               protanopiaBg: '#E0F2F1',
               deuteranopiaBorder: '#9C27B0',
               deuteranopiaBorderFocus: '#7B1FA2',
               deuteranopiaColor: '#4A148C',
               deuteranopiaBg: '#F3E5F5',
-              tritanopiaBorder: '#FF9800',
-              tritanopiaBorderFocus: '#E65100',
-              tritanopiaColor: '#BF360C',
+              tritanopiaBorder: '#a16000',
+              tritanopiaBorderFocus: '#bb4200',
+              tritanopiaColor: '#ac310b',
               tritanopiaBg: '#FFE0B2'
             }}
           />
@@ -319,21 +319,21 @@ export function App(){
             variant='custom'
             colorVision="deuteranopia"
             customColors={{
-              defaultBorder: '#E91E63',
+              defaultBorder: '#ca1452',
               defaultBorderFocus: '#C2185B',
               defaultColor: '#880E4F',
               defaultBg: '#FCE4EC',
-              protanopiaBorder: '#00BCD4',
-              protanopiaBorderFocus: '#0097A7',
+              protanopiaBorder: '#007887',
+              protanopiaBorderFocus: '#007986',
               protanopiaColor: '#006064',
               protanopiaBg: '#E0F2F1',
               deuteranopiaBorder: '#9C27B0',
               deuteranopiaBorderFocus: '#7B1FA2',
               deuteranopiaColor: '#4A148C',
               deuteranopiaBg: '#F3E5F5',
-              tritanopiaBorder: '#FF9800',
-              tritanopiaBorderFocus: '#E65100',
-              tritanopiaColor: '#BF360C',
+              tritanopiaBorder: '#a16000',
+              tritanopiaBorderFocus: '#bb4200',
+              tritanopiaColor: '#ac310b',
               tritanopiaBg: '#FFE0B2'
             }}
           />
@@ -347,19 +347,19 @@ export function App(){
             variant='custom'
             colorVision="normal"
             customColors={{
-              defaultAccent: '#00BCD4',
-              defaultBorder: '#0097A7',
+              defaultAccent: '#007887',
+              defaultBorder: '#007986',
               defaultBg: '#B2EBF2',
               defaultLabelColor: '#006064',
-              protanopiaAccent: '#FF6F00',
-              protanopiaBorder: '#E65100',
+              protanopiaAccent: '#b24e00',
+              protanopiaBorder: '#bb4200',
               protanopiaBg: '#FFE0B2',
-              protanopiaLabelColor: '#BF360C',
+              protanopiaLabelColor: '#ac310b',
               deuteranopiaAccent: '#673AB7',
               deuteranopiaBorder: '#512DA8',
               deuteranopiaBg: '#EDE7F6',
               deuteranopiaLabelColor: '#311B92',
-              tritanopiaAccent: '#E91E63',
+              tritanopiaAccent: '#ca1452',
               tritanopiaBorder: '#C2185B',
               tritanopiaBg: '#F8BBD0',
               tritanopiaLabelColor: '#880E4F'
@@ -374,19 +374,19 @@ export function App(){
             variant='custom'
             colorVision="deuteranopia"
             customColors={{
-              defaultAccent: '#00BCD4',
-              defaultBorder: '#0097A7',
+              defaultAccent: '#007887',
+              defaultBorder: '#007986',
               defaultBg: '#B2EBF2',
               defaultLabelColor: '#006064',
-              protanopiaAccent: '#FF6F00',
-              protanopiaBorder: '#E65100',
+              protanopiaAccent: '#b24e00',
+              protanopiaBorder: '#bb4200',
               protanopiaBg: '#FFE0B2',
-              protanopiaLabelColor: '#BF360C',
+              protanopiaLabelColor: '#ac310b',
               deuteranopiaAccent: '#673AB7',
               deuteranopiaBorder: '#512DA8',
               deuteranopiaBg: '#EDE7F6',
               deuteranopiaLabelColor: '#311B92',
-              tritanopiaAccent: '#E91E63',
+              tritanopiaAccent: '#ca1452',
               tritanopiaBorder: '#C2185B',
               tritanopiaBg: '#F8BBD0',
               tritanopiaLabelColor: '#880E4F'
@@ -404,24 +404,24 @@ export function App(){
             colorVision="normal"
             customColors={{
               defaultBg: '#CFD8DC',
-              defaultBorder: '#90A4AE',
-              defaultBgOn: '#66BB6A',
-              defaultBorderOn: '#43A047',
+              defaultBorder: '#5e7681',
+              defaultBgOn: '#387e3b',
+              defaultBorderOn: '#358039',
               defaultKnob: '#FFFFFF',
               protanopiaBg: '#FFCC80',
-              protanopiaBorder: '#FFA726',
-              protanopiaBgOn: '#29B6F6',
-              protanopiaBorderOn: '#1976D2',
+              protanopiaBorder: '#a05f00',
+              protanopiaBgOn: '#0774a5',
+              protanopiaBorderOn: '#176dc2',
               protanopiaKnob: '#FFFFFF',
               deuteranopiaBg: '#CE93D8',
-              deuteranopiaBorder: '#AB47BC',
-              deuteranopiaBgOn: '#BA68C8',
+              deuteranopiaBorder: '#a944ba',
+              deuteranopiaBgOn: '#aa44bb',
               deuteranopiaBorderOn: '#8E24AA',
               deuteranopiaKnob: '#FFFFFF',
               tritanopiaBg: '#80DEEA',
-              tritanopiaBorder: '#26C6DA',
-              tritanopiaBgOn: '#FF7043',
-              tritanopiaBorderOn: '#D84315',
+              tritanopiaBorder: '#177986',
+              tritanopiaBgOn: '#c52f00',
+              tritanopiaBorderOn: '#be3b13',
               tritanopiaKnob: '#FFFFFF'
             }}
             label="Modo oscuro personalizado"
@@ -436,24 +436,24 @@ export function App(){
             colorVision="protanopia"
             customColors={{
               defaultBg: '#CFD8DC',
-              defaultBorder: '#90A4AE',
-              defaultBgOn: '#66BB6A',
-              defaultBorderOn: '#43A047',
+              defaultBorder: '#5e7681',
+              defaultBgOn: '#387e3b',
+              defaultBorderOn: '#358039',
               defaultKnob: '#FFFFFF',
               protanopiaBg: '#FFCC80',
-              protanopiaBorder: '#FFA726',
-              protanopiaBgOn: '#29B6F6',
-              protanopiaBorderOn: '#1976D2',
+              protanopiaBorder: '#a05f00',
+              protanopiaBgOn: '#0774a5',
+              protanopiaBorderOn: '#176dc2',
               protanopiaKnob: '#FFFFFF',
               deuteranopiaBg: '#CE93D8',
-              deuteranopiaBorder: '#AB47BC',
-              deuteranopiaBgOn: '#BA68C8',
+              deuteranopiaBorder: '#a944ba',
+              deuteranopiaBgOn: '#aa44bb',
               deuteranopiaBorderOn: '#8E24AA',
               deuteranopiaKnob: '#FFFFFF',
               tritanopiaBg: '#80DEEA',
-              tritanopiaBorder: '#26C6DA',
-              tritanopiaBgOn: '#FF7043',
-              tritanopiaBorderOn: '#D84315',
+              tritanopiaBorder: '#177986',
+              tritanopiaBgOn: '#c52f00',
+              tritanopiaBorderOn: '#be3b13',
               tritanopiaKnob: '#FFFFFF'
             }}
             label="Notificaciones activadas"
@@ -473,23 +473,23 @@ export function App(){
             colorVision="deuteranopia"
             customColors={{
               defaultTrackBg: '#ECEFF1',
-              defaultTrackBorder: '#90A4AE',
-              defaultFillBg: '#FF5252',
+              defaultTrackBorder: '#78919d',
+              defaultFillBg: '#d10000',
               defaultThumbBg: '#FF5252',
-              defaultThumbBorder: '#D32F2F',
+              defaultThumbBorder: '#c82a2a',
               protanopiaTrackBg: '#FFF9C4',
-              protanopiaTrackBorder: '#FBC02D',
-              protanopiaFillBg: '#FBC02D',
+              protanopiaTrackBorder: '#b48203',
+              protanopiaFillBg: '#916903',
               protanopiaThumbBg: '#FBC02D',
-              protanopiaThumbBorder: '#F57F17',
+              protanopiaThumbBorder: '#ae5507',
               deuteranopiaTrackBg: '#F3E5F5',
-              deuteranopiaTrackBorder: '#CE93D8',
+              deuteranopiaTrackBorder: '#bd6eca',
               deuteranopiaFillBg: '#9C27B0',
               deuteranopiaThumbBg: '#9C27B0',
               deuteranopiaThumbBorder: '#6A1B9A',
               tritanopiaTrackBg: '#E1F5FE',
-              tritanopiaTrackBorder: '#81D4FA',
-              tritanopiaFillBg: '#0288D1',
+              tritanopiaTrackBorder: '#088ecb',
+              tritanopiaFillBg: '#0271ae',
               tritanopiaThumbBg: '#0288D1',
               tritanopiaThumbBorder: '#01579B'
             }}
@@ -508,23 +508,23 @@ export function App(){
             colorVision="protanopia"
             customColors={{
               defaultTrackBg: '#ECEFF1',
-              defaultTrackBorder: '#90A4AE',
-              defaultFillBg: '#FF5252',
+              defaultTrackBorder: '#78919d',
+              defaultFillBg: '#d10000',
               defaultThumbBg: '#FF5252',
-              defaultThumbBorder: '#D32F2F',
+              defaultThumbBorder: '#c82a2a',
               protanopiaTrackBg: '#FFF9C4',
-              protanopiaTrackBorder: '#FBC02D',
-              protanopiaFillBg: '#FBC02D',
+              protanopiaTrackBorder: '#b48203',
+              protanopiaFillBg: '#916903',
               protanopiaThumbBg: '#FBC02D',
-              protanopiaThumbBorder: '#F57F17',
+              protanopiaThumbBorder: '#ae5507',
               deuteranopiaTrackBg: '#F3E5F5',
-              deuteranopiaTrackBorder: '#CE93D8',
+              deuteranopiaTrackBorder: '#bd6eca',
               deuteranopiaFillBg: '#9C27B0',
               deuteranopiaThumbBg: '#9C27B0',
               deuteranopiaThumbBorder: '#6A1B9A',
               tritanopiaTrackBg: '#E1F5FE',
-              tritanopiaTrackBorder: '#81D4FA',
-              tritanopiaFillBg: '#0288D1',
+              tritanopiaTrackBorder: '#088ecb',
+              tritanopiaFillBg: '#0271ae',
               tritanopiaThumbBg: '#0288D1',
               tritanopiaThumbBorder: '#01579B'
             }}
@@ -539,6 +539,7 @@ export function App(){
         <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
           <h3 style={{marginTop:0}}>Pagination con CustomColors (Normal)</h3>
           <Pagination
+            ariaLabel="Paginación de ejemplo 1"
             currentPage={1}
             totalPages={5}
             onPageChange={() => {}}
@@ -546,16 +547,16 @@ export function App(){
             colorVision="normal"
             customColors={{
               defaultColorActive: '#FFFFFF',
-              defaultBgActive: '#1976D2',
+              defaultBgActive: '#176dc2',
               defaultShadowFocus: 'rgba(25, 118, 210, 0.5)',
               protanopiaColorActive: '#FFFFFF',
-              protanopiaBgActive: '#FFA500',
+              protanopiaBgActive: '#996300',
               protanopiaShadowFocus: 'rgba(255, 165, 0, 0.5)',
               deuteranopiaColorActive: '#FFFFFF',
               deuteranopiaBgActive: '#9C27B0',
               deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.5)',
-              tritanopiaColorActive: '#000000',
-              tritanopiaBgActive: '#00BCD4',
+              tritanopiaColorActive: '#ffffff',
+              tritanopiaBgActive: '#007887',
               tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.5)'
             }}
           />
@@ -563,6 +564,7 @@ export function App(){
         <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
           <h3 style={{marginTop:0}}>Pagination con CustomColors (Protanopia)</h3>
           <Pagination
+            ariaLabel="Paginación de ejemplo 2"
             currentPage={2}
             totalPages={5}
             onPageChange={() => {}}
@@ -570,16 +572,16 @@ export function App(){
             colorVision="protanopia"
             customColors={{
               defaultColorActive: '#FFFFFF',
-              defaultBgActive: '#1976D2',
+              defaultBgActive: '#176dc2',
               defaultShadowFocus: 'rgba(25, 118, 210, 0.5)',
               protanopiaColorActive: '#FFFFFF',
-              protanopiaBgActive: '#FFA500',
+              protanopiaBgActive: '#996300',
               protanopiaShadowFocus: 'rgba(255, 165, 0, 0.5)',
               deuteranopiaColorActive: '#FFFFFF',
               deuteranopiaBgActive: '#9C27B0',
               deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.5)',
-              tritanopiaColorActive: '#000000',
-              tritanopiaBgActive: '#00BCD4',
+              tritanopiaColorActive: '#ffffff',
+              tritanopiaBgActive: '#007887',
               tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.5)'
             }}
           />
@@ -603,28 +605,28 @@ export function App(){
             colorVision="deuteranopia"
             customColors={{
               defaultBg: '#FFFFFF',
-              defaultBorder: '#CCCCCC',
-              defaultBorderFocus: '#1976D2',
+              defaultBorder: '#757575',
+              defaultBorderFocus: '#176dc2',
               defaultColor: '#000000',
-              defaultPlaceholder: '#999999',
+              defaultPlaceholder: '#676767',
               defaultShadowFocus: 'rgba(25, 118, 210, 0.2)',
               protanopiaBg: '#FFFFFF',
-              protanopiaBorder: '#E6B800',
-              protanopiaBorderFocus: '#FFA500',
+              protanopiaBorder: '#8a6f00',
+              protanopiaBorderFocus: '#996300',
               protanopiaColor: '#000000',
-              protanopiaPlaceholder: '#999999',
+              protanopiaPlaceholder: '#676767',
               protanopiaShadowFocus: 'rgba(255, 165, 0, 0.2)',
               deuteranopiaBg: '#FFFFFF',
-              deuteranopiaBorder: '#E6B8D7',
+              deuteranopiaBorder: '#b43f8e',
               deuteranopiaBorderFocus: '#9C27B0',
               deuteranopiaColor: '#000000',
-              deuteranopiaPlaceholder: '#999999',
+              deuteranopiaPlaceholder: '#676767',
               deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.2)',
               tritanopiaBg: '#FFFFFF',
-              tritanopiaBorder: '#B3E5FC',
-              tritanopiaBorderFocus: '#00BCD4',
+              tritanopiaBorder: '#0774a7',
+              tritanopiaBorderFocus: '#007887',
               tritanopiaColor: '#000000',
-              tritanopiaPlaceholder: '#999999',
+              tritanopiaPlaceholder: '#676767',
               tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.2)'
             }}
           />
@@ -643,28 +645,28 @@ export function App(){
             colorVision="protanopia"
             customColors={{
               defaultBg: '#FFFFFF',
-              defaultBorder: '#CCCCCC',
-              defaultBorderFocus: '#1976D2',
+              defaultBorder: '#757575',
+              defaultBorderFocus: '#176dc2',
               defaultColor: '#000000',
-              defaultPlaceholder: '#999999',
+              defaultPlaceholder: '#676767',
               defaultShadowFocus: 'rgba(25, 118, 210, 0.2)',
               protanopiaBg: '#FFFFFF',
-              protanopiaBorder: '#E6B800',
-              protanopiaBorderFocus: '#FFA500',
+              protanopiaBorder: '#8a6f00',
+              protanopiaBorderFocus: '#996300',
               protanopiaColor: '#000000',
-              protanopiaPlaceholder: '#999999',
+              protanopiaPlaceholder: '#676767',
               protanopiaShadowFocus: 'rgba(255, 165, 0, 0.2)',
               deuteranopiaBg: '#FFFFFF',
-              deuteranopiaBorder: '#E6B8D7',
+              deuteranopiaBorder: '#b43f8e',
               deuteranopiaBorderFocus: '#9C27B0',
               deuteranopiaColor: '#000000',
-              deuteranopiaPlaceholder: '#999999',
+              deuteranopiaPlaceholder: '#676767',
               deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.2)',
               tritanopiaBg: '#FFFFFF',
-              tritanopiaBorder: '#B3E5FC',
-              tritanopiaBorderFocus: '#00BCD4',
+              tritanopiaBorder: '#0774a7',
+              tritanopiaBorderFocus: '#007887',
               tritanopiaColor: '#000000',
-              tritanopiaPlaceholder: '#999999',
+              tritanopiaPlaceholder: '#676767',
               tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.2)'
             }}
           />
@@ -683,28 +685,28 @@ export function App(){
             variant="custom"
             colorVision="tritanopia"
             customColors={{
-              defaultColor: '#1976D2',
-              defaultBorderColor: '#CCCCCC',
-              defaultBorderColorHover: '#1976D2',
-              defaultBorderColorFocus: '#1976D2',
+              defaultColor: '#1460ab',
+              defaultBorderColor: '#757575',
+              defaultBorderColorHover: '#176dc2',
+              defaultBorderColorFocus: '#176dc2',
               defaultLabelColor: '#000000',
               defaultDescriptionColor: '#666666',
-              protanopiaColor: '#FFA500',
-              protanopiaBorderColor: '#E6B800',
-              protanopiaBorderColorHover: '#FFA500',
-              protanopiaBorderColorFocus: '#FFA500',
+              protanopiaColor: '#8a5900',
+              protanopiaBorderColor: '#8a6f00',
+              protanopiaBorderColorHover: '#996300',
+              protanopiaBorderColorFocus: '#996300',
               protanopiaLabelColor: '#000000',
               protanopiaDescriptionColor: '#666666',
               deuteranopiaColor: '#9C27B0',
-              deuteranopiaBorderColor: '#E6B8D7',
+              deuteranopiaBorderColor: '#b43f8e',
               deuteranopiaBorderColorHover: '#9C27B0',
               deuteranopiaBorderColorFocus: '#9C27B0',
               deuteranopiaLabelColor: '#000000',
               deuteranopiaDescriptionColor: '#666666',
-              tritanopiaColor: '#00BCD4',
-              tritanopiaBorderColor: '#B3E5FC',
-              tritanopiaBorderColorHover: '#00BCD4',
-              tritanopiaBorderColorFocus: '#00BCD4',
+              tritanopiaColor: '#006b78',
+              tritanopiaBorderColor: '#0774a7',
+              tritanopiaBorderColorHover: '#007887',
+              tritanopiaBorderColorFocus: '#007887',
               tritanopiaLabelColor: '#000000',
               tritanopiaDescriptionColor: '#666666'
             }}
@@ -724,28 +726,28 @@ export function App(){
             variant="custom"
             colorVision="protanopia"
             customColors={{
-              defaultColor: '#1976D2',
-              defaultBorderColor: '#CCCCCC',
-              defaultBorderColorHover: '#1976D2',
-              defaultBorderColorFocus: '#1976D2',
+              defaultColor: '#1460ab',
+              defaultBorderColor: '#757575',
+              defaultBorderColorHover: '#176dc2',
+              defaultBorderColorFocus: '#176dc2',
               defaultLabelColor: '#000000',
               defaultDescriptionColor: '#666666',
-              protanopiaColor: '#FFA500',
-              protanopiaBorderColor: '#E6B800',
-              protanopiaBorderColorHover: '#FFA500',
-              protanopiaBorderColorFocus: '#FFA500',
+              protanopiaColor: '#8a5900',
+              protanopiaBorderColor: '#8a6f00',
+              protanopiaBorderColorHover: '#996300',
+              protanopiaBorderColorFocus: '#996300',
               protanopiaLabelColor: '#000000',
               protanopiaDescriptionColor: '#666666',
               deuteranopiaColor: '#9C27B0',
-              deuteranopiaBorderColor: '#E6B8D7',
+              deuteranopiaBorderColor: '#b43f8e',
               deuteranopiaBorderColorHover: '#9C27B0',
               deuteranopiaBorderColorFocus: '#9C27B0',
               deuteranopiaLabelColor: '#000000',
               deuteranopiaDescriptionColor: '#666666',
-              tritanopiaColor: '#00BCD4',
-              tritanopiaBorderColor: '#B3E5FC',
-              tritanopiaBorderColorHover: '#00BCD4',
-              tritanopiaBorderColorFocus: '#00BCD4',
+              tritanopiaColor: '#006b78',
+              tritanopiaBorderColor: '#0774a7',
+              tritanopiaBorderColorHover: '#007887',
+              tritanopiaBorderColorFocus: '#007887',
               tritanopiaLabelColor: '#000000',
               tritanopiaDescriptionColor: '#666666'
             }}
@@ -764,25 +766,26 @@ export function App(){
         <div style={{border:'1px solid #ccc', borderRadius:8, padding:16}}>
           <h3 style={{marginTop:0}}>Breadcrumb con CustomColors (Normal)</h3>
           <Breadcrumb
+            ariaLabel="Ruta de ejemplo 1"
             variant="custom"
             colorVision="tritanopia"
             customColors={{
-              defaultColor: '#1976D2',
+              defaultColor: '#1460ab',
               defaultColorHover: '#1565C0',
               defaultColorCurrent: '#000000',
-              defaultSeparator: '#999999',
-              protanopiaColor: '#FFA500',
-              protanopiaColorHover: '#FF8C00',
+              defaultSeparator: '#8f8f8f',
+              protanopiaColor: '#8a5900',
+              protanopiaColorHover: '#a65b00',
               protanopiaColorCurrent: '#000000',
-              protanopiaSeparator: '#999999',
+              protanopiaSeparator: '#8f8f8f',
               deuteranopiaColor: '#9C27B0',
               deuteranopiaColorHover: '#8E24AA',
               deuteranopiaColorCurrent: '#000000',
-              deuteranopiaSeparator: '#999999',
-              tritanopiaColor: '#00BCD4',
-              tritanopiaColorHover: '#0097A7',
+              deuteranopiaSeparator: '#8f8f8f',
+              tritanopiaColor: '#006b78',
+              tritanopiaColorHover: '#007986',
               tritanopiaColorCurrent: '#000000',
-              tritanopiaSeparator: '#999999'
+              tritanopiaSeparator: '#8f8f8f'
             }}
             items={[
               { label: 'Inicio', href: '#' },
@@ -794,25 +797,26 @@ export function App(){
         <div style={{border:'1px solid #ccc', borderRadius:8, padding:16, marginTop:16}}>
           <h3 style={{marginTop:0}}>Breadcrumb con CustomColors (Protanopia)</h3>
           <Breadcrumb
+            ariaLabel="Ruta de ejemplo 2"
             variant="custom"
             colorVision="protanopia"
             customColors={{
-              defaultColor: '#1976D2',
+              defaultColor: '#1460ab',
               defaultColorHover: '#1565C0',
               defaultColorCurrent: '#000000',
-              defaultSeparator: '#999999',
-              protanopiaColor: '#FFA500',
-              protanopiaColorHover: '#FF8C00',
+              defaultSeparator: '#8f8f8f',
+              protanopiaColor: '#8a5900',
+              protanopiaColorHover: '#a65b00',
               protanopiaColorCurrent: '#000000',
-              protanopiaSeparator: '#999999',
+              protanopiaSeparator: '#8f8f8f',
               deuteranopiaColor: '#9C27B0',
               deuteranopiaColorHover: '#8E24AA',
               deuteranopiaColorCurrent: '#000000',
-              deuteranopiaSeparator: '#999999',
-              tritanopiaColor: '#00BCD4',
-              tritanopiaColorHover: '#0097A7',
+              deuteranopiaSeparator: '#8f8f8f',
+              tritanopiaColor: '#006b78',
+              tritanopiaColorHover: '#007986',
               tritanopiaColorCurrent: '#000000',
-              tritanopiaSeparator: '#999999'
+              tritanopiaSeparator: '#8f8f8f'
             }}
             items={[
               { label: 'Inicio', href: '#' },
@@ -832,10 +836,10 @@ export function App(){
             variant="custom"
             colorVision="tritanopia"
             customColors={{
-              defaultColor: '#1976D2',
-              protanopiaColor: '#FFA500',
+              defaultColor: '#1460ab',
+              protanopiaColor: '#8a5900',
               deuteranopiaColor: '#9C27B0',
-              tritanopiaColor: '#00BCD4'
+              tritanopiaColor: '#006b78'
             }}
           />
         </div>
@@ -845,10 +849,10 @@ export function App(){
             variant="custom"
             colorVision="protanopia"
             customColors={{
-              defaultColor: '#1976D2',
-              protanopiaColor: '#FFA500',
+              defaultColor: '#1460ab',
+              protanopiaColor: '#8a5900',
               deuteranopiaColor: '#9C27B0',
-              tritanopiaColor: '#00BCD4'
+              tritanopiaColor: '#006b78'
             }}
           />
         </div>
@@ -866,25 +870,25 @@ export function App(){
             colorVision="normal"
             customColors={{
               defaultBg: '#FFFFFF',
-              defaultBorder: '#CCCCCC',
-              defaultBorderFocus: '#1976D2',
+              defaultBorder: '#757575',
+              defaultBorderFocus: '#176dc2',
               defaultColor: '#000000',
-              defaultPlaceholder: '#999999',
+              defaultPlaceholder: '#676767',
               protanopiaBg: '#FFFFFF',
-              protanopiaBorder: '#E6B800',
-              protanopiaBorderFocus: '#FFA500',
+              protanopiaBorder: '#8a6f00',
+              protanopiaBorderFocus: '#996300',
               protanopiaColor: '#000000',
-              protanopiaPlaceholder: '#999999',
+              protanopiaPlaceholder: '#676767',
               deuteranopiaBg: '#FFFFFF',
-              deuteranopiaBorder: '#E6B8D7',
+              deuteranopiaBorder: '#b43f8e',
               deuteranopiaBorderFocus: '#9C27B0',
               deuteranopiaColor: '#000000',
-              deuteranopiaPlaceholder: '#999999',
+              deuteranopiaPlaceholder: '#676767',
               tritanopiaBg: '#FFFFFF',
-              tritanopiaBorder: '#B3E5FC',
-              tritanopiaBorderFocus: '#00BCD4',
+              tritanopiaBorder: '#0774a7',
+              tritanopiaBorderFocus: '#007887',
               tritanopiaColor: '#000000',
-              tritanopiaPlaceholder: '#999999'
+              tritanopiaPlaceholder: '#676767'
             }}
           />
         </div>
@@ -897,25 +901,25 @@ export function App(){
             colorVision="tritanopia"
             customColors={{
               defaultBg: '#FFFFFF',
-              defaultBorder: '#CCCCCC',
-              defaultBorderFocus: '#1976D2',
+              defaultBorder: '#757575',
+              defaultBorderFocus: '#176dc2',
               defaultColor: '#000000',
-              defaultPlaceholder: '#999999',
+              defaultPlaceholder: '#676767',
               protanopiaBg: '#FFFFFF',
-              protanopiaBorder: '#E6B800',
-              protanopiaBorderFocus: '#FFA500',
+              protanopiaBorder: '#8a6f00',
+              protanopiaBorderFocus: '#996300',
               protanopiaColor: '#000000',
-              protanopiaPlaceholder: '#999999',
+              protanopiaPlaceholder: '#676767',
               deuteranopiaBg: '#FFFFFF',
-              deuteranopiaBorder: '#E6B8D7',
+              deuteranopiaBorder: '#b43f8e',
               deuteranopiaBorderFocus: '#9C27B0',
               deuteranopiaColor: '#000000',
-              deuteranopiaPlaceholder: '#999999',
+              deuteranopiaPlaceholder: '#676767',
               tritanopiaBg: '#FFFFFF',
-              tritanopiaBorder: '#B3E5FC',
-              tritanopiaBorderFocus: '#00BCD4',
+              tritanopiaBorder: '#0774a7',
+              tritanopiaBorderFocus: '#007887',
               tritanopiaColor: '#000000',
-              tritanopiaPlaceholder: '#999999'
+              tritanopiaPlaceholder: '#676767'
             }}
           />
         </div>
@@ -933,16 +937,16 @@ export function App(){
             customColors={{
               defaultBg: '#333333',
               defaultColor: '#FFFFFF',
-              defaultBorder: '#1976D2',
+              defaultBorder: '#176dc2',
               protanopiaBg: '#333333',
               protanopiaColor: '#FFFFFF',
-              protanopiaBorder: '#FFA500',
+              protanopiaBorder: '#996300',
               deuteranopiaBg: '#333333',
               deuteranopiaColor: '#FFFFFF',
               deuteranopiaBorder: '#9C27B0',
               tritanopiaBg: '#333333',
               tritanopiaColor: '#FFFFFF',
-              tritanopiaBorder: '#00BCD4'
+              tritanopiaBorder: '#007887'
             }}
           >
             <span>Pasar sobre mí</span>
@@ -957,16 +961,16 @@ export function App(){
             customColors={{
               defaultBg: '#333333',
               defaultColor: '#FFFFFF',
-              defaultBorder: '#1976D2',
+              defaultBorder: '#176dc2',
               protanopiaBg: '#333333',
               protanopiaColor: '#FFFFFF',
-              protanopiaBorder: '#FFA500',
+              protanopiaBorder: '#996300',
               deuteranopiaBg: '#333333',
               deuteranopiaColor: '#FFFFFF',
               deuteranopiaBorder: '#9C27B0',
               tritanopiaBg: '#333333',
               tritanopiaColor: '#FFFFFF',
-              tritanopiaBorder: '#00BCD4'
+              tritanopiaBorder: '#007887'
             }}
           >
             <span>Pasar sobre mí</span>
@@ -1112,7 +1116,7 @@ export function App(){
       <div style={{opacity:.7, fontSize:12}}>
         Sugerencia: habilita "High Contrast" del sistema o "prefers-reduced-motion" para probar ajustes.
       </div>
-    </div>
+    </main>
   )
 }
 
@@ -1129,6 +1133,7 @@ function ToggleDemoInline(props: import('../Toggle/Toggle').ToggleProps) {
       colorVision={props.colorVision}
       accessibility={props.accessibility}
       disabled={props.disabled}
+      label={props.label ?? 'Notificaciones'}
     />
   );
 }
@@ -1207,10 +1212,11 @@ function TextareaDemoInline(props: Omit<import('../Textarea/Textarea').TextareaP
 function PaginationDemoInline(props: Omit<import('../Pagination/Pagination').PaginationProps, 'totalPages'>) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', alignItems: 'center' }}>
-      <div style={{ fontSize: '14px', color: '#666' }}>
+      <div style={{ fontSize: '14px', color: '#4b5563' }}>
         Página {props.currentPage} de 25 (ejemplo con 25 páginas)
       </div>
       <Pagination
+        ariaLabel="Paginación de ejemplo 3"
         currentPage={props.currentPage}
         totalPages={25}
         onPageChange={props.onPageChange}
@@ -1240,10 +1246,11 @@ function BreadcrumbDemoInline(props: Omit<import('../Breadcrumb/Breadcrumb').Bre
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div style={{ fontSize: '14px', color: '#666' }}>
+      <div style={{ fontSize: '14px', color: '#4b5563' }}>
         Navegación actual: Inicio {'->'} Productos {'->'} Electrónicos {'->'} Smartphones {'->'} Samsung Z Fold 7
       </div>
       <Breadcrumb
+        ariaLabel="Ruta de ejemplo 3"
         items={breadcrumbItems}
         variant={props.variant}
         fontSize={props.fontSize}
@@ -1252,7 +1259,7 @@ function BreadcrumbDemoInline(props: Omit<import('../Breadcrumb/Breadcrumb').Bre
         maxItems={5}
         showHome={false}
       />
-      <div style={{ fontSize: '12px', color: '#999', marginTop: '8px' }}>
+      <div style={{ fontSize: '12px', color: '#757575', marginTop: '8px' }}>
         ℹ️ Los elementos son clickeables excepto el último (página actual)
       </div>
     </div>
@@ -1263,7 +1270,7 @@ function BreadcrumbDemoInline(props: Omit<import('../Breadcrumb/Breadcrumb').Bre
 function SpinnerDemoInline(props: Omit<import('../Spinner/Spinner').SpinnerProps, 'spinnerVariant' | 'label'>) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      <div style={{ fontSize: '14px', color: '#666' }}>
+      <div style={{ fontSize: '14px', color: '#4b5563' }}>
         Tres variantes de spinners con diferentes animaciones
       </div>
       
@@ -1278,7 +1285,7 @@ function SpinnerDemoInline(props: Omit<import('../Spinner/Spinner').SpinnerProps
             label="Circular"
             speed="normal"
           />
-          <div style={{ fontSize: '12px', color: '#999' }}>Variante 1: Circular</div>
+          <div style={{ fontSize: '12px', color: '#757575' }}>Variante 1: Circular</div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
@@ -1291,7 +1298,7 @@ function SpinnerDemoInline(props: Omit<import('../Spinner/Spinner').SpinnerProps
             label="Dots pulsantes"
             speed="normal"
           />
-          <div style={{ fontSize: '12px', color: '#999' }}>Variante 2: Dots</div>
+          <div style={{ fontSize: '12px', color: '#757575' }}>Variante 2: Dots</div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
@@ -1304,7 +1311,7 @@ function SpinnerDemoInline(props: Omit<import('../Spinner/Spinner').SpinnerProps
             label="Barras ondulantes"
             speed="normal"
           />
-          <div style={{ fontSize: '12px', color: '#999' }}>Variante 3: Barras</div>
+          <div style={{ fontSize: '12px', color: '#757575' }}>Variante 3: Barras</div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
@@ -1317,7 +1324,7 @@ function SpinnerDemoInline(props: Omit<import('../Spinner/Spinner').SpinnerProps
             label="Grid cuadrados"
             speed="normal"
           />
-          <div style={{ fontSize: '12px', color: '#999' }}>Variante 4: Grid</div>
+          <div style={{ fontSize: '12px', color: '#757575' }}>Variante 4: Grid</div>
         </div>
 
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
@@ -1330,11 +1337,11 @@ function SpinnerDemoInline(props: Omit<import('../Spinner/Spinner').SpinnerProps
             label="Onda wave"
             speed="normal"
           />
-          <div style={{ fontSize: '12px', color: '#999' }}>Variante 5: Wave</div>
+          <div style={{ fontSize: '12px', color: '#757575' }}>Variante 5: Wave</div>
         </div>
       </div>
 
-      <div style={{ fontSize: '12px', color: '#999' }}>
+      <div style={{ fontSize: '12px', color: '#757575' }}>
         ⚡ 5 variantes diferentes | Velocidades: slow, normal, fast | 🎯 Soporte completo para reduced-motion
       </div>
     </div>
@@ -1345,7 +1352,7 @@ function SpinnerDemoInline(props: Omit<import('../Spinner/Spinner').SpinnerProps
 function TooltipDemoInline(props: Omit<import('../Tooltip/Tooltip').TooltipProps, 'children' | 'content'>) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px', alignItems: 'center' }}>
-      <div style={{ fontSize: '14px', color: '#666', textAlign: 'center' }}>
+      <div style={{ fontSize: '14px', color: '#4b5563', textAlign: 'center' }}>
         Tooltips con animaciones fluidas y posicionamiento inteligente
       </div>
       
@@ -1445,7 +1452,7 @@ function TooltipDemoInline(props: Omit<import('../Tooltip/Tooltip').TooltipProps
         </Tooltip>
       </div>
 
-      <div style={{ fontSize: '12px', color: '#999', textAlign: 'center' }}>
+      <div style={{ fontSize: '12px', color: '#757575', textAlign: 'center' }}>
         ✨ Posicionamiento inteligente | 🎯 Animaciones fluidas | ♿ Accesible con ARIA
       </div>
     </div>
@@ -1456,7 +1463,7 @@ function TooltipDemoInline(props: Omit<import('../Tooltip/Tooltip').TooltipProps
 function AlertDemoInline(props: Omit<import('../Alert/Alert').AlertProps, 'children' | 'title'>) {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-      <div style={{ fontSize: '14px', color: '#666' }}>
+      <div style={{ fontSize: '14px', color: '#4b5563' }}>
         Diferentes tipos de alertas con emojis correspondientes a cada variante
       </div>
       
@@ -1568,7 +1575,7 @@ function AlertDemoInline(props: Omit<import('../Alert/Alert').AlertProps, 'child
         </Alert>
       </div>
 
-      <div style={{ fontSize: '12px', color: '#999' }}>
+      <div style={{ fontSize: '12px', color: '#757575' }}>
         💡 Primary | ✅ Success | ⚠️ Warning | ❌ Danger | ℹ️ Secondary | 🎯 Completamente accesible
       </div>
     </div>
@@ -1605,7 +1612,7 @@ function RadiogroupDemoInline(props: Omit<import('../Radiogroup/Radiogroup').Rad
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
-      <div style={{ fontSize: '14px', color: '#666' }}>
+      <div style={{ fontSize: '14px', color: '#4b5563' }}>
         Radio groups con selección única y descripciones
       </div>
       
@@ -1679,7 +1686,7 @@ function RadiogroupDemoInline(props: Omit<import('../Radiogroup/Radiogroup').Rad
         />
       </div>
 
-      <div style={{ fontSize: '12px', color: '#999' }}>
+      <div style={{ fontSize: '12px', color: '#757575' }}>
         🔘 Selección única | 📝 Con descripciones | ↕️ Vertical/Horizontal | ♿ Completamente accesible
       </div>
     </div>
@@ -1697,8 +1704,8 @@ function ToggleDemoCustom(props: import('../Toggle/Toggle').ToggleProps & { labe
         variant="custom"
         colorVision={props.colorVision}
         customColors={props.customColors}
+        label={props.label}
       />
-      <span>{props.label}</span>
     </div>
   );
 }

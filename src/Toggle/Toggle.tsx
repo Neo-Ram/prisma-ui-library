@@ -42,6 +42,11 @@ export interface ToggleProps {
   colorVision?: ColorVision;
   accessibility?: AccessibilityMode;
   disabled?: boolean;
+  /** Texto visible junto al switch; también es su nombre accesible. */
+  label?: string;
+  /** Nombre accesible cuando no hay `label` visible. */
+  ariaLabel?: string;
+  ariaLabelledBy?: string;
   customColors?: CustomToggleColors;
   style?: React.CSSProperties;
 }
@@ -53,9 +58,13 @@ export const Toggle: React.FC<ToggleProps> = ({
   colorVision = 'normal',
   accessibility = 'default',
   disabled = false,
+  label,
+  ariaLabel,
+  ariaLabelledBy,
   customColors,
   style,
 }) => {
+  const labelId = `toggle-label-${React.useId()}`;
   const rootClasses = [styles.toggle];
   const switchClasses = [styles.switch];
 
@@ -109,7 +118,9 @@ export const Toggle: React.FC<ToggleProps> = ({
         tabIndex={0}
         role="switch"
         aria-checked={checked}
-        aria-disabled={disabled}
+        aria-disabled={disabled || undefined}
+        aria-labelledby={ariaLabelledBy || (label ? labelId : undefined)}
+        aria-label={!ariaLabelledBy && !label ? ariaLabel : undefined}
         className={switchClasses.join(' ') + (checked ? ` ${styles.on}` : '')}
         onClick={() => !disabled && onChange(!checked)}
         onKeyDown={e => {
@@ -121,6 +132,15 @@ export const Toggle: React.FC<ToggleProps> = ({
       >
         <span className={styles.knob} />
       </span>
+      {label && (
+        <span
+          id={labelId}
+          className={styles.label}
+          onClick={() => !disabled && onChange(!checked)}
+        >
+          {label}
+        </span>
+      )}
     </div>
   );
 };

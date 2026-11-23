@@ -18,7 +18,7 @@ input[type=number] {
   font-family: sans-serif;
   width: 100%;
   box-sizing: border-box;
-  border: 1px solid var(--input-border, #ccc);
+  border: 1px solid var(--input-border, #6b7280);
   border-radius: var(--input-radius, 6px);
   padding: var(--input-pad-y, 10px) var(--input-pad-x, 16px);
   font-size: var(--input-font-size, 14px);
@@ -28,8 +28,8 @@ input[type=number] {
   outline: none;
 }
 .input:focus {
-  border-color: var(--input-border-focus, #007bff);
-  box-shadow: 0 0 0 2px color-mix(in srgb, var(--input-border-focus, #007bff) 30%, transparent);
+  border-color: var(--input-border-focus, #1959bf);
+  box-shadow: 0 0 0 1px var(--input-border-focus, #1959bf), 0 0 0 4px color-mix(in srgb, var(--input-border-focus, #1959bf) 35%, transparent);
 }
 .input[disabled], .input[aria-disabled="true"] {
   opacity: .6;
@@ -40,7 +40,7 @@ input[type=number] {
 .labelStatic {
   margin-bottom: 2px;
   font-size: 0.95em;
-  color: #888;
+  color: var(--input-label-color, #4b5563);
   font-weight: 500;
 }
 .a11y-low-vision .label,
@@ -49,29 +49,29 @@ input[type=number] {
 }
 
 /* Variantes */
-.primary { --input-border: #007bff; --input-border-focus: #0056b3; }
-.secondary { --input-border: #6c757d; --input-border-focus: #343a40; }
-.success { --input-border: #198754; --input-border-focus: #145c32; }
-.warning { --input-border: #ffc107; --input-border-focus: #b38f00; }
-.danger { --input-border: #dc3545; --input-border-focus: #a71d2a; }
+.primary { --input-border: #1c64d7; --input-border-focus: #1959bf; }
+.secondary { --input-border: #4d4d4d; --input-border-focus: #4d4d4d; }
+.success { --input-border: #397e28; --input-border-focus: #347325; }
+.warning { --input-border: #a0600b; --input-border-focus: #8f560a; }
+.danger { --input-border: #c4284a; --input-border-focus: #b02443; }
 /* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Daltonismo */
-.cv-protanopia.primary { --input-border: #3399ff; --input-border-focus: #2673b6; }
-.cv-deuteranopia.primary { --input-border: #4f83cc; --input-border-focus: #3a5c99; }
-.cv-tritanopia.primary { --input-border: #007bff; --input-border-focus: #0056b3; }
+.cv-protanopia.primary { --input-border: #2253f0; --input-border-focus: #1e49d4; }
+.cv-deuteranopia.primary { --input-border: #006ebe; --input-border-focus: #0061a8; }
+.cv-tritanopia.primary { --input-border: #6a45f0; --input-border-focus: #5f3ed8; }
 
-.cv-protanopia.success { --input-border: #ffd966; --input-border-focus: #b38f00; }
-.cv-deuteranopia.success { --input-border: #a3e635; --input-border-focus: #65a30d; }
-.cv-tritanopia.success { --input-border: #fbbf24; --input-border-focus: #d97706; }
+.cv-protanopia.success { --input-border: #064b69; --input-border-focus: #064b69; }
+.cv-deuteranopia.success { --input-border: #16505a; --input-border-focus: #16505a; }
+.cv-tritanopia.success { --input-border: #258101; --input-border-focus: #217401; }
 
-.cv-protanopia.warning { --input-border: #ffd966; --input-border-focus: #b38f00; }
-.cv-deuteranopia.warning { --input-border: #ffe066; --input-border-focus: #b39b00; }
-.cv-tritanopia.warning { --input-border: #ffb366; --input-border-focus: #b36b00; }
+.cv-protanopia.warning { --input-border: #a06024; --input-border-focus: #8f5620; }
+.cv-deuteranopia.warning { --input-border: #9d621e; --input-border-focus: #8c571b; }
+.cv-tritanopia.warning { --input-border: #8a6d2c; --input-border-focus: #7c6228; }
 
-.cv-protanopia.danger { --input-border: #ff6666; --input-border-focus: #b30000; }
-.cv-deuteranopia.danger { --input-border: #ff8080; --input-border-focus: #b32424; }
-.cv-tritanopia.danger { --input-border: #ff6666; --input-border-focus: #b30000; }
+.cv-protanopia.danger { --input-border: #7f282e; --input-border-focus: #7f282e; }
+.cv-deuteranopia.danger { --input-border: #7e2735; --input-border-focus: #7e2735; }
+.cv-tritanopia.danger { --input-border: #8a0700; --input-border-focus: #8a0700; }
 
 /* Accesibilidad */
 .a11y-low-vision .input {
@@ -84,7 +84,7 @@ input[type=number] {
   /* Aplica los estilos de .fs-xl */
   --input-font-size: 18px;
 }
-.a11y-high-contrast { --input-color: #000; --input-border: #000; --input-border-focus: #000; background: #fff; }
+.a11y-high-contrast.a11y-high-contrast { --input-color: #000; --input-border: #000; --input-border-focus: #000; background: #fff; }
 
 /* Tamaños */
 .xs { --input-pad-y: 6px; --input-pad-x: 10px; --input-radius: 4px; }
@@ -99,3 +99,8 @@ input[type=number] {
 .fs-md { --input-font-size: 14px; }
 .fs-lg { --input-font-size: 16px; }
 .fs-xl { --input-font-size: 18px; }
+.cv-protanopia.secondary { --input-border: #747474; --input-border-focus: #686868; }
+
+.cv-deuteranopia.secondary { --input-border: #747474; --input-border-focus: #686868; }
+
+.cv-tritanopia.secondary { --input-border: #4d4d4d; --input-border-focus: #4d4d4d; }

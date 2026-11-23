@@ -107,7 +107,8 @@ export const Input: React.FC<InputProps> = ({
     classes.push(styles[`a11y-${accessibility}`])
   }
 
-  const inputId = id || `input-${Math.random().toString(36).slice(2,8)}`
+  const autoId = React.useId()
+  const inputId = id || `input-${autoId}`
 
   // Si es baja visión, fuerza font-size grande en label y input
   const bigFont = accessibility === 'low-vision' ? { fontSize: '18px' } : {}
@@ -125,7 +126,7 @@ export const Input: React.FC<InputProps> = ({
           className={classes.join(' ')}
           style={{ ...customStyle, ...bigFont }}
           placeholder={placeholder}
-          aria-label={label || placeholder}
+          aria-label={label ? undefined : placeholder}
           value={value}
           defaultValue={defaultValue}
           type={type === 'password' ? (showPassword ? 'text' : 'password') : type}
@@ -146,8 +147,11 @@ export const Input: React.FC<InputProps> = ({
               border: 'none',
               cursor: 'pointer',
               padding: 0,
+              minWidth: 24,
+              minHeight: 24,
+              justifyContent: 'center',
               fontSize: bigFont.fontSize || '16px',
-              color: '#888',
+              color: '#4b5563',
               display: 'flex',
               alignItems: 'center'
             }}

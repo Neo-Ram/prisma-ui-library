@@ -356,19 +356,26 @@ Example with `maxItems={5}`:
 
 ## CSS Customization
 
-```css
-:root {
-  /* Breadcrumb colors */
-  --breadcrumb-link-color: #007bff;
-  --breadcrumb-link-hover: #0056b3;
-  --breadcrumb-current-color: #6c757d;
-  --breadcrumb-separator-color: #6c757d;
-  
-  /* Spacing */
-  --breadcrumb-item-spacing: 0.5rem;
-  --breadcrumb-padding: 0.75rem 0;
-}
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
+
+```tsx
+<Breadcrumb
+  variant="custom"
+  style={{ '--breadcrumb-color': '#4b5563', '--breadcrumb-color-hover': '#347325', '--breadcrumb-hover-bg': '#eff5ee' } as React.CSSProperties}
+  items={items}
+/>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--breadcrumb-color` | `#6b7280` | Link text (≥4.5:1) |
+| `--breadcrumb-color-hover` | `#1959bf` | Hover/focus text, on the hover tint (≥4.5:1) |
+| `--breadcrumb-hover-bg` | `#edf3fc` | Hover/focus tint |
+| `--breadcrumb-color-current` | `#1f2937` | Current page text |
+| `--breadcrumb-color-disabled` | `#6b7280` | Disabled items / ellipsis |
+| `--breadcrumb-separator` | `#9ca3af` | Separator icon (decorative) |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Related Components
 

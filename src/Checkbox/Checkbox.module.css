@@ -10,9 +10,9 @@
 .input {
   width: var(--checkbox-size, 20px);
   height: var(--checkbox-size, 20px);
-  accent-color: var(--checkbox-accent, #007bff);
+  accent-color: var(--checkbox-accent, #1c64d7);
   border-radius: 4px;
-  border: 2px solid var(--checkbox-border, #888);
+  border: 2px solid var(--checkbox-border, #6b7280);
   background: var(--checkbox-bg, #fff);
   transition: box-shadow 0.2s;
   position: relative;
@@ -27,7 +27,7 @@
   width: 0;
   height: 0;
   border-radius: 50%;
-  background: var(--checkbox-accent, #007bff);
+  background: var(--checkbox-accent, #1c64d7);
   opacity: 0.5;
   transform: translate(-50%, -50%) scale(1);
   animation: explode 0.4s linear forwards;
@@ -58,9 +58,12 @@
 
 
 .input:focus {
-  outline: none;
-  box-shadow: none;
   cursor: pointer;
+}
+
+.input:focus-visible {
+  outline: 2px solid var(--checkbox-accent, #1c64d7);
+  outline-offset: 2px;
 }
 
 .label {
@@ -70,24 +73,24 @@
 
 /* Variantes */
 .primary {
-  --checkbox-accent: #007bff;
-  --checkbox-border: #007bff;
+  --checkbox-accent: #1c64d7;
+  --checkbox-border: #1c64d7;
 }
 .secondary {
-  --checkbox-accent: #6c757d;
-  --checkbox-border: #6c757d;
+  --checkbox-accent: #4d4d4d;
+  --checkbox-border: #4d4d4d;
 }
 .success {
-  --checkbox-accent: #28a745;
-  --checkbox-border: #28a745;
+  --checkbox-accent: #397e28;
+  --checkbox-border: #397e28;
 }
 .warning {
-  --checkbox-accent: #ffc107;
-  --checkbox-border: #ffc107;
+  --checkbox-accent: #a0600b;
+  --checkbox-border: #a0600b;
 }
 .danger {
-  --checkbox-accent: #dc3545;
-  --checkbox-border: #dc3545;
+  --checkbox-accent: #c4284a;
+  --checkbox-border: #c4284a;
 }
 /* Custom variant inherits base styles, colors come from inline CSS variables */
 
@@ -109,33 +112,33 @@
 }
 
 /* Daltonismo - combinaciones específicas por variante igual que Button */
-.cv-protanopia.primary { --checkbox-accent: #3399ff; --checkbox-border: #3399ff; }
-.cv-deuteranopia.primary { --checkbox-accent: #4f83cc; --checkbox-border: #4f83cc; }
-.cv-tritanopia.primary { --checkbox-accent: #007bff; --checkbox-border: #007bff; }
+.cv-protanopia.primary { --checkbox-accent: #2253f0; --checkbox-border: #2253f0; }
+.cv-deuteranopia.primary { --checkbox-accent: #006ebe; --checkbox-border: #006ebe; }
+.cv-tritanopia.primary { --checkbox-accent: #6a45f0; --checkbox-border: #6a45f0; }
 
-.cv-protanopia.success { --checkbox-accent: #ffd966; --checkbox-border: #ffd966; }
-.cv-deuteranopia.success { --checkbox-accent: #a3e635; --checkbox-border: #a3e635; }
-.cv-tritanopia.success { --checkbox-accent: #fbbf24; --checkbox-border: #fbbf24; }
+.cv-protanopia.success { --checkbox-accent: #064b69; --checkbox-border: #064b69; }
+.cv-deuteranopia.success { --checkbox-accent: #16505a; --checkbox-border: #16505a; }
+.cv-tritanopia.success { --checkbox-accent: #258101; --checkbox-border: #258101; }
 
-.cv-protanopia.warning { --checkbox-accent: #ffd966; --checkbox-border: #ffd966; }
-.cv-deuteranopia.warning { --checkbox-accent: #ffe066; --checkbox-border: #ffe066; }
-.cv-tritanopia.warning { --checkbox-accent: #ffb366; --checkbox-border: #ffb366; }
+.cv-protanopia.warning { --checkbox-accent: #a06024; --checkbox-border: #a06024; }
+.cv-deuteranopia.warning { --checkbox-accent: #9d621e; --checkbox-border: #9d621e; }
+.cv-tritanopia.warning { --checkbox-accent: #8a6d2c; --checkbox-border: #8a6d2c; }
 
-.cv-protanopia.danger { --checkbox-accent: #ff6666; --checkbox-border: #ff6666; }
-.cv-deuteranopia.danger { --checkbox-accent: #ff8080; --checkbox-border: #ff8080; }
-.cv-tritanopia.danger { --checkbox-accent: #ff6666; --checkbox-border: #ff6666; }
+.cv-protanopia.danger { --checkbox-accent: #7f282e; --checkbox-border: #7f282e; }
+.cv-deuteranopia.danger { --checkbox-accent: #7e2735; --checkbox-border: #7e2735; }
+.cv-tritanopia.danger { --checkbox-accent: #8a0700; --checkbox-border: #8a0700; }
 
-.cv-protanopia.secondary { --checkbox-accent: #9ca3af; --checkbox-border: #9ca3af; }
-.cv-deuteranopia.secondary { --checkbox-accent: #94a3b8; --checkbox-border: #94a3b8; }
-.cv-tritanopia.secondary { --checkbox-accent: #6c757d; --checkbox-border: #6c757d; }
+.cv-protanopia.secondary { --checkbox-accent: #747474; --checkbox-border: #747474; }
+.cv-deuteranopia.secondary { --checkbox-accent: #747474; --checkbox-border: #747474; }
+.cv-tritanopia.secondary { --checkbox-accent: #4d4d4d; --checkbox-border: #4d4d4d; }
 
 /* Accesibilidad */
 .a11y-low-vision {
   --checkbox-font-size: 22px;
 }
-.a11y-high-contrast {
+.a11y-high-contrast.a11y-high-contrast {
   --checkbox-accent: #000;
-  --checkbox-border: #fff;
+  --checkbox-border: #000;
   --checkbox-bg: #fff;
   --checkbox-label-color: #000;
 }

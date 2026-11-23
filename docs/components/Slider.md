@@ -365,22 +365,25 @@ interface SliderProps {
 
 ## CSS Customization
 
-```css
-:root {
-  /* Track colors */
-  --slider-track-bg: #e9ecef;
-  --slider-track-fill: #007bff;
-  --slider-thumb-bg: #ffffff;
-  --slider-thumb-border: #007bff;
-  
-  /* Sizes */
-  --slider-height-md: 6px;
-  --slider-thumb-size-md: 20px;
-  
-  /* Focus */
-  --slider-focus-ring: 0 0 0 3px rgba(11,92,255,.25);
-}
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
+
+```tsx
+<Slider
+  variant="custom"
+  style={{ '--slider-fill-bg': '#397e28', '--slider-thumb-border': '#397e28' } as React.CSSProperties}
+  value={value} onChange={setValue} label="Volume"
+/>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--slider-track-bg` | `#e9ecf1` | Track background |
+| `--slider-track-border` | `#6b7280` | Track border (≥3:1) |
+| `--slider-fill-bg` | `#1c64d7` | Filled portion (≥3:1 vs track) |
+| `--slider-thumb-bg` | `#ffffff` | Thumb background |
+| `--slider-thumb-border` | `#1c64d7` | Thumb border / focus ring |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Related Components
 

@@ -128,14 +128,20 @@ export const Textarea: React.FC<TextareaProps> = ({
     rootClasses.push(className);
   }
 
-  const textareaId = `textarea-${label?.replace(/\s+/g, '-').toLowerCase() || 'field'}`;
+  const autoId = React.useId();
+  const textareaId = `textarea-${autoId}`;
 
   return (
     <div className={rootClasses.join(' ')}>
       {label && (
         <label className={styles.label} htmlFor={textareaId}>
           {label}
-          {required && <span className={styles.required} aria-label="obligatorio">*</span>}
+          {required && (
+            <span className={styles.required}>
+              <span aria-hidden="true">*</span>
+              <span className={styles.srOnly}> (obligatorio)</span>
+            </span>
+          )}
         </label>
       )}
       <div className={styles.container}>

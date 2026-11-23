@@ -78,22 +78,22 @@ export const Pagination: React.FC<PaginationProps> = ({
   const customStyle = { ...style } as React.CSSProperties & { [key: string]: string }
   if (customColors && variant === 'custom') {
     // Aplicar colores según el modo de visión de color
+    // ColorActive = texto de la página activa; BgActive = fondo de la página activa
+    // (y color de texto/borde en hover de las demás páginas).
+    const set = (color: string, bg: string, shadow: string) => {
+      customStyle['--btn-color-active-variant'] = color
+      customStyle['--btn-bg-active-variant'] = bg
+      customStyle['--btn-color-active'] = bg
+      customStyle['--btn-shadow-focus'] = shadow
+    }
     if (colorVision === 'normal') {
-      customStyle['--btn-color-active'] = customColors.defaultColorActive
-      customStyle['--btn-bg-active-variant'] = customColors.defaultBgActive
-      customStyle['--btn-shadow-focus'] = customColors.defaultShadowFocus
+      set(customColors.defaultColorActive, customColors.defaultBgActive, customColors.defaultShadowFocus)
     } else if (colorVision === 'protanopia') {
-      customStyle['--btn-color-active'] = customColors.protanopiaColorActive
-      customStyle['--btn-bg-active-variant'] = customColors.protanopiaBgActive
-      customStyle['--btn-shadow-focus'] = customColors.protanopiaShadowFocus
+      set(customColors.protanopiaColorActive, customColors.protanopiaBgActive, customColors.protanopiaShadowFocus)
     } else if (colorVision === 'deuteranopia') {
-      customStyle['--btn-color-active'] = customColors.deuteranopiaColorActive
-      customStyle['--btn-bg-active-variant'] = customColors.deuteranopiaBgActive
-      customStyle['--btn-shadow-focus'] = customColors.deuteranopiaShadowFocus
+      set(customColors.deuteranopiaColorActive, customColors.deuteranopiaBgActive, customColors.deuteranopiaShadowFocus)
     } else if (colorVision === 'tritanopia') {
-      customStyle['--btn-color-active'] = customColors.tritanopiaColorActive
-      customStyle['--btn-bg-active-variant'] = customColors.tritanopiaBgActive
-      customStyle['--btn-shadow-focus'] = customColors.tritanopiaShadowFocus
+      set(customColors.tritanopiaColorActive, customColors.tritanopiaBgActive, customColors.tritanopiaShadowFocus)
     }
   }
 

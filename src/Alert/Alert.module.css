@@ -2,14 +2,13 @@
   --alert-bg: #f8fafc;
   --alert-border: #e2e8f0;
   --alert-color: #334155;
-  --alert-icon-color: #64748b;
+  --alert-icon-color: #475569;
   --alert-title-color: #1e293b;
   --alert-padding: 12px 16px;
   --alert-border-radius: 8px;
   --alert-font-size: 14px;
   --alert-line-height: 1.5;
   --alert-gap: 12px;
-
   display: flex;
   align-items: flex-start;
   gap: var(--alert-gap);
@@ -76,9 +75,9 @@
   color: var(--alert-title-color);
 }
 
-.dismissButton:focus {
+.dismissButton:focus-visible {
   outline: none;
-  box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.25);
+  box-shadow: 0 0 0 2px var(--alert-icon-color);
   background: rgba(0, 0, 0, 0.05);
 }
 
@@ -132,182 +131,182 @@
 
 /* Variants */
 .primary {
-  --alert-bg: #eff6ff;
-  --alert-border: #bfdbfe;
-  --alert-color: #1e40af;
-  --alert-icon-color: #3b82f6;
-  --alert-title-color: #1e3a8a;
+  --alert-bg: #e8f0fb;
+  --alert-border: #1c64d7;
+  --alert-color: #1752b1;
+  --alert-icon-color: #1c64d7;
+  --alert-title-color: #12418d;
 }
 
 .secondary {
-  --alert-bg: #f8fafc;
-  --alert-border: #e2e8f0;
-  --alert-color: #475569;
-  --alert-icon-color: #64748b;
-  --alert-title-color: #334155;
+  --alert-bg: #ededed;
+  --alert-border: #4d4d4d;
+  --alert-color: #4d4d4d;
+  --alert-icon-color: #4d4d4d;
+  --alert-title-color: #484848;
 }
 
 .success {
-  --alert-bg: #f0fdf4;
-  --alert-border: #bbf7d0;
-  --alert-color: #166534;
-  --alert-icon-color: #22c55e;
-  --alert-title-color: #14532d;
+  --alert-bg: #ebf2ea;
+  --alert-border: #397e28;
+  --alert-color: #306a22;
+  --alert-icon-color: #397e28;
+  --alert-title-color: #26541b;
 }
 
 .warning {
-  --alert-bg: #fffbeb;
-  --alert-border: #fed7aa;
-  --alert-color: #d97706;
-  --alert-icon-color: #f59e0b;
-  --alert-title-color: #b45309;
+  --alert-bg: #f6efe7;
+  --alert-border: #a0600b;
+  --alert-color: #844f09;
+  --alert-icon-color: #a0600b;
+  --alert-title-color: #6a3f07;
 }
 
 .danger {
-  --alert-bg: #fef2f2;
-  --alert-border: #fecaca;
-  --alert-color: #dc2626;
-  --alert-icon-color: #ef4444;
-  --alert-title-color: #b91c1c;
+  --alert-bg: #f9eaed;
+  --alert-border: #c4284a;
+  --alert-color: #a3213d;
+  --alert-icon-color: #c4284a;
+  --alert-title-color: #821b31;
 }
 /* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Type-specific styles (override variant if specified) */
 .type-info {
-  --alert-bg: #eff6ff;
-  --alert-border: #bfdbfe;
-  --alert-color: #1e40af;
-  --alert-icon-color: #3b82f6;
-  --alert-title-color: #1e3a8a;
+  --alert-bg: #e8f0fb;
+  --alert-border: #1c64d7;
+  --alert-color: #1752b1;
+  --alert-icon-color: #1c64d7;
+  --alert-title-color: #12418d;
 }
 
 .type-success {
-  --alert-bg: #f0fdf4;
-  --alert-border: #bbf7d0;
-  --alert-color: #166534;
-  --alert-icon-color: #22c55e;
-  --alert-title-color: #14532d;
+  --alert-bg: #ebf2ea;
+  --alert-border: #397e28;
+  --alert-color: #306a22;
+  --alert-icon-color: #397e28;
+  --alert-title-color: #26541b;
 }
 
 .type-warning {
-  --alert-bg: #fffbeb;
-  --alert-border: #fed7aa;
-  --alert-color: #d97706;
-  --alert-icon-color: #f59e0b;
-  --alert-title-color: #b45309;
+  --alert-bg: #f6efe7;
+  --alert-border: #a0600b;
+  --alert-color: #844f09;
+  --alert-icon-color: #a0600b;
+  --alert-title-color: #6a3f07;
 }
 
 .type-error {
-  --alert-bg: #fef2f2;
-  --alert-border: #fecaca;
-  --alert-color: #dc2626;
-  --alert-icon-color: #ef4444;
-  --alert-title-color: #b91c1c;
+  --alert-bg: #f9eaed;
+  --alert-border: #c4284a;
+  --alert-color: #a3213d;
+  --alert-icon-color: #c4284a;
+  --alert-title-color: #821b31;
 }
 
 .type-neutral {
-  --alert-bg: #f8fafc;
-  --alert-border: #e2e8f0;
-  --alert-color: #475569;
-  --alert-icon-color: #64748b;
-  --alert-title-color: #334155;
+  --alert-bg: #ededed;
+  --alert-border: #4d4d4d;
+  --alert-color: #4d4d4d;
+  --alert-icon-color: #4d4d4d;
+  --alert-title-color: #484848;
 }
 
 /* Color vision adjustments */
 .cv-protanopia.primary, .cv-protanopia.type-info {
-  --alert-bg: #f0f9ff;
-  --alert-border: #a5d8ff;
-  --alert-color: #0066cc;
-  --alert-icon-color: #3399ff;
-  --alert-title-color: #004499;
+  --alert-bg: #e9eefe;
+  --alert-border: #2253f0;
+  --alert-color: #1c44c6;
+  --alert-icon-color: #2253f0;
+  --alert-title-color: #16369d;
 }
 
 .cv-deuteranopia.primary, .cv-deuteranopia.type-info {
-  --alert-bg: #f1f5f9;
-  --alert-border: #cbd5e1;
-  --alert-color: #334155;
-  --alert-icon-color: #64748b;
-  --alert-title-color: #1e293b;
+  --alert-bg: #e6f1f9;
+  --alert-border: #006ebe;
+  --alert-color: #005a9c;
+  --alert-icon-color: #006ebe;
+  --alert-title-color: #00487c;
 }
 
 .cv-tritanopia.primary, .cv-tritanopia.type-info {
-  --alert-bg: #eff6ff;
-  --alert-border: #bfdbfe;
-  --alert-color: #1e40af;
-  --alert-icon-color: #3b82f6;
-  --alert-title-color: #1e3a8a;
+  --alert-bg: #f0ecfe;
+  --alert-border: #6a45f0;
+  --alert-color: #5839c7;
+  --alert-icon-color: #6a45f0;
+  --alert-title-color: #462e9e;
 }
 
 .cv-protanopia.success, .cv-protanopia.type-success {
-  --alert-bg: #fefce8;
-  --alert-border: #fde047;
-  --alert-color: #a16207;
-  --alert-icon-color: #eab308;
-  --alert-title-color: #854d0e;
+  --alert-bg: #e6edf0;
+  --alert-border: #064b69;
+  --alert-color: #064b69;
+  --alert-icon-color: #064b69;
+  --alert-title-color: #064a68;
 }
 
 .cv-deuteranopia.success, .cv-deuteranopia.type-success {
-  --alert-bg: #f7fee7;
-  --alert-border: #bef264;
-  --alert-color: #365314;
-  --alert-icon-color: #84cc16;
-  --alert-title-color: #1a2e05;
+  --alert-bg: #e8eeef;
+  --alert-border: #16505a;
+  --alert-color: #16505a;
+  --alert-icon-color: #16505a;
+  --alert-title-color: #154d57;
 }
 
 .cv-tritanopia.success, .cv-tritanopia.type-success {
-  --alert-bg: #fffbeb;
-  --alert-border: #fed7aa;
-  --alert-color: #d97706;
-  --alert-icon-color: #f59e0b;
-  --alert-title-color: #b45309;
+  --alert-bg: #e9f2e6;
+  --alert-border: #258101;
+  --alert-color: #1f6b01;
+  --alert-icon-color: #258101;
+  --alert-title-color: #185501;
 }
 
 .cv-protanopia.warning, .cv-protanopia.type-warning {
-  --alert-bg: #fefce8;
-  --alert-border: #fde047;
-  --alert-color: #a16207;
-  --alert-icon-color: #eab308;
-  --alert-title-color: #854d0e;
+  --alert-bg: #f6efe9;
+  --alert-border: #a06024;
+  --alert-color: #844f1e;
+  --alert-icon-color: #a06024;
+  --alert-title-color: #693f18;
 }
 
 .cv-deuteranopia.warning, .cv-deuteranopia.type-warning {
-  --alert-bg: #fefce8;
-  --alert-border: #fde047;
-  --alert-color: #a16207;
-  --alert-icon-color: #eab308;
-  --alert-title-color: #854d0e;
+  --alert-bg: #f5efe9;
+  --alert-border: #9d621e;
+  --alert-color: #825119;
+  --alert-icon-color: #9d621e;
+  --alert-title-color: #674014;
 }
 
 .cv-tritanopia.warning, .cv-tritanopia.type-warning {
-  --alert-bg: #fff7ed;
-  --alert-border: #fdba74;
-  --alert-color: #ea580c;
-  --alert-icon-color: #fb923c;
-  --alert-title-color: #c2410c;
+  --alert-bg: #f3f0ea;
+  --alert-border: #8a6d2c;
+  --alert-color: #735a25;
+  --alert-icon-color: #8a6d2c;
+  --alert-title-color: #5b481d;
 }
 
 .cv-protanopia.danger, .cv-protanopia.type-error {
-  --alert-bg: #fef2f2;
-  --alert-border: #fecaca;
-  --alert-color: #dc2626;
-  --alert-icon-color: #ef4444;
-  --alert-title-color: #b91c1c;
+  --alert-bg: #f2eaea;
+  --alert-border: #7f282e;
+  --alert-color: #7f282e;
+  --alert-icon-color: #7f282e;
+  --alert-title-color: #7a262c;
 }
 
 .cv-deuteranopia.danger, .cv-deuteranopia.type-error {
-  --alert-bg: #fef2f2;
-  --alert-border: #fda4af;
-  --alert-color: #e11d48;
-  --alert-icon-color: #f43f5e;
-  --alert-title-color: #be185d;
+  --alert-bg: #f2e9eb;
+  --alert-border: #7e2735;
+  --alert-color: #7e2735;
+  --alert-icon-color: #7e2735;
+  --alert-title-color: #792533;
 }
 
 .cv-tritanopia.danger, .cv-tritanopia.type-error {
-  --alert-bg: #fef2f2;
-  --alert-border: #fecaca;
-  --alert-color: #dc2626;
-  --alert-icon-color: #ef4444;
-  --alert-title-color: #b91c1c;
+  --alert-bg: #f3e6e6;
+  --alert-border: #8a0700;
+  --alert-color: #8a0700;
+  --alert-icon-color: #8a0700;
+  --alert-title-color: #840700;
 }
 
 /* Accessibility modes */
@@ -336,7 +335,7 @@
   height: 18px;
 }
 
-.a11y-high-contrast {
+.a11y-high-contrast.a11y-high-contrast {
   --alert-bg: #ffffff;
   --alert-border: #000000;
   --alert-color: #000000;
@@ -346,7 +345,7 @@
 }
 
 .a11y-high-contrast .dismissButton:hover,
-.a11y-high-contrast .dismissButton:focus {
+.a11y-high-contrast .dismissButton:focus-visible {
   background: #f0f0f0;
   box-shadow: 0 0 0 2px #000000;
 }
@@ -374,4 +373,28 @@
   .dismissButton {
     transition: none;
   }
+}
+
+.cv-protanopia.secondary, .cv-protanopia.type-neutral {
+  --alert-bg: #f1f1f1;
+  --alert-border: #747474;
+  --alert-color: #5f5f5f;
+  --alert-icon-color: #747474;
+  --alert-title-color: #4b4b4b;
+}
+
+.cv-deuteranopia.secondary, .cv-deuteranopia.type-neutral {
+  --alert-bg: #f1f1f1;
+  --alert-border: #747474;
+  --alert-color: #5f5f5f;
+  --alert-icon-color: #747474;
+  --alert-title-color: #4b4b4b;
+}
+
+.cv-tritanopia.secondary, .cv-tritanopia.type-neutral {
+  --alert-bg: #ededed;
+  --alert-border: #4d4d4d;
+  --alert-color: #4d4d4d;
+  --alert-icon-color: #4d4d4d;
+  --alert-title-color: #484848;
 }

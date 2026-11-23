@@ -212,25 +212,27 @@ Cada variante tiene colores especialmente ajustados para diferentes tipos de dal
 
 ## Personalización CSS
 
-El componente Button utiliza propiedades CSS personalizadas que pueden ser anuladas:
+Los colores se exponen como variables CSS definidas **en el propio elemento del componente**, por lo que sobrescribirlas en `:root` no tiene efecto. La forma recomendada de cambiar colores es `variant="custom"` con la prop `customColors` (un juego por modo de visión). Para ajustes puntuales, pasa las variables en `style` junto con `variant="custom"`:
 
-```css
-:root {
-  /* Colores de variante primaria */
-  --button-primary-bg: #007bff;
-  --button-primary-hover: #0056b3;
-  --button-primary-color: #ffffff;
-  
-  /* Variables de tamaño */
-  --button-padding-md: 8px 16px;
-  --button-font-size-md: 14px;
-  --button-border-radius: 6px;
-  
-  /* Accesibilidad */
-  --button-focus-ring: 0 0 0 3px rgba(11,92,255,.25);
-  --button-min-height: 44px; /* Objetivo táctil */
-}
+```tsx
+<Button
+  variant="custom"
+  style={{ '--btn-bg': '#397e28', '--btn-bg-hover': '#306b22', '--btn-bg-active': '#28581c', '--btn-color': '#ffffff' } as React.CSSProperties}
+>
+  Save
+</Button>
 ```
+
+| Variable | Valor por defecto (primary, visión normal) | Uso |
+|---|---|---|
+| `--btn-bg` | `#1c64d7` | Fondo |
+| `--btn-bg-hover` | `#1855b7` | Fondo en hover |
+| `--btn-bg-active` | `#144697` | Fondo activo |
+| `--btn-color` | `#ffffff` | Texto (≥4.5:1 contra los tres fondos) |
+| `--btn-border` | `transparent` | Borde |
+| `--btn-focus` | `#1c64d7` | Contorno de foco (≥3:1 contra la página) |
+
+> Mantén el texto ≥ 4.5:1 y los bordes, rellenos e indicadores de foco ≥ 3:1 (WCAG 1.4.3 / 1.4.11), también bajo simulación de protanopia, deuteranopia y tritanopia. La paleta por defecto y su justificación están en [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Interfaz TypeScript
 

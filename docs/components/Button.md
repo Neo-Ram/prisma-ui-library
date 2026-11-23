@@ -212,25 +212,27 @@ Each variant has specially adjusted colors for different types of color blindnes
 
 ## CSS Customization
 
-The Button component uses CSS custom properties that can be overridden:
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
 
-```css
-:root {
-  /* Primary variant colors */
-  --button-primary-bg: #007bff;
-  --button-primary-hover: #0056b3;
-  --button-primary-color: #ffffff;
-  
-  /* Size variables */
-  --button-padding-md: 8px 16px;
-  --button-font-size-md: 14px;
-  --button-border-radius: 6px;
-  
-  /* Accessibility */
-  --button-focus-ring: 0 0 0 3px rgba(11,92,255,.25);
-  --button-min-height: 44px; /* Touch target */
-}
+```tsx
+<Button
+  variant="custom"
+  style={{ '--btn-bg': '#397e28', '--btn-bg-hover': '#306b22', '--btn-bg-active': '#28581c', '--btn-color': '#ffffff' } as React.CSSProperties}
+>
+  Save
+</Button>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--btn-bg` | `#1c64d7` | Background |
+| `--btn-bg-hover` | `#1855b7` | Hover background |
+| `--btn-bg-active` | `#144697` | Active background |
+| `--btn-color` | `#ffffff` | Text (≥4.5:1 vs the three backgrounds) |
+| `--btn-border` | `transparent` | Border |
+| `--btn-focus` | `#1c64d7` | Focus outline (≥3:1 vs page) |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## TypeScript Interface
 

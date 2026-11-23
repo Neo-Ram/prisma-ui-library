@@ -51,21 +51,28 @@ Define colors for each color vision mode directly:
   variant="custom"
   colorVision="normal"
   customColors={{
-    // Normal vision
-    defaultColor: '#ffffff',
-    defaultBg: '#007bff',
+    // Normal vision (background, hover, active)
+    defaultColor: '#1c64d7',
+    defaultColorHover: '#1855b7',
+    defaultColorActive: '#144697',
     
     // Protanopia (Red-blind)
-    protanopiaColor: '#ffffff',
-    protanopiaBg: '#3399ff',
+    protanopiaColor: '#2253f0',
+    protanopiaColorHover: '#1d47cc',
+    protanopiaColorActive: '#183aa8',
     
     // Deuteranopia (Green-blind)
-    deuteranopiaColor: '#ffffff',
-    deuteranopiaBg: '#4f83cc',
+    deuteranopiaColor: '#006ebe',
+    deuteranopiaColorHover: '#005ea2',
+    deuteranopiaColorActive: '#004d85',
     
     // Tritanopia (Blue-blind)
-    tritanopiaColor: '#000000',
-    tritanopiaBg: '#ffcc00',
+    tritanopiaColor: '#6a45f0',
+    tritanopiaColorHover: '#5a3bcc',
+    tritanopiaColorActive: '#4a30a8',
+    
+    // Text color for every mode (>= 4.5:1 against all backgrounds above)
+    textColor: '#ffffff',
   }}
 >
   Fully Customizable Button
@@ -215,17 +222,17 @@ import 'neo-ram-prisma/style.css';
 // Custom colors with colorblind support
 <Button 
   customColors={{
-    defaultColor: '#FF5733',
+    defaultColor: '#c92400',
     defaultColorHover: '#C41E3A',
     defaultColorActive: '#8B0000',
-    protanopiaColor: '#FFAA33',
-    protanopiaColorHover: '#FF6600',
-    protanopiaColorActive: '#CC4400',
-    deuteranopiaColor: '#00AA00',
-    deuteranopiaColorHover: '#008800',
+    protanopiaColor: '#a35f00',
+    protanopiaColorHover: '#b84900',
+    protanopiaColorActive: '#bd3f00',
+    deuteranopiaColor: '#008100',
+    deuteranopiaColorHover: '#008000',
     deuteranopiaColorActive: '#005500',
-    tritanopiaColor: '#FF00FF',
-    tritanopiaColorHover: '#DD00DD',
+    tritanopiaColor: '#bf00bf',
+    tritanopiaColorHover: '#c100c1',
     tritanopiaColorActive: '#BB00BB',
     textColor: '#FFFFFF'
   }}
@@ -255,6 +262,7 @@ import 'neo-ram-prisma/style.css';
 
 // Custom Input colors with colorblind support
 <Input
+  variant="custom"
   label="Email Address"
   type="email"
   placeholder="Enter your email"
@@ -267,8 +275,8 @@ import 'neo-ram-prisma/style.css';
     defaultBg: '#FFFFFF',
 
     // Protanopia
-    protanopiaBorder: '#3399FF',
-    protanopiaBorderFocus: '#2673B6',
+    protanopiaBorder: '#007efc',
+    protanopiaBorderFocus: '#2570b2',
     protanopiaColor: '#222222',
     protanopiaBg: '#FFFFFF',
 
@@ -279,7 +287,7 @@ import 'neo-ram-prisma/style.css';
     deuteranopiaBg: '#FFFFFF',
 
     // Tritanopia
-    tritanopiaBorder: '#D946EF',
+    tritanopiaBorder: '#d841ef',
     tritanopiaBorderFocus: '#BE185D',
     tritanopiaColor: '#222222',
     tritanopiaBg: '#FFFFFF'
@@ -296,6 +304,7 @@ import 'neo-ram-prisma/style.css';
 
 // Custom Checkbox colors with colorblind support
 <Checkbox
+  variant="custom"
   label="I agree to terms"
   colorVision="protanopia"
   customColors={{
@@ -306,8 +315,8 @@ import 'neo-ram-prisma/style.css';
     defaultLabelColor: '#222222',
 
     // Protanopia
-    protanopiaAccent: '#3399FF',
-    protanopiaBorder: '#3399FF',
+    protanopiaAccent: '#007efc',
+    protanopiaBorder: '#007efc',
     protanopiaBg: '#FFFFFF',
     protanopiaLabelColor: '#222222',
 
@@ -318,8 +327,8 @@ import 'neo-ram-prisma/style.css';
     deuteranopiaLabelColor: '#222222',
 
     // Tritanopia
-    tritanopiaAccent: '#D946EF',
-    tritanopiaBorder: '#D946EF',
+    tritanopiaAccent: '#d841ef',
+    tritanopiaBorder: '#d841ef',
     tritanopiaBg: '#FFFFFF',
     tritanopiaLabelColor: '#222222'
   }}
@@ -368,6 +377,7 @@ import 'neo-ram-prisma/style.css';
 
 // Custom breadcrumb colors with colorblind support
 <Breadcrumb
+  variant="custom"
   items={[
     { label: 'Dashboard', onClick: () => navigate('/') },
     { label: 'Projects', onClick: () => navigate('/projects') },
@@ -376,28 +386,28 @@ import 'neo-ram-prisma/style.css';
   colorVision="tritanopia"
   customColors={{
     // Normal vision
-    defaultColor: '#6366F1',
+    defaultColor: '#4c4fef',
     defaultColorHover: '#4F46E5',
     defaultColorCurrent: '#4C0519',
-    defaultSeparator: '#CBD5E1',
+    defaultSeparator: '#748eaf',
 
     // Protanopia
-    protanopiaColor: '#3B82F6',
-    protanopiaColorHover: '#2563EB',
+    protanopiaColor: '#0a5de4',
+    protanopiaColorHover: '#1759ea',
     protanopiaColorCurrent: '#1E3A8A',
-    protanopiaSeparator: '#94A3B8',
+    protanopiaSeparator: '#7b8ea8',
 
     // Deuteranopia
-    deuteranopiaColor: '#8B5CF6',
+    deuteranopiaColor: '#763ff4',
     deuteranopiaColorHover: '#7C3AED',
     deuteranopiaColorCurrent: '#581C87',
-    deuteranopiaSeparator: '#D1D5DB',
+    deuteranopiaSeparator: '#848e9f',
 
     // Tritanopia
-    tritanopiaColor: '#D946EF',
+    tritanopiaColor: '#ba12d4',
     tritanopiaColorHover: '#BE185D',
     tritanopiaColorCurrent: '#7E22CE',
-    tritanopiaSeparator: '#E5E7EB'
+    tritanopiaSeparator: '#848ea1'
   }}
 />
 
@@ -413,6 +423,7 @@ import 'neo-ram-prisma/style.css';
 
 // Custom Pagination colors with colorblind support
 <Pagination
+  variant="custom"
   currentPage={currentPage}
   totalPages={totalPages}
   onPageChange={setCurrentPage}
@@ -420,22 +431,22 @@ import 'neo-ram-prisma/style.css';
   customColors={{
     // Normal vision
     defaultColorActive: '#FFFFFF',
-    defaultBgActive: '#007BFF',
+    defaultBgActive: '#0065d1',
     defaultShadowFocus: '0 0 0 3px rgba(11,92,255,.15)',
 
     // Protanopia
     protanopiaColorActive: '#FFFFFF',
-    protanopiaBgActive: '#3399FF',
+    protanopiaBgActive: '#0067cf',
     protanopiaShadowFocus: '0 0 0 3px rgba(51,153,255,.15)',
 
     // Deuteranopia
     deuteranopiaColorActive: '#FFFFFF',
-    deuteranopiaBgActive: '#4F83CC',
+    deuteranopiaBgActive: '#366ebc',
     deuteranopiaShadowFocus: '0 0 0 3px rgba(79,131,204,.15)',
 
     // Tritanopia
     tritanopiaColorActive: '#FFFFFF',
-    tritanopiaBgActive: '#D946EF',
+    tritanopiaBgActive: '#ba12d4',
     tritanopiaShadowFocus: '0 0 0 3px rgba(217,70,239,.15)'
   }}
 />
@@ -458,34 +469,35 @@ import 'neo-ram-prisma/style.css';
 
 // Custom Alert colors with colorblind support
 <Alert
+  variant="custom"
   title="Custom Alert"
   dismissible
   colorVision="deuteranopia"
   customColors={{
     // Normal vision
     defaultBg: '#F3E8FF',
-    defaultBorder: '#E9D5FF',
+    defaultBorder: '#b067ff',
     defaultColor: '#6B21A8',
     defaultIconColor: '#A855F7',
     defaultTitleColor: '#581C87',
 
     // Protanopia
     protanopiaBg: '#FEF3C7',
-    protanopiaBorder: '#FDE68A',
+    protanopiaBorder: '#a98803',
     protanopiaColor: '#92400E',
-    protanopiaIconColor: '#F59E0B',
+    protanopiaIconColor: '#be7a08',
     protanopiaTitleColor: '#78350F',
 
     // Deuteranopia
     deuteranopiaBg: '#DBEAFE',
-    deuteranopiaBorder: '#BFDBFE',
+    deuteranopiaBorder: '#1c7ffb',
     deuteranopiaColor: '#1E40AF',
     deuteranopiaIconColor: '#3B82F6',
     deuteranopiaTitleColor: '#1E3A8A',
 
     // Tritanopia
     tritanopiaBg: '#F5F3FF',
-    tritanopiaBorder: '#EDE9FE',
+    tritanopiaBorder: '#8f76f9',
     tritanopiaColor: '#4C1D95',
     tritanopiaIconColor: '#8B5CF6',
     tritanopiaTitleColor: '#3C0F7B'
@@ -558,14 +570,19 @@ The custom color system uses a **clean, maintainable architecture** that avoids 
   variant="custom"
   colorVision="normal"
   customColors={{
-    defaultColor: '#ffffff',
-    defaultBg: '#007bff',
-    protanopiaColor: '#ffffff',
-    protanopiaBg: '#3399ff',
-    deuteranopiaColor: '#ffffff',
-    deuteranopiaBg: '#4f83cc',
-    tritanopiaColor: '#000000',
-    tritanopiaBg: '#ffcc00',
+    defaultColor: '#1c64d7',
+    defaultColorHover: '#1855b7',
+    defaultColorActive: '#144697',
+    protanopiaColor: '#2253f0',
+    protanopiaColorHover: '#1d47cc',
+    protanopiaColorActive: '#183aa8',
+    deuteranopiaColor: '#006ebe',
+    deuteranopiaColorHover: '#005ea2',
+    deuteranopiaColorActive: '#004d85',
+    tritanopiaColor: '#6a45f0',
+    tritanopiaColorHover: '#5a3bcc',
+    tritanopiaColorActive: '#4a30a8',
+    textColor: '#ffffff',
   }}
 >
   Custom Button
@@ -628,23 +645,23 @@ import { Button } from 'neo-ram-prisma';
   variant="custom"
   customColors={{
     // Normal vision colors
-    defaultColor: '#FF5733',
+    defaultColor: '#c92400',
     defaultColorHover: '#C41E3A',
     defaultColorActive: '#8B0000',
     
     // Protanopia (Red-blind) colors
-    protanopiaColor: '#FFAA33',
-    protanopiaColorHover: '#FF6600',
-    protanopiaColorActive: '#CC4400',
+    protanopiaColor: '#a35f00',
+    protanopiaColorHover: '#b84900',
+    protanopiaColorActive: '#bd3f00',
     
     // Deuteranopia (Green-blind) colors
-    deuteranopiaColor: '#00AA00',
-    deuteranopiaColorHover: '#008800',
+    deuteranopiaColor: '#008100',
+    deuteranopiaColorHover: '#008000',
     deuteranopiaColorActive: '#005500',
     
     // Tritanopia (Blue-blind) colors
-    tritanopiaColor: '#FF00FF',
-    tritanopiaColorHover: '#DD00DD',
+    tritanopiaColor: '#bf00bf',
+    tritanopiaColorHover: '#c100c1',
     tritanopiaColorActive: '#BB00BB',
     
     // Optional: text color
@@ -680,34 +697,35 @@ The Alert component supports fully customizable colors for each color vision mod
 import { Alert } from 'neo-ram-prisma';
 
 <Alert
+  variant="custom"
   title="Custom Alert"
   dismissible
   colorVision="deuteranopia"
   customColors={{
     // Normal vision colors
     defaultBg: '#F3E8FF',
-    defaultBorder: '#E9D5FF',
+    defaultBorder: '#b067ff',
     defaultColor: '#6B21A8',
     defaultIconColor: '#A855F7',
     defaultTitleColor: '#581C87',
 
     // Protanopia (Red-blind) colors
     protanopiaBg: '#FEF3C7',
-    protanopiaBorder: '#FDE68A',
+    protanopiaBorder: '#a98803',
     protanopiaColor: '#92400E',
-    protanopiaIconColor: '#F59E0B',
+    protanopiaIconColor: '#be7a08',
     protanopiaTitleColor: '#78350F',
 
     // Deuteranopia (Green-blind) colors
     deuteranopiaBg: '#DBEAFE',
-    deuteranopiaBorder: '#BFDBFE',
+    deuteranopiaBorder: '#1c7ffb',
     deuteranopiaColor: '#1E40AF',
     deuteranopiaIconColor: '#3B82F6',
     deuteranopiaTitleColor: '#1E3A8A',
 
     // Tritanopia (Blue-blind) colors
     tritanopiaBg: '#F5F3FF',
-    tritanopiaBorder: '#EDE9FE',
+    tritanopiaBorder: '#8f76f9',
     tritanopiaColor: '#4C1D95',
     tritanopiaIconColor: '#8B5CF6',
     tritanopiaTitleColor: '#3C0F7B'
@@ -747,6 +765,7 @@ The Breadcrumb component supports fully customizable colors for each color visio
 import { Breadcrumb } from 'neo-ram-prisma';
 
 <Breadcrumb
+  variant="custom"
   items={[
     { label: 'Home', onClick: () => navigate('/') },
     { label: 'Products', onClick: () => navigate('/products') },
@@ -756,27 +775,27 @@ import { Breadcrumb } from 'neo-ram-prisma';
   customColors={{
     // Normal vision colors
     defaultColor: '#1F2937',
-    defaultColorHover: '#007BFF',
+    defaultColorHover: '#0065d1',
     defaultColorCurrent: '#1E3A8A',
-    defaultSeparator: '#9CA3AF',
+    defaultSeparator: '#878f9e',
 
     // Protanopia (Red-blind) colors
     protanopiaColor: '#1F2937',
-    protanopiaColorHover: '#3399FF',
+    protanopiaColorHover: '#0067cf',
     protanopiaColorCurrent: '#004499',
-    protanopiaSeparator: '#9CA3AF',
+    protanopiaSeparator: '#878f9e',
 
     // Deuteranopia (Green-blind) colors
     deuteranopiaColor: '#1F2937',
-    deuteranopiaColorHover: '#4F83CC',
+    deuteranopiaColorHover: '#366ebc',
     deuteranopiaColorCurrent: '#1E3A8A',
-    deuteranopiaSeparator: '#9CA3AF',
+    deuteranopiaSeparator: '#878f9e',
 
     // Tritanopia (Blue-blind) colors
     tritanopiaColor: '#1F2937',
-    tritanopiaColorHover: '#D946EF',
+    tritanopiaColorHover: '#ba12d4',
     tritanopiaColorCurrent: '#7E22CE',
-    tritanopiaSeparator: '#E5E7EB'
+    tritanopiaSeparator: '#848ea1'
   }}
 />
 ```
@@ -807,6 +826,7 @@ The Checkbox component supports fully customizable colors for each color vision 
 import { Checkbox } from 'neo-ram-prisma';
 
 <Checkbox
+  variant="custom"
   label="Accept terms"
   colorVision="protanopia"
   customColors={{
@@ -817,8 +837,8 @@ import { Checkbox } from 'neo-ram-prisma';
     defaultLabelColor: '#222222',
 
     // Protanopia (Red-blind)
-    protanopiaAccent: '#3399FF',
-    protanopiaBorder: '#3399FF',
+    protanopiaAccent: '#007efc',
+    protanopiaBorder: '#007efc',
     protanopiaBg: '#FFFFFF',
     protanopiaLabelColor: '#222222',
 
@@ -829,8 +849,8 @@ import { Checkbox } from 'neo-ram-prisma';
     deuteranopiaLabelColor: '#222222',
 
     // Tritanopia (Blue-blind)
-    tritanopiaAccent: '#D946EF',
-    tritanopiaBorder: '#D946EF',
+    tritanopiaAccent: '#d841ef',
+    tritanopiaBorder: '#d841ef',
     tritanopiaBg: '#FFFFFF',
     tritanopiaLabelColor: '#222222'
   }}
@@ -863,6 +883,7 @@ The Input component supports fully customizable colors for each color vision mod
 import { Input } from 'neo-ram-prisma';
 
 <Input
+  variant="custom"
   label="Email"
   type="email"
   colorVision="deuteranopia"
@@ -874,8 +895,8 @@ import { Input } from 'neo-ram-prisma';
     defaultBg: '#FFFFFF',
 
     // Protanopia (Red-blind)
-    protanopiaBorder: '#3399FF',
-    protanopiaBorderFocus: '#2673B6',
+    protanopiaBorder: '#007efc',
+    protanopiaBorderFocus: '#2570b2',
     protanopiaColor: '#222222',
     protanopiaBg: '#FFFFFF',
 
@@ -886,7 +907,7 @@ import { Input } from 'neo-ram-prisma';
     deuteranopiaBg: '#FFFFFF',
 
     // Tritanopia (Blue-blind)
-    tritanopiaBorder: '#D946EF',
+    tritanopiaBorder: '#d841ef',
     tritanopiaBorderFocus: '#BE185D',
     tritanopiaColor: '#222222',
     tritanopiaBg: '#FFFFFF'
@@ -920,6 +941,7 @@ The Pagination component supports fully customizable colors for each color visio
 import { Pagination } from 'neo-ram-prisma';
 
 <Pagination
+  variant="custom"
   currentPage={page}
   totalPages={10}
   onPageChange={setPage}
@@ -927,22 +949,22 @@ import { Pagination } from 'neo-ram-prisma';
   customColors={{
     // Normal vision
     defaultColorActive: '#FFFFFF',
-    defaultBgActive: '#007BFF',
+    defaultBgActive: '#0065d1',
     defaultShadowFocus: '0 0 0 3px rgba(11,92,255,.15)',
 
     // Protanopia (Red-blind)
     protanopiaColorActive: '#FFFFFF',
-    protanopiaBgActive: '#3399FF',
+    protanopiaBgActive: '#0067cf',
     protanopiaShadowFocus: '0 0 0 3px rgba(51,153,255,.15)',
 
     // Deuteranopia (Green-blind)
     deuteranopiaColorActive: '#FFFFFF',
-    deuteranopiaBgActive: '#4F83CC',
+    deuteranopiaBgActive: '#366ebc',
     deuteranopiaShadowFocus: '0 0 0 3px rgba(79,131,204,.15)',
 
     // Tritanopia (Blue-blind)
     tritanopiaColorActive: '#FFFFFF',
-    tritanopiaBgActive: '#D946EF',
+    tritanopiaBgActive: '#ba12d4',
     tritanopiaShadowFocus: '0 0 0 3px rgba(217,70,239,.15)'
   }}
 />
@@ -970,39 +992,40 @@ The Radiogroup component supports fully customizable colors for each color visio
 import { Radiogroup } from 'neo-ram-prisma';
 
 <Radiogroup
+  variant="custom"
   name="plan"
   label="Choose your plan"
   colorVision="protanopia"
   customColors={{
     // Normal vision colors
-    defaultColor: '#1976D2',
-    defaultBorderColor: '#CCCCCC',
-    defaultBorderColorHover: '#1976D2',
-    defaultBorderColorFocus: '#1976D2',
+    defaultColor: '#176dc2',
+    defaultBorderColor: '#8f8f8f',
+    defaultBorderColorHover: '#176dc2',
+    defaultBorderColorFocus: '#176dc2',
     defaultLabelColor: '#000000',
     defaultDescriptionColor: '#666666',
 
     // Protanopia (Red-blind)
-    protanopiaColor: '#FFA500',
-    protanopiaBorderColor: '#E6B800',
-    protanopiaBorderColorHover: '#FFA500',
-    protanopiaBorderColorFocus: '#FFA500',
+    protanopiaColor: '#996300',
+    protanopiaBorderColor: '#a98700',
+    protanopiaBorderColorHover: '#996300',
+    protanopiaBorderColorFocus: '#996300',
     protanopiaLabelColor: '#000000',
     protanopiaDescriptionColor: '#666666',
 
     // Deuteranopia (Green-blind)
     deuteranopiaColor: '#9C27B0',
-    deuteranopiaBorderColor: '#E6B8D7',
+    deuteranopiaBorderColor: '#c967a9',
     deuteranopiaBorderColorHover: '#9C27B0',
     deuteranopiaBorderColorFocus: '#9C27B0',
     deuteranopiaLabelColor: '#000000',
     deuteranopiaDescriptionColor: '#666666',
 
     // Tritanopia (Blue-blind)
-    tritanopiaColor: '#00BCD4',
-    tritanopiaBorderColor: '#B3E5FC',
-    tritanopiaBorderColorHover: '#00BCD4',
-    tritanopiaBorderColorFocus: '#00BCD4',
+    tritanopiaColor: '#007887',
+    tritanopiaBorderColor: '#088ecc',
+    tritanopiaBorderColorHover: '#007887',
+    tritanopiaBorderColorFocus: '#007887',
     tritanopiaLabelColor: '#000000',
     tritanopiaDescriptionColor: '#666666'
   }}
@@ -1048,6 +1071,7 @@ The Select component supports fully customizable colors for each color vision mo
 import { Select } from 'neo-ram-prisma';
 
 <Select
+  variant="custom"
   label="Select Country"
   placeholder="Choose a country"
   value="option1"
@@ -1061,34 +1085,34 @@ import { Select } from 'neo-ram-prisma';
   customColors={{
     // Normal vision colors
     defaultBg: '#FFFFFF',
-    defaultBorder: '#CCCCCC',
-    defaultBorderFocus: '#1976D2',
+    defaultBorder: '#8f8f8f',
+    defaultBorderFocus: '#176dc2',
     defaultColor: '#000000',
-    defaultPlaceholder: '#999999',
+    defaultPlaceholder: '#757575',
     defaultShadowFocus: 'rgba(25, 118, 210, 0.2)',
 
     // Protanopia (Red-blind)
     protanopiaBg: '#FFFFFF',
-    protanopiaBorder: '#E6B800',
-    protanopiaBorderFocus: '#FFA500',
+    protanopiaBorder: '#a98700',
+    protanopiaBorderFocus: '#996300',
     protanopiaColor: '#000000',
-    protanopiaPlaceholder: '#999999',
+    protanopiaPlaceholder: '#757575',
     protanopiaShadowFocus: 'rgba(255, 165, 0, 0.2)',
 
     // Deuteranopia (Green-blind)
     deuteranopiaBg: '#FFFFFF',
-    deuteranopiaBorder: '#E6B8D7',
+    deuteranopiaBorder: '#c967a9',
     deuteranopiaBorderFocus: '#9C27B0',
     deuteranopiaColor: '#000000',
-    deuteranopiaPlaceholder: '#999999',
+    deuteranopiaPlaceholder: '#757575',
     deuteranopiaShadowFocus: 'rgba(156, 39, 176, 0.2)',
 
     // Tritanopia (Blue-blind)
     tritanopiaBg: '#FFFFFF',
-    tritanopiaBorder: '#B3E5FC',
-    tritanopiaBorderFocus: '#00BCD4',
+    tritanopiaBorder: '#088ecc',
+    tritanopiaBorderFocus: '#007887',
     tritanopiaColor: '#000000',
-    tritanopiaPlaceholder: '#999999',
+    tritanopiaPlaceholder: '#757575',
     tritanopiaShadowFocus: 'rgba(0, 188, 212, 0.2)'
   }}
 />
@@ -1127,6 +1151,7 @@ Customize Slider colors for different color vision modes:
 
 ```tsx
 <Slider
+  variant="custom"
   value={50}
   onChange={(value) => setValue(value)}
   label="Accessible Slider"
@@ -1134,31 +1159,31 @@ Customize Slider colors for different color vision modes:
   customColors={{
     // Normal vision colors
     defaultTrackBg: '#E5E7EB',
-    defaultTrackBorder: '#D1D5DB',
+    defaultTrackBorder: '#848e9f',
     defaultFillBg: '#3B82F6',
     defaultThumbBg: '#2563EB',
     defaultThumbBorder: '#1E40AF',
 
     // Protanopia (Red-blind)
     protanopiaTrackBg: '#E5E7EB',
-    protanopiaTrackBorder: '#D1D5DB',
-    protanopiaFillBg: '#3399FF',
+    protanopiaTrackBorder: '#848e9f',
+    protanopiaFillBg: '#007efc',
     protanopiaThumbBg: '#0066FF',
     protanopiaThumbBorder: '#0052CC',
 
     // Deuteranopia (Green-blind)
     deuteranopiaTrackBg: '#E5E7EB',
-    deuteranopiaTrackBorder: '#D1D5DB',
+    deuteranopiaTrackBorder: '#848e9f',
     deuteranopiaFillBg: '#4F83CC',
     deuteranopiaThumbBg: '#2E5090',
     deuteranopiaThumbBorder: '#1A2D5C',
 
     // Tritanopia (Blue-blind)
     tritanopiaTrackBg: '#E5E7EB',
-    tritanopiaTrackBorder: '#D1D5DB',
-    tritanopiaFillBg: '#FFCC00',
+    tritanopiaTrackBorder: '#848e9f',
+    tritanopiaFillBg: '#a88700',
     tritanopiaThumbBg: '#E6B800',
-    tritanopiaThumbBorder: '#CC9A00'
+    tritanopiaThumbBorder: '#b08500'
   }}
 />
 ```
@@ -1192,23 +1217,23 @@ Customize Spinner colors for different color vision modes:
 
 ```tsx
 <Spinner
-  variant="primary"
+  variant="custom"
   colorVision="protanopia"
   size="md"
   spinnerVariant="1"
   label="Loading..."
   customColors={{
     // Normal vision colors
-    defaultColor: '#007bff',
+    defaultColor: '#0065d1',
 
     // Protanopia (Red-blind)
-    protanopiaColor: '#3399ff',
+    protanopiaColor: '#0067cf',
 
     // Deuteranopia (Green-blind)
-    deuteranopiaColor: '#4f83cc',
+    deuteranopiaColor: '#366ebc',
 
     // Tritanopia (Blue-blind)
-    tritanopiaColor: '#ffcc00'
+    tritanopiaColor: '#8a6e00'
   }}
 />
 ```
@@ -1226,35 +1251,36 @@ Customize Textarea colors for different color vision modes:
 
 ```tsx
 <Textarea
+  variant="custom"
   label="Comments"
   placeholder="Enter your message..."
   colorVision="deuteranopia"
   customColors={{
     // Normal vision colors
     defaultBg: '#ffffff',
-    defaultBorder: '#cbd2dd',
-    defaultBorderFocus: '#007bff',
+    defaultBorder: '#7c8eaa',
+    defaultBorderFocus: '#0065d1',
     defaultColor: '#1a1f2b',
     defaultPlaceholder: '#6b7280',
 
     // Protanopia (Red-blind)
     protanopiaBg: '#ffffff',
-    protanopiaBorder: '#cbd2dd',
-    protanopiaBorderFocus: '#3399ff',
+    protanopiaBorder: '#7c8eaa',
+    protanopiaBorderFocus: '#0067cf',
     protanopiaColor: '#1a1f2b',
     protanopiaPlaceholder: '#6b7280',
 
     // Deuteranopia (Green-blind)
     deuteranopiaBg: '#ffffff',
-    deuteranopiaBorder: '#cbd2dd',
-    deuteranopiaBorderFocus: '#4f83cc',
+    deuteranopiaBorder: '#7c8eaa',
+    deuteranopiaBorderFocus: '#366ebc',
     deuteranopiaColor: '#1a1f2b',
     deuteranopiaPlaceholder: '#6b7280',
 
     // Tritanopia (Blue-blind)
     tritanopiaBg: '#ffffff',
-    tritanopiaBorder: '#cbd2dd',
-    tritanopiaBorderFocus: '#ffcc00',
+    tritanopiaBorder: '#7c8eaa',
+    tritanopiaBorderFocus: '#8a6e00',
     tritanopiaColor: '#1a1f2b',
     tritanopiaPlaceholder: '#6b7280'
   }}
@@ -1291,37 +1317,38 @@ Customize Toggle colors for different color vision modes:
 
 ```tsx
 <Toggle
+  label="Enable notifications"
   checked={isEnabled}
   onChange={setIsEnabled}
-  variant="primary"
+  variant="custom"
   colorVision="tritanopia"
   customColors={{
     // Normal vision colors
     defaultBg: '#e9ecf1',
-    defaultBorder: '#cbd2dd',
-    defaultBgOn: '#007bff',
-    defaultBorderOn: '#007bff',
+    defaultBorder: '#7c8eaa',
+    defaultBgOn: '#1c64d7',
+    defaultBorderOn: '#1c64d7',
     defaultKnob: '#ffffff',
 
     // Protanopia (Red-blind)
     protanopiaBg: '#e9ecf1',
-    protanopiaBorder: '#cbd2dd',
-    protanopiaBgOn: '#3399ff',
-    protanopiaBorderOn: '#3399ff',
+    protanopiaBorder: '#7c8eaa',
+    protanopiaBgOn: '#007efc',
+    protanopiaBorderOn: '#007efc',
     protanopiaKnob: '#ffffff',
 
     // Deuteranopia (Green-blind)
     deuteranopiaBg: '#e9ecf1',
-    deuteranopiaBorder: '#cbd2dd',
-    deuteranopiaBgOn: '#4f83cc',
-    deuteranopiaBorderOn: '#4f83cc',
+    deuteranopiaBorder: '#7c8eaa',
+    deuteranopiaBgOn: '#006ebe',
+    deuteranopiaBorderOn: '#006ebe',
     deuteranopiaKnob: '#ffffff',
 
     // Tritanopia (Blue-blind)
     tritanopiaBg: '#e9ecf1',
-    tritanopiaBorder: '#cbd2dd',
-    tritanopiaBgOn: '#ffcc00',
-    tritanopiaBorderOn: '#ffcc00',
+    tritanopiaBorder: '#7c8eaa',
+    tritanopiaBgOn: '#a88700',
+    tritanopiaBorderOn: '#a88700',
     tritanopiaKnob: '#000000'
   }}
 />
@@ -1358,7 +1385,7 @@ Customize Tooltip colors for different color vision modes:
 <Tooltip
   content="This is a helpful tooltip"
   position="top"
-  variant="primary"
+  variant="custom"
   colorVision="protanopia"
   customColors={{
     // Normal vision colors
@@ -1430,6 +1457,7 @@ Every component accepts a `customColors` prop with properties for each color vis
 
 ```tsx
 <MyComponent
+  variant="custom"
   colorVision="protanopia"
   customColors={{
     defaultColor: '#value',        // Normal vision

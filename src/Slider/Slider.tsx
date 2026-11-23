@@ -117,6 +117,7 @@ export const Slider: React.FC<SliderProps> = ({
     thumbClasses.push(styles[`a11y-${accessibility}`]);
   }
 
+  const sliderId = `slider-${React.useId()}`;
   const percentage = ((value - min) / (max - min)) * 100;
 
 
@@ -150,7 +151,7 @@ export const Slider: React.FC<SliderProps> = ({
 
   return (
     <div className={rootClasses.join(' ')}>
-      {label && <label className={styles.label} htmlFor={`slider-${label}`}>{label}</label>}
+      {label && <label className={styles.label} htmlFor={sliderId}>{label}</label>}
       <div className={styles.container}>
         <div className={trackClasses.join(' ')} style={customStyle}>
           <div 
@@ -158,7 +159,7 @@ export const Slider: React.FC<SliderProps> = ({
             style={{ width: `${percentage}%` }}
           />
           <input
-            id={`slider-${label}`}
+            id={sliderId}
             type="range"
             min={min}
             max={max}
@@ -168,7 +169,7 @@ export const Slider: React.FC<SliderProps> = ({
             onInput={handleInputMove}
             disabled={disabled}
             className={styles.input}
-            aria-label={label || 'Slider'}
+            aria-label={label ? undefined : 'Slider'}
           />
           <div 
             className={thumbClasses.join(' ')} 

@@ -295,22 +295,28 @@ interface ToggleProps {
 
 ## Personalización CSS
 
-```css
-:root {
-  /* Colores de pista del interruptor */
-  --toggle-track-on: #007bff;
-  --toggle-track-off: #6c757d;
-  --toggle-thumb: #ffffff;
-  
-  /* Tamaños */
-  --toggle-width-md: 44px;
-  --toggle-height-md: 24px;
-  --toggle-thumb-size-md: 20px;
-  
-  /* Animación */
-  --toggle-transition: all 0.2s ease-in-out;
-}
+Los colores se exponen como variables CSS definidas **en el propio elemento del componente**, por lo que sobrescribirlas en `:root` no tiene efecto. La forma recomendada de cambiar colores es `variant="custom"` con la prop `customColors` (un juego por modo de visión). Para ajustes puntuales, pasa las variables en `style` junto con `variant="custom"`:
+
+```tsx
+<Toggle
+  variant="custom"
+  style={{ '--toggle-bg-on': '#397e28', '--toggle-border-on': '#397e28' } as React.CSSProperties}
+  label="Notifications" checked={on} onChange={setOn}
+/>
 ```
+
+| Variable | Valor por defecto (primary, visión normal) | Uso |
+|---|---|---|
+| `--toggle-bg` | `#e9ecf1` | Pista apagado |
+| `--toggle-border` | `#6b7280` | Borde apagado (≥3:1) |
+| `--toggle-knob` | `#6b7280` | Knob apagado (≥3:1 contra la pista) |
+| `--toggle-bg-on` | `#1c64d7` | Pista encendido |
+| `--toggle-border-on` | `#1c64d7` | Borde encendido |
+| `--toggle-knob-on` | `#ffffff` | Knob encendido (≥3:1 contra la pista) |
+| `--toggle-focus` | `#1c64d7` | Contorno de foco |
+| `--toggle-label-color` | `#1a1f2b` | Texto de la etiqueta |
+
+> Mantén el texto ≥ 4.5:1 y los bordes, rellenos e indicadores de foco ≥ 3:1 (WCAG 1.4.3 / 1.4.11), también bajo simulación de protanopia, deuteranopia y tritanopia. La paleta por defecto y su justificación están en [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Componentes Relacionados
 

@@ -1,11 +1,11 @@
 .radiogroup {
   --radio-size: 18px;
   --radio-border: 2px;
-  --radio-color: #007bff;
+  --radio-color: #1c64d7;
   --radio-bg: #ffffff;
-  --radio-border-color: #d1d5db;
-  --radio-border-color-hover: #9ca3af;
-  --radio-border-color-focus: #007bff;
+  --radio-border-color: #6b7280;
+  --radio-border-color-hover: #4b5563;
+  --radio-border-color-focus: #1c64d7;
   --radio-indicator-color: #ffffff;
   --radio-gap: 8px;
   --radio-label-color: #374151;
@@ -31,7 +31,7 @@
 }
 
 .required {
-  color: #ef4444;
+  color: #b91c1c;
   margin-left: 4px;
 }
 
@@ -72,9 +72,9 @@
   border-color: var(--radio-border-color-hover);
 }
 
-.option:focus-within .radioButton {
+.option:has(.input:focus-visible) .radioButton {
   border-color: var(--radio-border-color-focus);
-  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--radio-border-color-focus);
 }
 
 .optionDisabled {
@@ -148,7 +148,7 @@
 
 .errorMessage {
   font-size: calc(var(--radio-font-size) * 0.875);
-  color: #ef4444;
+  color: #b91c1c;
   line-height: 1.4;
   margin-top: 4px;
 }
@@ -197,33 +197,33 @@
 .fs-xl { --radio-font-size: 18px; }
 
 /* Variants */
-.primary { --radio-color: #007bff; }
-.secondary { --radio-color: #6c757d; }
-.success { --radio-color: #1f9d55; }
-.warning { --radio-color: #f59e0b; }
-.danger { --radio-color: #e11d48; }
+.primary { --radio-color: #1c64d7; --radio-border-color-focus: #1c64d7; }
+.secondary { --radio-color: #4d4d4d; --radio-border-color-focus: #4d4d4d; }
+.success { --radio-color: #397e28; --radio-border-color-focus: #397e28; }
+.warning { --radio-color: #a0600b; --radio-border-color-focus: #a0600b; }
+.danger { --radio-color: #c4284a; --radio-border-color-focus: #c4284a; }
 /* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments */
-.cv-protanopia.primary { --radio-color: #3399ff; }
-.cv-deuteranopia.primary { --radio-color: #4f83cc; }
-.cv-tritanopia.primary { --radio-color: #007bff; }
+.cv-protanopia.primary { --radio-color: #2253f0; --radio-border-color-focus: #2253f0; }
+.cv-deuteranopia.primary { --radio-color: #006ebe; --radio-border-color-focus: #006ebe; }
+.cv-tritanopia.primary { --radio-color: #6a45f0; --radio-border-color-focus: #6a45f0; }
 
-.cv-protanopia.success { --radio-color: #ffd966; }
-.cv-deuteranopia.success { --radio-color: #a3e635; }
-.cv-tritanopia.success { --radio-color: #fbbf24; }
+.cv-protanopia.success { --radio-color: #064b69; --radio-border-color-focus: #064b69; }
+.cv-deuteranopia.success { --radio-color: #16505a; --radio-border-color-focus: #16505a; }
+.cv-tritanopia.success { --radio-color: #258101; --radio-border-color-focus: #258101; }
 
-.cv-protanopia.warning { --radio-color: #ffd966; }
-.cv-deuteranopia.warning { --radio-color: #ffe066; }
-.cv-tritanopia.warning { --radio-color: #ffb366; }
+.cv-protanopia.warning { --radio-color: #a06024; --radio-border-color-focus: #a06024; }
+.cv-deuteranopia.warning { --radio-color: #9d621e; --radio-border-color-focus: #9d621e; }
+.cv-tritanopia.warning { --radio-color: #8a6d2c; --radio-border-color-focus: #8a6d2c; }
 
-.cv-protanopia.danger { --radio-color: #ff6666; }
-.cv-deuteranopia.danger { --radio-color: #ff8080; }
-.cv-tritanopia.danger { --radio-color: #ff6666; }
+.cv-protanopia.danger { --radio-color: #7f282e; --radio-border-color-focus: #7f282e; }
+.cv-deuteranopia.danger { --radio-color: #7e2735; --radio-border-color-focus: #7e2735; }
+.cv-tritanopia.danger { --radio-color: #8a0700; --radio-border-color-focus: #8a0700; }
 
-.cv-protanopia.secondary { --radio-color: #9ca3af; }
-.cv-deuteranopia.secondary { --radio-color: #94a3b8; }
-.cv-tritanopia.secondary { --radio-color: #6c757d; }
+.cv-protanopia.secondary { --radio-color: #747474; --radio-border-color-focus: #747474; }
+.cv-deuteranopia.secondary { --radio-color: #747474; --radio-border-color-focus: #747474; }
+.cv-tritanopia.secondary { --radio-color: #4d4d4d; --radio-border-color-focus: #4d4d4d; }
 
 /* Accessibility modes */
 .a11y-low-vision {
@@ -238,18 +238,18 @@
   font-weight: 700;
 }
 
-.a11y-low-vision .option:focus-within .radioButton {
-  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
+.a11y-low-vision .option:has(.input:focus-visible) .radioButton {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 5px var(--radio-border-color-focus);
 }
 
-.a11y-high-contrast {
+.a11y-high-contrast.a11y-high-contrast {
   --radio-bg: #ffffff;
   --radio-border-color: #000000;
   --radio-border-color-hover: #000000;
   --radio-border-color-focus: #000000;
   --radio-color: #000000;
   --radio-label-color: #000000;
-  --radio-description-color: #666666;
+  --radio-description-color: #4b5563;
 }
 
 .a11y-high-contrast .legend {
@@ -257,19 +257,19 @@
   font-weight: 700;
 }
 
-.a11y-high-contrast .option:focus-within .radioButton {
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.7);
+.a11y-high-contrast .option:has(.input:focus-visible) .radioButton {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #000;
 }
 
 /* Error state */
 .error {
-  --radio-border-color: #ef4444;
-  --radio-border-color-hover: #dc2626;
-  --radio-border-color-focus: #ef4444;
+  --radio-border-color: #dc2626;
+  --radio-border-color-hover: #b91c1c;
+  --radio-border-color-focus: #b91c1c;
 }
 
 .error .legend {
-  color: #ef4444;
+  color: #b91c1c;
 }
 
 /* Disabled state */
@@ -307,4 +307,16 @@
   .option {
     transition: none;
   }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

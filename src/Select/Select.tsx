@@ -212,15 +212,23 @@ export const Select: React.FC<SelectProps> = ({
     };
   }, [isOpen]);
 
-  const selectId = `select-${label?.replace(/\s+/g, '-').toLowerCase() || 'field'}`;
+  const autoId = React.useId();
+  const selectId = `select-${autoId}`;
+  const listboxId = `${selectId}-listbox`;
+  const activeDescendant = isOpen && focusedIndex >= 0 ? `${selectId}-opt-${focusedIndex}` : undefined;
 
   return (
     <div className={rootClasses.join(' ')} style={customStyle}>
       {label && (
-        <label className={styles.label} htmlFor={selectId}>
+        <span id={`${selectId}-label`} className={styles.label}>
           {label}
-          {required && <span className={styles.required} aria-label="obligatorio">*</span>}
-        </label>
+          {required && (
+            <span className={styles.required}>
+              <span aria-hidden="true">*</span>
+              <span className={styles.srOnly}> (obligatorio)</span>
+            </span>
+          )}
+        </span>
       )}
       <div ref={containerRef} className={styles.container}>
         <div
@@ -228,7 +236,12 @@ export const Select: React.FC<SelectProps> = ({
           role="combobox"
           aria-expanded={isOpen}
           aria-haspopup="listbox"
+          aria-controls={isOpen ? listboxId : undefined}
           aria-labelledby={label ? `${selectId}-label` : undefined}
+          aria-label={label ? undefined : placeholder}
+          aria-required={required || undefined}
+          aria-disabled={disabled || undefined}
+          aria-activedescendant={activeDescendant}
           aria-invalid={error ? 'true' : undefined}
           aria-describedby={error ? `${selectId}-error` : undefined}
           tabIndex={disabled ? -1 : 0}
@@ -253,10 +266,17 @@ export const Select: React.FC<SelectProps> = ({
         </div>
         
         <div ref={dropdownRef} className={dropdownClasses.join(' ')}>
-          <ul role="listbox" className={styles.list}>
+          <ul
+            role="listbox"
+            id={listboxId}
+            className={styles.list}
+            aria-labelledby={label ? `${selectId}-label` : undefined}
+            aria-label={label ? undefined : placeholder}
+          >
             {availableOptions.map((option, index) => (
               <li
                 key={option.value}
+                id={`${selectId}-opt-${index}`}
                 role="option"
                 aria-selected={option.value === value}
                 className={`${styles.option} ${

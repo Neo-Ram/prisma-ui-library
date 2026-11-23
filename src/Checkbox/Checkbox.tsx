@@ -57,7 +57,8 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   ...rest
 }) => {
   const [exploding, setExploding] = React.useState(false);
-  const inputId = id || `checkbox-${Math.random().toString(36).slice(2,8)}`;
+  const autoId = React.useId();
+  const inputId = id || `checkbox-${autoId}`;
   const inputRef = useRef<HTMLInputElement>(null);
 
   const classes = [
@@ -109,8 +110,6 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         type="checkbox"
         className={styles.input + (exploding ? ' ' + styles.explode : '')}
         disabled={disabled}
-        aria-checked={rest.checked}
-        aria-disabled={disabled}
         {...rest}
         onChange={e => {
           if (rest.onChange) rest.onChange(e);

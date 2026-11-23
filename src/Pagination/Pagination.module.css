@@ -1,4 +1,20 @@
 .pagination {
+  --btn-bg: transparent;
+  --btn-color: #6b7280;
+  --btn-border: #e5e7eb;
+  --btn-bg-hover: #f9fafb;
+  --btn-bg-active: #f3f4f6;
+  --btn-color-active: #1959bf;
+  --btn-bg-active-variant: #1c64d7;
+  --btn-color-active-variant: #fff;
+  --btn-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #1c64d7;
+  --btn-radius: 6px;
+  --btn-pad-y: 6px;
+  --btn-pad-x: 10px;
+  --btn-font-size: 13px;
+  --btn-min-width: 36px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,25 +28,15 @@
   margin: 0;
   padding: 0;
   list-style: none;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.list > li {
+  flex-shrink: 0;
 }
 
 .button {
-  --btn-bg: transparent;
-  --btn-color: #6b7280;
-  --btn-border: #e5e7eb;
-  --btn-bg-hover: #f9fafb;
-  --btn-bg-active: #f3f4f6;
-  --btn-color-active: #007bff;
-  --btn-bg-active-variant: #007bff;
-  --btn-color-active-variant: #fff;
-  --btn-shadow: 0 1px 2px rgba(0,0,0,0.05);
-  --btn-shadow-focus: 0 0 0 3px rgba(11,92,255,.15);
-  --btn-radius: 6px;
-  --btn-pad-y: 6px;
-  --btn-pad-x: 10px;
-  --btn-font-size: 13px;
-  --btn-min-width: 36px;
-
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -57,7 +63,7 @@
   color: var(--btn-color-active);
 }
 
-.button:focus {
+.button:focus-visible {
   outline: none;
   box-shadow: var(--btn-shadow-focus), var(--btn-shadow);
   z-index: 1;
@@ -142,112 +148,132 @@
 .fs-xl { --btn-font-size: 18px; }
 
 /* Variants */
-.primary { 
-  --btn-color-active: #007bff;
-  --btn-bg-active-variant: #007bff;
-  --btn-shadow-focus: 0 0 0 3px rgba(11,92,255,.15);
+.primary {
+  --btn-color-active: #1959bf;
+  --btn-bg-active-variant: #1c64d7;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #1c64d7;
+  --btn-color-active-variant: #ffffff;
 }
-.secondary { 
-  --btn-color-active: #6c757d;
-  --btn-bg-active-variant: #6c757d;
-  --btn-shadow-focus: 0 0 0 3px rgba(108,117,125,.15);
+.secondary {
+  --btn-color-active: #4d4d4d;
+  --btn-bg-active-variant: #4d4d4d;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #4d4d4d;
+  --btn-color-active-variant: #ffffff;
 }
-.success { 
-  --btn-color-active: #1f9d55;
-  --btn-bg-active-variant: #1f9d55;
-  --btn-shadow-focus: 0 0 0 3px rgba(31,157,85,.15);
+.success {
+  --btn-color-active: #347325;
+  --btn-bg-active-variant: #397e28;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #397e28;
+  --btn-color-active-variant: #ffffff;
 }
-.warning { 
-  --btn-color-active: #f59e0b;
+.warning {
+  --btn-color-active: #8f560a;
   --btn-bg-active-variant: #f59e0b;
-  --btn-shadow-focus: 0 0 0 3px rgba(245,158,11,.15);
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #a0600b;
+  --btn-color-active-variant: #1a1f2b;
 }
-.danger { 
-  --btn-color-active: #e11d48;
-  --btn-bg-active-variant: #e11d48;
-  --btn-shadow-focus: 0 0 0 3px rgba(225,29,72,.15);
+.danger {
+  --btn-color-active: #b02443;
+  --btn-bg-active-variant: #c4284a;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #c4284a;
+  --btn-color-active-variant: #ffffff;
 }
 /* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments - iguales al Button */
-.cv-protanopia.primary { 
-  --btn-color-active: #3399ff;
-  --btn-bg-active-variant: #3399ff;
-  --btn-shadow-focus: 0 0 0 3px rgba(51,153,255,.15);
+.cv-protanopia.primary {
+  --btn-color-active: #1e49d4;
+  --btn-bg-active-variant: #2253f0;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #2253f0;
+  --btn-color-active-variant: #ffffff;
 }
-.cv-deuteranopia.primary { 
-  --btn-color-active: #4f83cc;
-  --btn-bg-active-variant: #4f83cc;
-  --btn-shadow-focus: 0 0 0 3px rgba(79,131,204,.15);
+.cv-deuteranopia.primary {
+  --btn-color-active: #0061a8;
+  --btn-bg-active-variant: #006ebe;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #006ebe;
+  --btn-color-active-variant: #ffffff;
 }
-.cv-tritanopia.primary { 
-  --btn-color-active: #007bff;
-  --btn-bg-active-variant: #007bff;
-  --btn-shadow-focus: 0 0 0 3px rgba(0,123,255,.15);
+.cv-tritanopia.primary {
+  --btn-color-active: #5f3ed8;
+  --btn-bg-active-variant: #6a45f0;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #6a45f0;
+  --btn-color-active-variant: #ffffff;
 }
 
-.cv-protanopia.success { 
-  --btn-color-active: #ffd966;
-  --btn-bg-active-variant: #ffd966;
-  --btn-shadow-focus: 0 0 0 3px rgba(255,217,102,.15);
+.cv-protanopia.success {
+  --btn-color-active: #064b69;
+  --btn-bg-active-variant: #064b69;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #064b69;
+  --btn-color-active-variant: #ffffff;
 }
-.cv-deuteranopia.success { 
-  --btn-color-active: #a3e635;
-  --btn-bg-active-variant: #a3e635;
-  --btn-shadow-focus: 0 0 0 3px rgba(163,230,53,.15);
+.cv-deuteranopia.success {
+  --btn-color-active: #16505a;
+  --btn-bg-active-variant: #16505a;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #16505a;
+  --btn-color-active-variant: #ffffff;
 }
-.cv-tritanopia.success { 
-  --btn-color-active: #fbbf24;
+.cv-tritanopia.success {
+  --btn-color-active: #217401;
+  --btn-bg-active-variant: #258101;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #258101;
+  --btn-color-active-variant: #ffffff;
+}
+
+.cv-protanopia.warning {
+  --btn-color-active: #8f5620;
   --btn-bg-active-variant: #fbbf24;
-  --btn-shadow-focus: 0 0 0 3px rgba(251,191,36,.15);
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #a06024;
+  --btn-color-active-variant: #1a1f2b;
+}
+.cv-deuteranopia.warning {
+  --btn-color-active: #8c571b;
+  --btn-bg-active-variant: #fbbf24;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #9d621e;
+  --btn-color-active-variant: #1a1f2b;
+}
+.cv-tritanopia.warning {
+  --btn-color-active: #7c6228;
+  --btn-bg-active-variant: #f5b941;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #8a6d2c;
+  --btn-color-active-variant: #1a1f2b;
 }
 
-.cv-protanopia.warning { 
-  --btn-color-active: #ffd966;
-  --btn-bg-active-variant: #ffd966;
-  --btn-shadow-focus: 0 0 0 3px rgba(255,217,102,.15);
+.cv-protanopia.danger {
+  --btn-color-active: #7f282e;
+  --btn-bg-active-variant: #7f282e;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #7f282e;
+  --btn-color-active-variant: #ffffff;
 }
-.cv-deuteranopia.warning { 
-  --btn-color-active: #ffe066;
-  --btn-bg-active-variant: #ffe066;
-  --btn-shadow-focus: 0 0 0 3px rgba(255,224,102,.15);
+.cv-deuteranopia.danger {
+  --btn-color-active: #7e2735;
+  --btn-bg-active-variant: #7e2735;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #7e2735;
+  --btn-color-active-variant: #ffffff;
 }
-.cv-tritanopia.warning { 
-  --btn-color-active: #ffb366;
-  --btn-bg-active-variant: #ffb366;
-  --btn-shadow-focus: 0 0 0 3px rgba(255,179,102,.15);
-}
-
-.cv-protanopia.danger { 
-  --btn-color-active: #ff6666;
-  --btn-bg-active-variant: #ff6666;
-  --btn-shadow-focus: 0 0 0 3px rgba(255,102,102,.15);
-}
-.cv-deuteranopia.danger { 
-  --btn-color-active: #ff8080;
-  --btn-bg-active-variant: #ff8080;
-  --btn-shadow-focus: 0 0 0 3px rgba(255,128,128,.15);
-}
-.cv-tritanopia.danger { 
-  --btn-color-active: #ff6666;
-  --btn-bg-active-variant: #ff6666;
-  --btn-shadow-focus: 0 0 0 3px rgba(255,102,102,.15);
+.cv-tritanopia.danger {
+  --btn-color-active: #8a0700;
+  --btn-bg-active-variant: #8a0700;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #8a0700;
+  --btn-color-active-variant: #ffffff;
 }
 
-.cv-protanopia.secondary { 
-  --btn-color-active: #9ca3af;
-  --btn-bg-active-variant: #9ca3af;
-  --btn-shadow-focus: 0 0 0 3px rgba(156,163,175,.15);
+.cv-protanopia.secondary {
+  --btn-color-active: #686868;
+  --btn-bg-active-variant: #747474;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #747474;
+  --btn-color-active-variant: #ffffff;
 }
-.cv-deuteranopia.secondary { 
-  --btn-color-active: #94a3b8;
-  --btn-bg-active-variant: #94a3b8;
-  --btn-shadow-focus: 0 0 0 3px rgba(148,163,184,.15);
+.cv-deuteranopia.secondary {
+  --btn-color-active: #686868;
+  --btn-bg-active-variant: #747474;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #747474;
+  --btn-color-active-variant: #ffffff;
 }
-.cv-tritanopia.secondary { 
-  --btn-color-active: #6c757d;
-  --btn-bg-active-variant: #6c757d;
-  --btn-shadow-focus: 0 0 0 3px rgba(108,117,125,.15);
+.cv-tritanopia.secondary {
+  --btn-color-active: #4d4d4d;
+  --btn-bg-active-variant: #4d4d4d;
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #4d4d4d;
+  --btn-color-active-variant: #ffffff;
 }
 
 /* Accessibility modes */
@@ -256,11 +282,11 @@
   --btn-min-width: 44px;
 }
 
-.a11y-low-vision .button:focus {
-  --btn-shadow-focus: 0 0 0 4px rgba(11,92,255,.25);
+.a11y-low-vision .button:focus-visible {
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 5px var(--btn-bg-active-variant, #1c64d7);
 }
 
-.a11y-high-contrast { 
+.a11y-high-contrast.a11y-high-contrast { 
   --btn-bg: #fff;
   --btn-color: #000;
   --btn-border: #000;
@@ -269,7 +295,7 @@
   --btn-bg-active-variant: #000;
   --btn-color-active-variant: #fff;
   --btn-shadow: none;
-  --btn-shadow-focus: 0 0 0 3px rgba(0,0,0,.5);
+  --btn-shadow-focus: 0 0 0 2px #fff, 0 0 0 4px #000;
 }
 
 /* Reduced motion support */

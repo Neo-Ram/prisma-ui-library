@@ -245,7 +245,7 @@ function ChartWithTooltips() {
             cx={point.x}
             cy={point.y}
             r="6"
-            fill="#007bff"
+            fill="#1c64d7"
             className="data-point"
           />
         </Tooltip>
@@ -451,24 +451,28 @@ interface TooltipProps {
 
 ## CSS Customization
 
-```css
-:root {
-  /* Tooltip appearance */
-  --tooltip-bg: rgba(0, 0, 0, 0.9);
-  --tooltip-color: #ffffff;
-  --tooltip-border-radius: 0.375rem;
-  --tooltip-padding: 0.5rem 0.75rem;
-  --tooltip-font-size: 0.875rem;
-  
-  /* Animation */
-  --tooltip-transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
-  --tooltip-z-index: 1070;
-  
-  /* Arrow */
-  --tooltip-arrow-size: 6px;
-  --tooltip-arrow-color: var(--tooltip-bg);
-}
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
+
+```tsx
+<Tooltip
+  variant="custom"
+  style={{ '--tooltip-bg': '#397e28', '--tooltip-color': '#ffffff' } as React.CSSProperties}
+  content="Saved"
+>
+  <button>Hover me</button>
+</Tooltip>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--tooltip-bg` | `#1f2937` | Background |
+| `--tooltip-color` | `#ffffff` | Text (≥4.5:1 vs background) |
+| `--tooltip-border` | `rgba(255,255,255,.1)` | Border |
+| `--tooltip-shadow` | `0 10px 25px rgba(0,0,0,.15)` | Shadow |
+| `--tooltip-padding` | `8px 12px` | Padding |
+| `--tooltip-font-size` | `14px` | Font size |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Positioning Algorithm
 

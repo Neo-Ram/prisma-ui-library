@@ -395,28 +395,25 @@ interface AlertProps {
 
 ## CSS Customization
 
-```css
-:root {
-  /* Alert variants */
-  --alert-success-bg: #d4edda;
-  --alert-success-border: #c3e6cb;
-  --alert-success-color: #155724;
-  
-  --alert-warning-bg: #fff3cd;
-  --alert-warning-border: #ffeaa7;
-  --alert-warning-color: #856404;
-  
-  --alert-danger-bg: #f8d7da;
-  --alert-danger-border: #f5c6cb;
-  --alert-danger-color: #721c24;
-  
-  /* Layout */
-  --alert-padding: 1rem;
-  --alert-border-radius: 0.375rem;
-  --alert-border-width: 1px;
-  --alert-margin-bottom: 1rem;
-}
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
+
+```tsx
+<Alert
+  variant="custom"
+  style={{ '--alert-bg': '#ebf2ea', '--alert-border': '#397e28', '--alert-color': '#306a22', '--alert-title-color': '#26541b' } as React.CSSProperties}
+  title="Saved"
+/>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--alert-bg` | `#e8f0fb` | Background |
+| `--alert-border` | `#1c64d7` | Border (≥3:1 vs background) |
+| `--alert-color` | `#1752b1` | Message text (≥4.5:1) |
+| `--alert-title-color` | `#12418d` | Title text (≥7:1, AAA) |
+| `--alert-icon-color` | `#1c64d7` | Dismiss icon (≥3:1) |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Alert Patterns
 

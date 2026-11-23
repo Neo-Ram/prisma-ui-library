@@ -1,5 +1,7 @@
 .toggle {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   cursor: pointer;
   user-select: none;
 }
@@ -11,7 +13,7 @@
   background: var(--toggle-bg, #e9ecf1);
   border-radius: 12px;
   transition: background 0.2s;
-  border: 2px solid var(--toggle-border, #cbd2dd);
+  border: 2px solid var(--toggle-border, #6b7280);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -19,16 +21,16 @@
 
 .switch.on,
 .on {
-  background: var(--toggle-bg-on, #007bff);
-  border-color: var(--toggle-border-on, #007bff);
+  background: var(--toggle-bg-on, #1c64d7);
+  border-color: var(--toggle-border-on, #1c64d7);
 }
 
 .knob {
   position: absolute;
   left: 2px;
-  width: 20px;
-  height: 20px;
-  background: var(--toggle-knob, #fff);
+  width: 16px;
+  height: 16px;
+  background: var(--toggle-knob, #6b7280);
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.12);
   transition: left 0.2s, background 0.2s;
@@ -46,8 +48,8 @@
 
 /* Focus and accessibility */
 .switch:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 3px rgba(11,92,255,.35);
+  outline: 3px solid var(--toggle-focus, #1c64d7);
+  outline-offset: 2px;
 }
 
 /* Disabled */
@@ -57,32 +59,51 @@
 }
 
 /* Variants (primary, secondary, etc) */
-.primary { --toggle-bg-on: #007bff; --toggle-border-on: #007bff; }
-.secondary { --toggle-bg-on: #6c757d; --toggle-border-on: #6c757d; }
-.success { --toggle-bg-on: #1f9d55; --toggle-border-on: #1f9d55; }
-.warning { --toggle-bg-on: #f59e0b; --toggle-border-on: #f59e0b; }
-.danger { --toggle-bg-on: #e11d48; --toggle-border-on: #e11d48; }
+.primary { --toggle-bg-on: #1c64d7; --toggle-border-on: #1c64d7; }
+.secondary { --toggle-bg-on: #4d4d4d; --toggle-border-on: #4d4d4d; }
+.success { --toggle-bg-on: #397e28; --toggle-border-on: #397e28; }
+.warning { --toggle-bg-on: #a0600b; --toggle-border-on: #a0600b; }
+.danger { --toggle-bg-on: #c4284a; --toggle-border-on: #c4284a; }
 /* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Daltonismo - todos los colores igual que Button */
-.cv-protanopia.primary { --toggle-bg-on: #3399ff; --toggle-border-on: #3399ff; }
-.cv-deuteranopia.primary { --toggle-bg-on: #4f83cc; --toggle-border-on: #4f83cc; }
-.cv-tritanopia.primary { --toggle-bg-on: #007bff; --toggle-border-on: #007bff; }
+.cv-protanopia.primary { --toggle-bg-on: #2253f0; --toggle-border-on: #2253f0; }
+.cv-deuteranopia.primary { --toggle-bg-on: #006ebe; --toggle-border-on: #006ebe; }
+.cv-tritanopia.primary { --toggle-bg-on: #6a45f0; --toggle-border-on: #6a45f0; }
 
-.cv-protanopia.success { --toggle-bg-on: #ffd966; --toggle-border-on: #ffd966; }
-.cv-deuteranopia.success { --toggle-bg-on: #a3e635; --toggle-border-on: #a3e635; }
-.cv-tritanopia.success { --toggle-bg-on: #fbbf24; --toggle-border-on: #fbbf24; }
+.cv-protanopia.success { --toggle-bg-on: #064b69; --toggle-border-on: #064b69; }
+.cv-deuteranopia.success { --toggle-bg-on: #16505a; --toggle-border-on: #16505a; }
+.cv-tritanopia.success { --toggle-bg-on: #258101; --toggle-border-on: #258101; }
 
-.cv-protanopia.warning { --toggle-bg-on: #ffd966; --toggle-border-on: #ffd966; }
-.cv-deuteranopia.warning { --toggle-bg-on: #ffe066; --toggle-border-on: #ffe066; }
-.cv-tritanopia.warning { --toggle-bg-on: #ffb366; --toggle-border-on: #ffb366; }
+.cv-protanopia.warning { --toggle-bg-on: #a06024; --toggle-border-on: #a06024; }
+.cv-deuteranopia.warning { --toggle-bg-on: #9d621e; --toggle-border-on: #9d621e; }
+.cv-tritanopia.warning { --toggle-bg-on: #8a6d2c; --toggle-border-on: #8a6d2c; }
 
-.cv-protanopia.danger { --toggle-bg-on: #ff6666; --toggle-border-on: #ff6666; }
-.cv-deuteranopia.danger { --toggle-bg-on: #ff8080; --toggle-border-on: #ff8080; }
-.cv-tritanopia.danger { --toggle-bg-on: #ff6666; --toggle-border-on: #ff6666; }
+.cv-protanopia.danger { --toggle-bg-on: #7f282e; --toggle-border-on: #7f282e; }
+.cv-deuteranopia.danger { --toggle-bg-on: #7e2735; --toggle-border-on: #7e2735; }
+.cv-tritanopia.danger { --toggle-bg-on: #8a0700; --toggle-border-on: #8a0700; }
 
-.cv-protanopia.secondary { --toggle-bg-on: #9ca3af; --toggle-border-on: #9ca3af; }
-.cv-deuteranopia.secondary { --toggle-bg-on: #94a3b8; --toggle-border-on: #94a3b8; }
-.cv-tritanopia.secondary { --toggle-bg-on: #6c757d; --toggle-border-on: #6c757d; }
+.cv-protanopia.secondary { --toggle-bg-on: #747474; --toggle-border-on: #747474; }
+.cv-deuteranopia.secondary { --toggle-bg-on: #747474; --toggle-border-on: #747474; }
+.cv-tritanopia.secondary { --toggle-bg-on: #4d4d4d; --toggle-border-on: #4d4d4d; }
 
-.a11y-high-contrast { --toggle-bg-on: #000; --toggle-border-on: #000; }
+.a11y-high-contrast.a11y-high-contrast { --toggle-bg-on: #000; --toggle-border-on: #000; --toggle-border: #000; --toggle-knob: #000; --toggle-focus: #000; }
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.label {
+  font-size: 14px;
+  color: var(--toggle-label-color, #1a1f2b);
+}
+
+.a11y-high-contrast .label { color: #000; font-weight: 600; }
+.a11y-low-vision .label { font-size: 18px; }

@@ -295,22 +295,28 @@ interface ToggleProps {
 
 ## CSS Customization
 
-```css
-:root {
-  /* Toggle track colors */
-  --toggle-track-on: #007bff;
-  --toggle-track-off: #6c757d;
-  --toggle-thumb: #ffffff;
-  
-  /* Sizes */
-  --toggle-width-md: 44px;
-  --toggle-height-md: 24px;
-  --toggle-thumb-size-md: 20px;
-  
-  /* Animation */
-  --toggle-transition: all 0.2s ease-in-out;
-}
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
+
+```tsx
+<Toggle
+  variant="custom"
+  style={{ '--toggle-bg-on': '#397e28', '--toggle-border-on': '#397e28' } as React.CSSProperties}
+  label="Notifications" checked={on} onChange={setOn}
+/>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--toggle-bg` | `#e9ecf1` | Track when off |
+| `--toggle-border` | `#6b7280` | Border when off (≥3:1) |
+| `--toggle-knob` | `#6b7280` | Knob when off (≥3:1 vs track) |
+| `--toggle-bg-on` | `#1c64d7` | Track when on |
+| `--toggle-border-on` | `#1c64d7` | Border when on |
+| `--toggle-knob-on` | `#ffffff` | Knob when on (≥3:1 vs track) |
+| `--toggle-focus` | `#1c64d7` | Focus outline |
+| `--toggle-label-color` | `#1a1f2b` | Label text |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Related Components
 

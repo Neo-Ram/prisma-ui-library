@@ -187,7 +187,7 @@ export const Breadcrumb: React.FC<BreadcrumbProps> = ({
         </button>
       )
     ) : (
-      <span className={styles.text}>{item.label}</span>
+      <span className={styles.text} aria-current={isLast ? 'page' : undefined}>{item.label}</span>
     );
 
     return (

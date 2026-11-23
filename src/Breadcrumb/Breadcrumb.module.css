@@ -1,8 +1,10 @@
 .breadcrumb {
   --breadcrumb-color: #6b7280;
-  --breadcrumb-color-hover: #007bff;
+  --breadcrumb-color-hover: #1959bf;
   --breadcrumb-color-current: #1f2937;
   --breadcrumb-separator: #9ca3af;
+  --breadcrumb-color-disabled: #6b7280;
+  --breadcrumb-hover-bg: #edf3fc;
   --breadcrumb-font-size: 14px;
   --breadcrumb-gap: 8px;
 
@@ -54,14 +56,15 @@
 .clickable .link:hover,
 .clickable .button:hover {
   color: var(--breadcrumb-color-hover);
-  background: rgba(0,123,255,0.1);
+  background: var(--breadcrumb-hover-bg);
 }
 
-.clickable .link:focus,
-.clickable .button:focus {
-  outline: none;
-  box-shadow: 0 0 0 2px rgba(11,92,255,.25);
-  background: rgba(0,123,255,0.1);
+.clickable .link:focus-visible,
+.clickable .button:focus-visible {
+  outline: 2px solid var(--breadcrumb-color-hover);
+  outline-offset: 2px;
+  color: var(--breadcrumb-color-hover);
+  background: var(--breadcrumb-hover-bg);
 }
 
 .current .text {
@@ -72,7 +75,7 @@
 .disabled .text,
 .disabled .link,
 .disabled .button {
-  color: var(--breadcrumb-separator);
+  color: var(--breadcrumb-color-disabled);
   cursor: not-allowed;
   pointer-events: none;
 }
@@ -99,72 +102,92 @@
 .fs-xl { --breadcrumb-font-size: 18px; }
 
 /* Variants */
-.primary { 
-  --breadcrumb-color-hover: #007bff;
+.primary {
+  --breadcrumb-color-hover: #1959bf;
+  --breadcrumb-hover-bg: #edf3fc;
 }
-.secondary { 
-  --breadcrumb-color-hover: #6c757d;
+.secondary {
+  --breadcrumb-color-hover: #4d4d4d;
+  --breadcrumb-hover-bg: #f1f1f1;
 }
-.success { 
-  --breadcrumb-color-hover: #1f9d55;
+.success {
+  --breadcrumb-color-hover: #347325;
+  --breadcrumb-hover-bg: #eff5ee;
 }
-.warning { 
-  --breadcrumb-color-hover: #f59e0b;
+.warning {
+  --breadcrumb-color-hover: #8f560a;
+  --breadcrumb-hover-bg: #f7f2eb;
 }
-.danger { 
-  --breadcrumb-color-hover: #e11d48;
+.danger {
+  --breadcrumb-color-hover: #b02443;
+  --breadcrumb-hover-bg: #faeef1;
 }
 /* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments - iguales al Button */
-.cv-protanopia.primary { 
-  --breadcrumb-color-hover: #3399ff;
+.cv-protanopia.primary {
+  --breadcrumb-color-hover: #1e49d4;
+  --breadcrumb-hover-bg: #edf1fe;
 }
-.cv-deuteranopia.primary { 
-  --breadcrumb-color-hover: #4f83cc;
+.cv-deuteranopia.primary {
+  --breadcrumb-color-hover: #0061a8;
+  --breadcrumb-hover-bg: #ebf3fa;
 }
-.cv-tritanopia.primary { 
-  --breadcrumb-color-hover: #007bff;
-}
-
-.cv-protanopia.success { 
-  --breadcrumb-color-hover: #ffd966;
-}
-.cv-deuteranopia.success { 
-  --breadcrumb-color-hover: #a3e635;
-}
-.cv-tritanopia.success { 
-  --breadcrumb-color-hover: #fbbf24;
+.cv-tritanopia.primary {
+  --breadcrumb-color-hover: #5f3ed8;
+  --breadcrumb-hover-bg: #f3f0fe;
 }
 
-.cv-protanopia.warning { 
-  --breadcrumb-color-hover: #ffd966;
+.cv-protanopia.success {
+  --breadcrumb-color-hover: #064b69;
+  --breadcrumb-hover-bg: #ebf1f3;
 }
-.cv-deuteranopia.warning { 
-  --breadcrumb-color-hover: #ffe066;
+.cv-deuteranopia.success {
+  --breadcrumb-color-hover: #16505a;
+  --breadcrumb-hover-bg: #ecf1f2;
 }
-.cv-tritanopia.warning { 
-  --breadcrumb-color-hover: #ffb366;
-}
-
-.cv-protanopia.danger { 
-  --breadcrumb-color-hover: #ff6666;
-}
-.cv-deuteranopia.danger { 
-  --breadcrumb-color-hover: #ff8080;
-}
-.cv-tritanopia.danger { 
-  --breadcrumb-color-hover: #ff6666;
+.cv-tritanopia.success {
+  --breadcrumb-color-hover: #217401;
+  --breadcrumb-hover-bg: #eef5eb;
 }
 
-.cv-protanopia.secondary { 
-  --breadcrumb-color-hover: #9ca3af;
+.cv-protanopia.warning {
+  --breadcrumb-color-hover: #8f5620;
+  --breadcrumb-hover-bg: #f7f2ed;
 }
-.cv-deuteranopia.secondary { 
-  --breadcrumb-color-hover: #94a3b8;
+.cv-deuteranopia.warning {
+  --breadcrumb-color-hover: #8c571b;
+  --breadcrumb-hover-bg: #f7f2ed;
 }
-.cv-tritanopia.secondary { 
-  --breadcrumb-color-hover: #6c757d;
+.cv-tritanopia.warning {
+  --breadcrumb-color-hover: #7c6228;
+  --breadcrumb-hover-bg: #f6f3ee;
+}
+
+.cv-protanopia.danger {
+  --breadcrumb-color-hover: #7f282e;
+  --breadcrumb-hover-bg: #f5eeee;
+}
+.cv-deuteranopia.danger {
+  --breadcrumb-color-hover: #7e2735;
+  --breadcrumb-hover-bg: #f5eeef;
+}
+.cv-tritanopia.danger {
+  --breadcrumb-color-hover: #8a0700;
+  --breadcrumb-hover-bg: #f6ebeb;
+}
+
+.cv-protanopia.secondary {
+  --breadcrumb-color-hover: #686868;
+  --breadcrumb-hover-bg: #f4f4f4;
+}
+.cv-deuteranopia.secondary {
+  --breadcrumb-color-hover: #686868;
+  --breadcrumb-hover-bg: #f4f4f4;
+}
+.cv-tritanopia.secondary {
+  --breadcrumb-color-hover: #4d4d4d;
+  --breadcrumb-hover-bg: #f1f1f1;
 }
 
 /* Accessibility modes */
@@ -173,16 +196,17 @@
   --breadcrumb-gap: 12px;
 }
 
-.a11y-low-vision .link:focus,
-.a11y-low-vision .button:focus {
-  box-shadow: 0 0 0 3px rgba(11,92,255,.35);
+.a11y-low-vision .link:focus-visible,
+.a11y-low-vision .button:focus-visible {
+  outline-width: 3px;
 }
 
-.a11y-high-contrast { 
+.a11y-high-contrast.a11y-high-contrast { 
   --breadcrumb-color: #000;
   --breadcrumb-color-hover: #fff;
   --breadcrumb-color-current: #000;
   --breadcrumb-separator: #000;
+  --breadcrumb-color-disabled: #000;
   font-weight: bold;
   --breadcrumb-font-size: 16px;
 }
@@ -196,8 +220,9 @@
   font-weight: bold;
 }
 
-.a11y-high-contrast .link:focus,
-.a11y-high-contrast .button:focus {
+.a11y-high-contrast .link:focus-visible,
+.a11y-high-contrast .button:focus-visible {
+  outline: none;
   box-shadow: 0 0 0 4px #000;
   background: #000;
   color: #fff;

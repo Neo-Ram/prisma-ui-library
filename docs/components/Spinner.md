@@ -515,35 +515,24 @@ interface SpinnerProps {
 
 ## CSS Customization
 
-```css
-:root {
-  /* Animation speeds */
-  --spinner-speed-slow: 2s;
-  --spinner-speed-normal: 1s;
-  --spinner-speed-fast: 0.5s;
-  
-  /* Sizes */
-  --spinner-size-xs: 16px;
-  --spinner-size-sm: 20px;
-  --spinner-size-md: 24px;
-  --spinner-size-lg: 32px;
-  --spinner-size-xl: 40px;
-  
-  /* Colors */
-  --spinner-primary: #007bff;
-  --spinner-secondary: #6c757d;
-  --spinner-success: #28a745;
-  --spinner-warning: #ffc107;
-  --spinner-danger: #dc3545;
-}
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
 
-/* Reduced motion support */
-@media (prefers-reduced-motion: reduce) {
-  .spinner {
-    animation-duration: var(--spinner-speed-slow);
-  }
-}
+```tsx
+<Spinner
+  variant="custom"
+  style={{ '--spinner-color': '#397e28' } as React.CSSProperties}
+  label="Loading"
+/>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--spinner-color` | `#1c64d7` | Spinner color (≥3:1 vs page) |
+| `--spinner-track` | `rgba(28,100,215,.2)` | Ring track (variant 1, decorative) |
+| `--spinner-size` | `32px` | Size |
+| `--spinner-speed` | `1s` | Animation speed |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Related Components
 

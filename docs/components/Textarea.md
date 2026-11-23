@@ -353,19 +353,29 @@ interface TextareaProps {
 
 ## CSS Customization
 
-```css
-:root {
-  /* Textarea specific styles */
-  --textarea-min-height: 80px;
-  --textarea-line-height: 1.5;
-  --textarea-resize-handle: auto;
-  
-  /* Character count colors */
-  --char-count-normal: #6c757d;
-  --char-count-warning: #ffc107;
-  --char-count-danger: #dc3545;
-}
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
+
+```tsx
+<Textarea
+  variant="custom"
+  style={{ '--textarea-border-focus': '#397e28', '--textarea-shadow-focus': '0 0 0 3px rgba(57,126,40,.35)' } as React.CSSProperties}
+  label="Comments"
+/>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--textarea-bg` | `#ffffff` | Background |
+| `--textarea-border` | `#6b7280` | Border (≥3:1) |
+| `--textarea-border-focus` | `#1c64d7` | Focus border |
+| `--textarea-shadow-focus` | `0 0 0 3px rgba(28,100,215,.35)` | Focus halo |
+| `--textarea-color` | `#1a1f2b` | Text |
+| `--textarea-placeholder` | `#6b7280` | Placeholder (≥4.5:1) |
+| `--textarea-label` | `#374151` | Label |
+| `--textarea-error` | `#b91c1c` | Error message |
+| `--textarea-required` | `#b91c1c` | Required mark |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Related Components
 

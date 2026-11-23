@@ -187,16 +187,19 @@ export const Radiogroup: React.FC<RadiogroupProps> = ({
     <fieldset 
       className={rootClasses.join(' ')}
       disabled={disabled}
-      aria-required={required}
-      aria-invalid={error}
       aria-labelledby={ariaLabelledBy}
       aria-describedby={getAriaDescribedBy()}
       style={customStyle}
     >
       {label && (
-        <legend className={styles.legend}>
+        <legend id={groupId} className={styles.legend}>
           {label}
-          {required && <span className={styles.required} aria-label="requerido">*</span>}
+          {required && (
+            <span className={styles.required}>
+              <span aria-hidden="true">*</span>
+              <span className={styles.srOnly}> (requerido)</span>
+            </span>
+          )}
         </legend>
       )}
       
@@ -208,9 +211,11 @@ export const Radiogroup: React.FC<RadiogroupProps> = ({
 
       <div 
         className={styles.optionsContainer}
-        role="radiogroup" 
+        role="radiogroup"
         aria-label={ariaLabel}
         aria-labelledby={ariaLabelledBy || (label ? groupId : undefined)}
+        aria-required={required || undefined}
+        aria-invalid={error || undefined}
       >
         {options.map((option, index) => {
           const optionId = `${groupId}-option-${index}`;

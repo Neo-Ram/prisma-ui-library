@@ -415,22 +415,25 @@ interface PaginationProps {
 
 ## CSS Customization
 
-```css
-:root {
-  /* Pagination button styles */
-  --pagination-button-padding: 0.5rem 0.75rem;
-  --pagination-button-margin: 0.125rem;
-  --pagination-border-radius: 0.375rem;
-  
-  /* Current page styles */
-  --pagination-current-bg: #007bff;
-  --pagination-current-color: #ffffff;
-  
-  /* Hover states */
-  --pagination-hover-bg: #e9ecef;
-  --pagination-hover-color: #495057;
-}
+Colors are exposed as CSS custom properties defined **on the component's own element**, so a `:root` override has no effect. The recommended way to change colors is `variant="custom"` with the `customColors` prop (one set per color vision mode). For one-off overrides, pass the variables through `style` together with `variant="custom"`:
+
+```tsx
+<Pagination
+  variant="custom"
+  style={{ '--btn-bg-active-variant': '#397e28', '--btn-color-active-variant': '#ffffff', '--btn-color-active': '#347325' } as React.CSSProperties}
+  currentPage={page} totalPages={10} onPageChange={setPage}
+/>
 ```
+
+| Variable | Default (primary, normal vision) | Purpose |
+|---|---|---|
+| `--btn-bg-active-variant` | `#1c64d7` | Current page background |
+| `--btn-color-active-variant` | `#ffffff` | Current page text (≥4.5:1) |
+| `--btn-color-active` | `#1959bf` | Hover text and border (≥4.5:1) |
+| `--btn-color` | `#6b7280` | Page number text |
+| `--btn-shadow-focus` | `0 0 0 2px #fff, 0 0 0 4px #1c64d7` | Focus ring |
+
+> Keep text ≥ 4.5:1 and borders/fills/focus indicators ≥ 3:1 (WCAG 1.4.3 / 1.4.11), also under protanopia, deuteranopia and tritanopia simulation. The default palette and its rationale are documented in [COLOR_A11Y.md](../../COLOR_A11Y.md).
 
 ## Related Components
 

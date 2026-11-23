@@ -172,92 +172,92 @@
 .fs-xl { --tooltip-font-size: 18px; }
 
 /* Color variants */
-.primary { 
-  --tooltip-bg: #1e40af;
-  --tooltip-border: rgba(59, 130, 246, 0.3);
+.primary {
+  --tooltip-bg: #1c64d7;
+  --tooltip-border: rgba(28,100,215,.3);
 }
-.secondary { 
-  --tooltip-bg: #4b5563;
-  --tooltip-border: rgba(156, 163, 175, 0.3);
+.secondary {
+  --tooltip-bg: #4d4d4d;
+  --tooltip-border: rgba(77,77,77,.3);
 }
-.success { 
-  --tooltip-bg: #166534;
-  --tooltip-border: rgba(34, 197, 94, 0.3);
+.success {
+  --tooltip-bg: #397e28;
+  --tooltip-border: rgba(57,126,40,.3);
 }
-.warning { 
-  --tooltip-bg: #d97706;
-  --tooltip-border: rgba(251, 191, 36, 0.3);
+.warning {
+  --tooltip-bg: #a0600b;
+  --tooltip-border: rgba(160,96,11,.3);
 }
-.danger { 
-  --tooltip-bg: #dc2626;
-  --tooltip-border: rgba(248, 113, 113, 0.3);
+.danger {
+  --tooltip-bg: #c4284a;
+  --tooltip-border: rgba(196,40,74,.3);
 }
 /* Custom variant inherits base styles, colors come from inline CSS variables */
 
 /* Color vision adjustments */
-.cv-protanopia.primary { 
-  --tooltip-bg: #0066cc;
-  --tooltip-border: rgba(51, 153, 255, 0.3);
+.cv-protanopia.primary {
+  --tooltip-bg: #2253f0;
+  --tooltip-border: rgba(34,83,240,.3);
 }
-.cv-deuteranopia.primary { 
-  --tooltip-bg: #2563eb;
-  --tooltip-border: rgba(79, 131, 204, 0.3);
+.cv-deuteranopia.primary {
+  --tooltip-bg: #006ebe;
+  --tooltip-border: rgba(0,110,190,.3);
 }
-.cv-tritanopia.primary { 
-  --tooltip-bg: #1e40af;
-  --tooltip-border: rgba(59, 130, 246, 0.3);
-}
-
-.cv-protanopia.success { 
-  --tooltip-bg: #ca8a04;
-  --tooltip-border: rgba(255, 217, 102, 0.3);
-}
-.cv-deuteranopia.success { 
-  --tooltip-bg: #65a30d;
-  --tooltip-border: rgba(163, 230, 53, 0.3);
-}
-.cv-tritanopia.success { 
-  --tooltip-bg: #d97706;
-  --tooltip-border: rgba(251, 191, 36, 0.3);
+.cv-tritanopia.primary {
+  --tooltip-bg: #6a45f0;
+  --tooltip-border: rgba(106,69,240,.3);
 }
 
-.cv-protanopia.warning { 
-  --tooltip-bg: #ca8a04;
-  --tooltip-border: rgba(255, 217, 102, 0.3);
+.cv-protanopia.success {
+  --tooltip-bg: #064b69;
+  --tooltip-border: rgba(6,75,105,.3);
 }
-.cv-deuteranopia.warning { 
-  --tooltip-bg: #eab308;
-  --tooltip-border: rgba(255, 224, 102, 0.3);
+.cv-deuteranopia.success {
+  --tooltip-bg: #16505a;
+  --tooltip-border: rgba(22,80,90,.3);
 }
-.cv-tritanopia.warning { 
-  --tooltip-bg: #ea580c;
-  --tooltip-border: rgba(255, 179, 102, 0.3);
-}
-
-.cv-protanopia.danger { 
-  --tooltip-bg: #dc2626;
-  --tooltip-border: rgba(255, 102, 102, 0.3);
-}
-.cv-deuteranopia.danger { 
-  --tooltip-bg: #ef4444;
-  --tooltip-border: rgba(255, 128, 128, 0.3);
-}
-.cv-tritanopia.danger { 
-  --tooltip-bg: #dc2626;
-  --tooltip-border: rgba(255, 102, 102, 0.3);
+.cv-tritanopia.success {
+  --tooltip-bg: #258101;
+  --tooltip-border: rgba(37,129,1,.3);
 }
 
-.cv-protanopia.secondary { 
-  --tooltip-bg: #64748b;
-  --tooltip-border: rgba(156, 163, 175, 0.3);
+.cv-protanopia.warning {
+  --tooltip-bg: #a06024;
+  --tooltip-border: rgba(160,96,36,.3);
 }
-.cv-deuteranopia.secondary { 
-  --tooltip-bg: #475569;
-  --tooltip-border: rgba(148, 163, 184, 0.3);
+.cv-deuteranopia.warning {
+  --tooltip-bg: #9d621e;
+  --tooltip-border: rgba(157,98,30,.3);
 }
-.cv-tritanopia.secondary { 
-  --tooltip-bg: #4b5563;
-  --tooltip-border: rgba(156, 163, 175, 0.3);
+.cv-tritanopia.warning {
+  --tooltip-bg: #8a6d2c;
+  --tooltip-border: rgba(138,109,44,.3);
+}
+
+.cv-protanopia.danger {
+  --tooltip-bg: #7f282e;
+  --tooltip-border: rgba(127,40,46,.3);
+}
+.cv-deuteranopia.danger {
+  --tooltip-bg: #7e2735;
+  --tooltip-border: rgba(126,39,53,.3);
+}
+.cv-tritanopia.danger {
+  --tooltip-bg: #8a0700;
+  --tooltip-border: rgba(138,7,0,.3);
+}
+
+.cv-protanopia.secondary {
+  --tooltip-bg: #747474;
+  --tooltip-border: rgba(116,116,116,.3);
+}
+.cv-deuteranopia.secondary {
+  --tooltip-bg: #747474;
+  --tooltip-border: rgba(116,116,116,.3);
+}
+.cv-tritanopia.secondary {
+  --tooltip-bg: #4d4d4d;
+  --tooltip-border: rgba(77,77,77,.3);
 }
 
 /* Accessibility modes */
@@ -267,7 +267,7 @@
   --tooltip-border-radius: 12px;
 }
 
-.a11y-high-contrast {
+.a11y-high-contrast.a11y-high-contrast {
   --tooltip-bg: #000000;
   --tooltip-color: #ffffff;
   --tooltip-border: #ffffff;
